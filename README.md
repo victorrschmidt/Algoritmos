@@ -22,17 +22,17 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
 ### Range queries
 
-- Prefix sum (soma de prefixos para calcular soma entre intervalos) - **O(N+Q)** 
+- Prefix sum (soma de prefixos para calcular soma em um intervalo) **- O(N+Q)** 
 
 ## Grafos
 
 ### Geral
 
-- Depth-first search (componentes conexos em um grafo) - **O(V+E)**
-- Depth-first search e Flood fill (componentes conexos em uma matriz) - **O(N*M)**
+- Depth-first search (componentes conexos em um grafo) **- O(V+E)**
+- Depth-first search e Flood fill (componentes conexos em uma matriz) **- O(N*M)**
 
 ### Menor caminho
 
-- Breadth-first search (menor caminho em um grafo não valorado) - **O(V+E)**
-- Breadth-first search (menor caminho em uma matriz) - **O(N*M)**
-- Floyd-Warshall (menor caminho entre todos os pares de vértices) - **O(V<sup>3</sup>)**
+- Breadth-first search (menor caminho em um grafo não valorado) **- O(V+E)**
+- Breadth-first search (menor caminho em uma matriz) **- O(N*M)**
+- Floyd-Warshall (menor caminho entre todos os pares de vértices) **- O(V<sup>3</sup>)**
