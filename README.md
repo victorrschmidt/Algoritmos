@@ -6,7 +6,7 @@ Por sua vez, Estrutura de dados se refere à maneira com que as informações es
 
 O objetivo deste repositório é mostrar alguns algoritmos que podem ser implementados para solucionar problemas gerais ou específicos, buscando sempre uma boa performance. Cada algoritmo está comentado para melhor compreensão de seu funcionamento.
 
-Este projeto é inspirado no repositório <a href="https://github.com/williamfiset/Algorithms">**Algorithms**</a> de William Fiset e no livro _Competitive Programmer’s Handbook_ de Antti Laaksonen. Os grafos utilizados foram feitos no site <a href="https://graphonline.ru">**Graph Online**</a>.
+Este projeto é inspirado no repositório **[Algorithms](https://github.com/williamfiset/Algorithms)** de William Fiset e no livro _Competitive Programmer’s Handbook_ de Antti Laaksonen. Os grafos utilizados foram feitos no site **[Graph Online](https://graphonline.ru)**.
 
 # Linguagens
 
