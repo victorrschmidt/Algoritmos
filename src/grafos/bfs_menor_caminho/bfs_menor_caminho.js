@@ -25,51 +25,44 @@
 * O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
 */
 
-#include <bits/stdc++.h>
-#define INF int(1e9)
-using namespace std;
+const vertices = 13;  // Número de vértices do grafo de exemplo
 
-const int vertices = 13;  // Número de vértices do grafo de exemplo
-
-vector<int> grafo[vertices] = {  // Lista de adjacências do grafo de exemplo
-    {6,7},  // 0 se liga com 6 e 7
-    {7,4,12},  // 1 se liga com 7, 4 e 12
-    {3,6,8},  // 2 se liga com 3, 6 e 8
-    {5,6,2},  // ...
-    {1,8},
-    {3},
-    {0,3,2},
-    {0,1},
-    {2,9,4},
-    {8,10},
-    {9,11},
-    {10,12},
-    {1,11}
-};
-int dist[vertices];  // Array para armazenar a distância do vértice de origem até os outros vértices
+let grafo = [  // Lista de adjacências do grafo de exemplo
+    [6,7],  // 0 se liga com 6 e 7
+    [7,4,12],  // 1 se liga com 7, 4 e 12
+    [3,6,8],  // 2 se liga com 3, 6 e 8
+    [5,6,2],  // ...
+    [1,8],
+    [3],
+    [0,3,2],
+    [0,1],
+    [2,9,4],
+    [8,10],
+    [9,11],
+    [10,12],
+    [1,11]
+];
+let dist = Array(vertices);  // Array para armazenar a distância do vértice de origem até os outros vértices
 
 // Função bfs
-void bfs(int origem){
+function bfs(origem){
 
-    for(int i = 0; i < vertices; i++){
-        dist[i] = INF;  // Definimos a distância até os outros vértices como 'infinito'
-    }
-
+    dist.fill(Infinity);  // Definimos a distância até os outros vértices como 'infinito'
     dist[origem] = 0;  // A distância da origem até a própria origem é 0
 
-    bool visitado[vertices] = {false};  // Array de vértices visitados (todos os elementos inicializados como 'false')
+    let visitado = Array(vertices).fill(false);  // Array de vértices visitados (todos os elementos inicializados como 'false')
     visitado[origem] = true;  // Definir o vértice de origem como 'visitado'
 
-    queue<int> fila;  // Fila para verificar as adjacências de cada vértice explorado
+    let fila = [];  // Fila para verificar as adjacências de cada vértice explorado
     fila.push(origem);  // Adicionar o vértice de origem à fila
-    
-    int v_restantes = 1;  // Vértices restantes na camada de busca (inicialmente só com o vértice de origem). Será utilizado para determinar o número de vértices em cada camada de busca
-    int distancia = 1;  // Distância até os outros vértices, inicialmente 1 (1° camada de busca)
 
-    while(!fila.empty()){  // Iteração para cada vértice na fila
-        int v = fila.front(); fila.pop();  // Pegar o último vértice e removê-lo da fila
+    let v_restantes = 1;  // Vértices restantes na camada de busca (inicialmente só com o vértice de origem). Será utilizado para determinar o número de vértices em cada camada de busca
+    let distancia = 1;  // Distância até os outros vértices, inicialmente 1 (1° camada de busca)
 
-        for(int u : grafo[v]){  // Iteração para cada vértice adjacente à 'v'
+    while(fila.length){  // Iteração para cada vértice na fila
+        let v = fila.shift();  // Pegar o último vértice e removê-lo da fila
+
+        for(let u of grafo[v]){  // Iteração para cada vértice adjacente à 'v'
             if(!visitado[u]){  // Se o vértice u não foi visitado
                 visitado[u] = true;  // Agora visitamos esse vértice
                 fila.push(u);  // Adicioná-lo à fila
@@ -79,21 +72,16 @@ void bfs(int origem){
 
         v_restantes--;  // Diminuir o número de vértices na camada de busca
         if(v_restantes == 0){  // Se foram analisados todos os vértices nessa camada de busca
-            v_restantes = fila.size();  // A próxima camada de busca tem todos os vértices na próxima camada (tamanho atual da fila)
+            v_restantes = fila.length;  // A próxima camada de busca tem todos os vértices na próxima camada (tamanho atual da fila)
             distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
         }
-        
+
     }
 
 }
 
-int main(){
-    bfs(0);  // dist[] = {0, 2, 2, 2, 3, 3, 1, 1, 3, 4, 5, 4, 3}
+bfs(0);  // dist = [0, 2, 2, 2, 3, 3, 1, 1, 3, 4, 5, 4, 3]
 
-    bfs(5);  // dist[] = {3, 5, 2, 1, 4, 0, 2, 4, 3, 4, 5, 6, 6}
+bfs(5);  // dist = [3, 5, 2, 1, 4, 0, 2, 4, 3, 4, 5, 6, 6]
 
-    bfs(8);  // dist[] = {3, 2, 1, 2, 1, 3, 2, 3, 0, 1, 2, 3, 3}
-
-
-    return 0;
-}
+bfs(8);  // dist = [3, 2, 1, 2, 1, 3, 2, 3, 0, 1, 2, 3, 3]
