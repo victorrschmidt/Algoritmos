@@ -22,7 +22,7 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
 ### Range queries
 
-- Prefix sum (soma de prefixos para calcular somas em intervalos) **- O(N+Q)** 
+- Prefix sum (soma de prefixos para calcular soma de intervalos) **- O(N+Q)** 
 
 ## Grafos
 
