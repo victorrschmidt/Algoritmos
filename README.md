@@ -16,14 +16,6 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
 # Conteúdo
 
-## Estruturas de dados
-
-## Conceitos gerais
-
-### Range queries
-
-- Prefix sum (soma de prefixos para calcular soma de intervalos) **- O(N+Q)** 
-
 ## Grafos
 
 ### Geral
