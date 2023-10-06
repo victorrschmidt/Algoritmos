@@ -34,4 +34,4 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 ### Menor caminho
 
 - [**Breadth-first search (menor caminho em um grafo não valorado)**](src/grafos/menor_caminho/bfs_menor_caminho_grafo) **- O(V+E)**
-- Breadth-first search (menor caminho em uma matriz) **- O(N*M)**
+- [**Breadth-first search (menor caminho em uma matriz)**](src/grafos/menor_caminho/bfs_menor_caminho_matriz) **- O(N*M)**
