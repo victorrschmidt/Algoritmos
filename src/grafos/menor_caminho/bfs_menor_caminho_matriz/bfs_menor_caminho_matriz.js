@@ -63,57 +63,47 @@
 * O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
 */
 
-#include <bits/stdc++.h>
-using namespace std;
+const L = 6;  // Quantidade de linhas da matriz
+const C = 8;  // Quantidade de colunas da matriz
 
-const int L = 6;  // Quantidade de linhas da matriz
-const int C = 8;  // Quantidade de colunas da matriz
+let matriz = [  // Matriz
+    ['C','.','#','.','.','.','.','#'],
+    ['.','.','.','.','#','#','#','.'],
+    ['.','#','.','.','.','#','.','.'],
+    ['#','.','.','#','.','#','F','#'],
+    ['.','.','#','#','.','.','.','.'],
+    ['#','.','.','.','.','.','.','#']
+];
 
-char matriz[L][C] = {  // Matriz
-    {'C','.','#','.','.','.','.','#'},
-    {'.','.','.','.','#','#','#','.'},
-    {'.','#','.','.','.','#','.','.'},
-    {'#','.','.','#','.','#','F','#'},
-    {'.','.','#','#','.','.','.','.'},
-    {'#','.','.','.','.','.','.','#'}
-};
+let posL = 0;  // Posição inicial Y (linha)
+let posC = 0;  // Posição inicial X (coluna)
 
-int posL = 0;  // Posição inicial Y (linha)
-int posC = 0;  // Posição inicial X (coluna)
+let adjL = [-1,0,1,0];  // Valores a serem somados na posição Y (linha)
+let adjC = [0,1,0,-1];  // Valores a serem somados na posição X (coluna)
 
-int adjL[] = {-1,0,1,0};  // Valores a serem somados na posição Y (linha)
-int adjC[] = {0,1,0,-1};  // Valores a serem somados na posição X (coluna)
+function bfs(){
 
-int bfs(){
-
-    bool visitado[L][C];  // Matriz de células visitadas
-
-    for(int i = 0; i < L; i++){
-        for(int j = 0; j < C; j++){
-            visitado[i][j] = false;  // Matriz de células visitadas (todas as células inicializadas como 'false')
-        }
-    }
-
+    let visitado = Array.from(Array(L),() => Array(C).fill(false));  // Matriz de células visitadas (todas as células inicializadas como 'false')
     visitado[posL][posC] = true;  // Definir a célula inicial como visitada
 
-    queue<pair<int,int>> fila;  // Fila para verificar cada célula adjacente na matriz
-    fila.push(make_pair(posL,posC));  // Adicionar a célula inicial na fila ( {eixo X,eixo Y} )
+    let fila = [];  // Fila para verificar cada célula adjacente na matriz
+    fila.push([posL,posC]);  // Adicionar a célula inicial na fila ( [eixo X,eixo Y] )
 
-    int c_restantes = 1;  // Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
-    int distancia = 0;  // Contador de distância até a célula final
+    let c_restantes = 1;  // Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
+    let distancia = 0;  // Contador de distância até a célula final
 
-    while(!fila.empty()){  // Iteração para cada célula na fila
-        int l = fila.front().first;  // Pegar a posição Y (linha) da célula
-        int c = fila.front().second;  // Pegar a posição X (coluna) da célula
-        fila.pop();  // Remover a célula da fila
+    while(fila.length){
+        let l = fila[0][0];  // Pegar a posição Y (linha) da célula
+        let c = fila[0][1];  // Pegar a posição X (coluna) da célula
+        fila.shift();
 
         if(matriz[l][c] == 'F'){  // Se essa célula é a célula final
             return distancia;  // Retornar a distância entre a célula inicial e final
         }
 
-        for(int i = 0; i < 4; i++){  // Iteração para cada célula adjacente à célula que está sendo verificada
-            int ll = l+adjL[i];  // Posição Y (linha) da célula a ser verificada
-            int cc = c+adjC[i];  // Posição X (coluna) da célula a ser verificada
+        for(let i = 0; i < 4; i++){  // Iteração para cada célula adjacente à célula que está sendo verificada
+            let ll = l+adjL[i];  // Posição Y (linha) da célula a ser verificada
+            let cc = c+adjC[i];  // Posição X (coluna) da célula a ser verificada
 
             if(ll < 0 || cc < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
             if(ll >= L || cc >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
@@ -122,13 +112,13 @@ int bfs(){
 
             // Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-            fila.push(make_pair(ll,cc));  // Adicionar a célula à fila
+            fila.push([ll,cc]);  // Adicionar a célula à fila
             visitado[ll][cc] = true;  // Agora visitamos essa célula
         }
 
         c_restantes--;  // Diminuir o número de células na camada de busca
         if(c_restantes == 0){  // Se foram analisadas todas as células nessa camada de busca
-            c_restantes = fila.size();  // A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
+            c_restantes = fila.length;  // A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
             distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
         }
     }
@@ -136,9 +126,4 @@ int bfs(){
     return -1;  // Não existe caminho possível entre a célula inicial e final
 }
 
-int main(){
-    bfs();  // 11
-
-
-    return 0;
-}
+bfs();  // 11
