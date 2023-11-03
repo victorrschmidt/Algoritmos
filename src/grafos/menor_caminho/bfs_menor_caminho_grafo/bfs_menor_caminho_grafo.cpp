@@ -5,6 +5,8 @@
 /*
 * Complexidade: O(V+E)
 *
+* - Onde V e E são, respectivamente, a quantidade de vértices e arestas do grafo.
+*
 * A ideia do algoritmo é visitar todos os vértices adjacentes ao vértice de origem,
 * depois visitar todos os vértices adjacentes a esses, e assim sucessivamente.
 * Cada camada de busca corresponde a um movimento - a distância mínima possível
@@ -28,9 +30,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int vertices = 13;  // Número de vértices do grafo de exemplo
+const int VERT = 13;  // Número de vértices do grafo de exemplo
 
-vector<int> grafo[vertices] = {  // Lista de adjacências do grafo de exemplo
+vector<int> grafo[VERT] = {  // Lista de adjacências do grafo de exemplo
     {6,7},  // 0 se liga com 6 e 7
     {7,4,12},  // 1 se liga com 7, 4 e 12
     {3,6,8},  // 2 se liga com 3, 6 e 8
@@ -45,7 +47,7 @@ vector<int> grafo[vertices] = {  // Lista de adjacências do grafo de exemplo
     {10,12},
     {1,11}
 };
-int dist[vertices];  // Array para armazenar a distância do vértice de origem até os outros vértices
+int dist[VERT];  // Array para armazenar a distância do vértice de origem até os outros vértices
 
 // Função bfs
 void bfs(int origem) {
@@ -54,7 +56,7 @@ void bfs(int origem) {
 
     dist[origem] = 0;  // A distância da origem até a própria origem é 0
 
-    bool visitado[vertices] = {false};  // Array de vértices visitados (todos os elementos inicializados como 'false')
+    bool visitado[VERT] = {false};  // Array de vértices visitados (todos os elementos inicializados como 'false')
     visitado[origem] = true;  // Definir o vértice de origem como 'visitado'
 
     queue<int> fila;  // Fila para verificar as adjacências de cada vértice explorado
@@ -66,7 +68,7 @@ void bfs(int origem) {
     while (!fila.empty()) {  // Iteração para cada vértice na fila
         int v = fila.front(); fila.pop();  // Pegar o último vértice e removê-lo da fila
 
-        for (int u : grafo[v]) {  // Iteração para cada vértice adjacente à 'v'
+        for (auto u : grafo[v]) {  // Iteração para cada vértice adjacente à 'v'
             if (!visitado[u]) {  // Se o vértice u não foi visitado
                 visitado[u] = true;  // Agora visitamos esse vértice
                 fila.push(u);  // Adicioná-lo à fila

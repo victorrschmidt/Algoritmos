@@ -5,6 +5,8 @@
 /*
 * Complexidade: O(V+E)
 *
+* - Onde V e E são, respectivamente, a quantidade de vértices e arestas do grafo.
+*
 * A ideia do algoritmo é visitar todos os vértices adjacentes ao vértice de origem,
 * depois visitar todos os vértices adjacentes a esses, e assim sucessivamente.
 * Cada camada de busca corresponde a um movimento - a distância mínima possível
@@ -25,7 +27,7 @@
 * O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
 */
 
-const vertices = 13;  // Número de vértices do grafo de exemplo
+const VERT = 13;  // Número de vértices do grafo de exemplo
 
 let grafo = [  // Lista de adjacências do grafo de exemplo
     [6,7],  // 0 se liga com 6 e 7
@@ -42,7 +44,7 @@ let grafo = [  // Lista de adjacências do grafo de exemplo
     [10,12],
     [1,11]
 ];
-let dist = Array(vertices);  // Array para armazenar a distância do vértice de origem até os outros vértices
+let dist = Array(VERT);  // Array para armazenar a distância do vértice de origem até os outros vértices
 
 // Função bfs
 function bfs(origem) {
@@ -50,7 +52,7 @@ function bfs(origem) {
     dist.fill(-1);  // Definimos a distância até os outros vértices como -1
     dist[origem] = 0;  // A distância da origem até a própria origem é 0
 
-    let visitado = Array(vertices).fill(false);  // Array de vértices visitados (todos os elementos inicializados como 'false')
+    let visitado = Array(VERT).fill(false);  // Array de vértices visitados (todos os elementos inicializados como 'false')
     visitado[origem] = true;  // Definir o vértice de origem como 'visitado'
 
     let fila = [];  // Fila para verificar as adjacências de cada vértice explorado

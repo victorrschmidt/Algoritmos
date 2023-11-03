@@ -5,9 +5,11 @@
 /*
 * Complexidade: O(N*M)
 *
+* - Onde N e M são as dimensões da matriz.
+*
 * Temos o seguinte problema: Estamos presos em uma caverna, começando na posição inicial 'C', e 
 * queremos determinar o menor número de passos necessários para chegar até a saída da caverna 'F'.
-* Podemos atravessar todos os espaços vazios, e não podemos atravessar os espaços com pedras '#'.
+* Podemos atravessar todos os espaços vazios '.', e não podemos atravessar os espaços com pedras '#'.
 * Podemos nos mover para cima, para a direita, para baixo e para a esquerda.
 *
 * A ideia do algoritmo é visitar todas as células adjacentes à célula inicial,
@@ -30,7 +32,7 @@
 * -----------------------------------
 *            | (x, y+1) |
 *
-* Ou seja, para analisar as células adjacentes, basta alterar o valor X ou Y.
+* Ou seja, para analisar as células adjacentes, basta alterar o valor de X ou Y.
 * Para a célula de cima, diminuímos o Y em 1.
 * Para a célula da direita, aumentamos o X em 1.
 * Para a celula de baixo, aumentamos o Y em 1.
@@ -81,10 +83,10 @@ char matriz[L][C] = {  // Matriz
 int posL = 0;  // Posição inicial Y (linha)
 int posC = 0;  // Posição inicial X (coluna)
 
-int adjL[] = {-1,0,1,0};  // Valores a serem somados na posição Y (linha)
-int adjC[] = {0,1,0,-1};  // Valores a serem somados na posição X (coluna)
-
 int bfs() {
+
+    int adjL[] = {-1,0,1,0};  // Valores a serem somados na posição Y (linha)
+    int adjC[] = {0,1,0,-1};  // Valores a serem somados na posição X (coluna)
 
     bool visitado[L][C];  // Matriz de células visitadas
 

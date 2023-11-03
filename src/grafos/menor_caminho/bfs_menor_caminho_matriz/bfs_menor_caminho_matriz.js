@@ -5,9 +5,11 @@
 /*
 * Complexidade: O(N*M)
 *
+* - Onde N e M são as dimensões da matriz.
+*
 * Temos o seguinte problema: Estamos presos em uma caverna, começando na posição inicial 'C', e 
 * queremos determinar o menor número de passos necessários para chegar até a saída da caverna 'F'.
-* Podemos atravessar todos os espaços vazios, e não podemos atravessar os espaços com pedras '#'.
+* Podemos atravessar todos os espaços vazios '.', e não podemos atravessar os espaços com pedras '#'.
 * Podemos nos mover para cima, para a direita, para baixo e para a esquerda.
 *
 * A ideia do algoritmo é visitar todas as células adjacentes à célula inicial,
@@ -30,7 +32,7 @@
 * -----------------------------------
 *            | (x, y+1) |
 *
-* Ou seja, para analisar as células adjacentes, basta alterar o valor X ou Y.
+* Ou seja, para analisar as células adjacentes, basta alterar o valor de X ou Y.
 * Para a célula de cima, diminuímos o Y em 1.
 * Para a célula da direita, aumentamos o X em 1.
 * Para a celula de baixo, aumentamos o Y em 1.
@@ -78,16 +80,16 @@ let matriz = [  // Matriz
 let posL = 0;  // Posição inicial Y (linha)
 let posC = 0;  // Posição inicial X (coluna)
 
-let adjL = [-1,0,1,0];  // Valores a serem somados na posição Y (linha)
-let adjC = [0,1,0,-1];  // Valores a serem somados na posição X (coluna)
-
 function bfs(){
+
+    let adjL = [-1,0,1,0];  // Valores a serem somados na posição Y (linha)
+    let adjC = [0,1,0,-1];  // Valores a serem somados na posição X (coluna)
 
     let visitado = Array.from(Array(L), () => Array(C).fill(false));  // Matriz de células visitadas (todas as células inicializadas como 'false')
     visitado[posL][posC] = true;  // Definir a célula inicial como visitada
 
     let fila = [];  // Fila para verificar cada célula adjacente na matriz
-    fila.push([posL, posC]);  // Adicionar a célula inicial na fila ( [eixo X,eixo Y] )
+    fila.push([posL, posC]);  // Adicionar a célula inicial na fila ( [eixo X, eixo Y] )
 
     let c_restantes = 1;  // Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
     let distancia = 0;  // Contador de distância até a célula final
