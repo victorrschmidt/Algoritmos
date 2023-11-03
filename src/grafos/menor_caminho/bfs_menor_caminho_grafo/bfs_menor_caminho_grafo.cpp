@@ -14,19 +14,18 @@
 * todos os outros vértices do grafo (considerando que cada aresta tem peso 1). 
 * A distância do vértice de origem até cada um dos vértices será armazenada 
 * no array dist[]. Como inicialmente não sabemos a distância até cada vértice,
-* iremos definir todas as distâncias como 'infinito'. Conforme fazemos a travessia 
+* iremos definir todas as distâncias como -1. Conforme fazemos a travessia 
 * no grafo, armazenamos a distância até o vértice u em dist[u] (onde u é o número do vértice).
 *
 * Ao final, teremos o array definido com todas as distâncias e, as distâncias 
-* que estiverem ainda como 'infinito' indicam que aquele vértice não é conexo 
-* com o vértice de origem. Assim, podemos responder a menor distância entre 
+* que estiverem ainda como -1 indicam que aquele vértice não é conexo 
+* com o vértice de origem. Assim, podemos verificar a menor distância entre 
 * o vértice de origem e qualquer outro vértice do grafo em O(1).
 *
 * O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
 */
 
 #include <bits/stdc++.h>
-#define INF int(1e9)
 using namespace std;
 
 const int vertices = 13;  // Número de vértices do grafo de exemplo
@@ -49,11 +48,9 @@ vector<int> grafo[vertices] = {  // Lista de adjacências do grafo de exemplo
 int dist[vertices];  // Array para armazenar a distância do vértice de origem até os outros vértices
 
 // Função bfs
-void bfs(int origem){
+void bfs(int origem) {
 
-    for(int i = 0; i < vertices; i++){
-        dist[i] = INF;  // Definimos a distância até os outros vértices como 'infinito'
-    }
+    memset(dist, -1, sizeof(dist));  // Definimos a distância até os outros vértices como -1
 
     dist[origem] = 0;  // A distância da origem até a própria origem é 0
 
@@ -66,11 +63,11 @@ void bfs(int origem){
     int v_restantes = 1;  // Vértices restantes na camada de busca (inicialmente só com o vértice de origem). Será utilizado para determinar o número de vértices em cada camada de busca
     int distancia = 1;  // Distância até os outros vértices, inicialmente 1 (1° camada de busca)
 
-    while(!fila.empty()){  // Iteração para cada vértice na fila
+    while (!fila.empty()) {  // Iteração para cada vértice na fila
         int v = fila.front(); fila.pop();  // Pegar o último vértice e removê-lo da fila
 
-        for(int u : grafo[v]){  // Iteração para cada vértice adjacente à 'v'
-            if(!visitado[u]){  // Se o vértice u não foi visitado
+        for (int u : grafo[v]) {  // Iteração para cada vértice adjacente à 'v'
+            if (!visitado[u]) {  // Se o vértice u não foi visitado
                 visitado[u] = true;  // Agora visitamos esse vértice
                 fila.push(u);  // Adicioná-lo à fila
                 dist[u] = distancia;  // Definir a distância até esse vértice
@@ -78,7 +75,7 @@ void bfs(int origem){
         }
 
         v_restantes--;  // Diminuir o número de vértices na camada de busca
-        if(v_restantes == 0){  // Se foram analisados todos os vértices nessa camada de busca
+        if (v_restantes == 0) {  // Se foram analisados todos os vértices nessa camada de busca
             v_restantes = fila.size();  // A próxima camada de busca tem todos os vértices na próxima camada (tamanho atual da fila)
             distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
         }
@@ -87,7 +84,7 @@ void bfs(int origem){
 
 }
 
-int main(){
+int main() {
     bfs(0);  // dist[] = {0, 2, 2, 2, 3, 3, 1, 1, 3, 4, 5, 4, 3}
 
     bfs(5);  // dist[] = {3, 5, 2, 1, 4, 0, 2, 4, 3, 4, 5, 6, 6}

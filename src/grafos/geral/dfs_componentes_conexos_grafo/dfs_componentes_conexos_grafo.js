@@ -31,12 +31,12 @@ let componente = Array(vertices);  // Array para identificar o grupo de cada com
 let visitado = Array(vertices).fill(false);  // Array de vértices visitados (todos os elementos inicializados como 'false')
 
 // Função dfs
-function dfs(v){
+function dfs(v) {
     visitado[v] = true;  // O vértice passado na função agora é visitado
     componente[v] = id;  // Identificar o id do vértice no array (o grupo ao qual esse vértice pertence é o id atual)
 
-    for(let u of grafo[v]){  // Iteração para cada vértice adjacente à 'v'
-        if(!visitado[u]){  // Se o vértice 'u' não foi visitado
+    for (let u of grafo[v]) {  // Iteração para cada vértice adjacente à 'v'
+        if (!visitado[u]) {  // Se o vértice 'u' não foi visitado
             dfs(u);  // Chamar a função dfs para 'u'.
         }
     }
@@ -44,9 +44,9 @@ function dfs(v){
 }
 
 // Função para identificar os vértices
-function encontrarComponentes(){
-    for(let i = 0; i < vertices; i++){  // Iteração para cada vértice no grafo
-        if(!visitado[i]){  // Se o vértice não foi visitado
+function encontrarComponentes() {
+    for (let i = 0; i < vertices; i++) {  // Iteração para cada vértice no grafo
+        if (!visitado[i]) {  // Se o vértice não foi visitado
             id++;  // Aumentar o id (número de grupos)
             dfs(i);  // Chamar a função dfs para esse vértice
         }

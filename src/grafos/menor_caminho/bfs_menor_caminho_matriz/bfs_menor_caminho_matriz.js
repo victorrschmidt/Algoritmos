@@ -20,9 +20,9 @@
 *
 * Perceba que a matriz é basicamente um grafo, onde cada célula possui ligação 
 * com suas células adjacentes. As céluas adjacentes são: a célula de cima, da direita, 
-* de baixo e da esquerda (com exceção das células que estão nos cantos da matriz).
+* de baixo e da esquerda.
 *
-* Abaixo está a representação de uma célula (meio) e suas adjacências
+* Abaixo está a representação de uma célula (meio) e suas adjacências:
 *
 *            | (x, y-1) |
 * -----------------------------------
@@ -30,13 +30,13 @@
 * -----------------------------------
 *            | (x, y+1) |
 *
-* Ou seja, para analisar as células adjacentes, basta alterar o(s) valor(es) X e/ou Y
+* Ou seja, para analisar as células adjacentes, basta alterar o valor X ou Y.
 * Para a célula de cima, diminuímos o Y em 1.
 * Para a célula da direita, aumentamos o X em 1.
 * Para a celula de baixo, aumentamos o Y em 1.
 * Para a célula da esquerda, diminuímos o X em 1.
 *
-* Então, temos a seguinte notação para as células
+* Então, temos a seguinte notação para as células:
 *
 * Célula do meio = V
 *
@@ -52,7 +52,7 @@
 * Célula da esquerda = D
 * D(X) = V(X) - 1 e D(Y) = V(Y)
 *
-* Podemos armazenar a variação dos valores de X e Y em dois arrays
+* Podemos armazenar a variação dos valores de X e Y em dois arrays:
 * x[] = {-1,0,1,0}
 * y[] = {0,1,0,-1}
 *
@@ -60,11 +60,11 @@
 * logo os valores de Y são crescentes de cima para baixo, diferente da
 * representação em um plano cartesiano.
 *
-* O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
+* A matriz utilizada de exemplo está no mesmo diretório deste arquivo.
 */
 
-const L = 6;  // Quantidade de linhas da matriz
-const C = 8;  // Quantidade de colunas da matriz
+const L = 6;  // Quantidade de linhas da matriz de exemplo
+const C = 8;  // Quantidade de colunas da matriz de exemplo
 
 let matriz = [  // Matriz
     ['C','.','#','.','.','.','.','#'],
@@ -83,41 +83,41 @@ let adjC = [0,1,0,-1];  // Valores a serem somados na posição X (coluna)
 
 function bfs(){
 
-    let visitado = Array.from(Array(L),() => Array(C).fill(false));  // Matriz de células visitadas (todas as células inicializadas como 'false')
+    let visitado = Array.from(Array(L), () => Array(C).fill(false));  // Matriz de células visitadas (todas as células inicializadas como 'false')
     visitado[posL][posC] = true;  // Definir a célula inicial como visitada
 
     let fila = [];  // Fila para verificar cada célula adjacente na matriz
-    fila.push([posL,posC]);  // Adicionar a célula inicial na fila ( [eixo X,eixo Y] )
+    fila.push([posL, posC]);  // Adicionar a célula inicial na fila ( [eixo X,eixo Y] )
 
     let c_restantes = 1;  // Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
     let distancia = 0;  // Contador de distância até a célula final
 
-    while(fila.length){
+    while (fila.length) {
         let l = fila[0][0];  // Pegar a posição Y (linha) da célula
         let c = fila[0][1];  // Pegar a posição X (coluna) da célula
         fila.shift();
 
-        if(matriz[l][c] == 'F'){  // Se essa célula é a célula final
+        if (matriz[l][c] == 'F') {  // Se essa célula é a célula final
             return distancia;  // Retornar a distância entre a célula inicial e final
         }
 
-        for(let i = 0; i < 4; i++){  // Iteração para cada célula adjacente à célula que está sendo verificada
-            let ll = l+adjL[i];  // Posição Y (linha) da célula a ser verificada
-            let cc = c+adjC[i];  // Posição X (coluna) da célula a ser verificada
+        for (let i = 0; i < 4; i++) {  // Iteração para cada célula adjacente à célula que está sendo verificada
+            let ll = l + adjL[i];  // Posição Y (linha) da célula a ser verificada
+            let cc = c + adjC[i];  // Posição X (coluna) da célula a ser verificada
 
-            if(ll < 0 || cc < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
-            if(ll >= L || cc >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
-            if(visitado[ll][cc]) continue;  // Se a célula já foi visitada
-            if(matriz[ll][cc] == '#') continue;  // Se a célula é inacessível (pedra)
+            if (ll < 0 || cc < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
+            if (ll >= L || cc >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
+            if (visitado[ll][cc]) continue;  // Se a célula já foi visitada
+            if (matriz[ll][cc] == '#') continue;  // Se a célula é inacessível (pedra)
 
             // Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-            fila.push([ll,cc]);  // Adicionar a célula à fila
+            fila.push([ll, cc]);  // Adicionar a célula à fila
             visitado[ll][cc] = true;  // Agora visitamos essa célula
         }
 
         c_restantes--;  // Diminuir o número de células na camada de busca
-        if(c_restantes == 0){  // Se foram analisadas todas as células nessa camada de busca
+        if (c_restantes == 0) {  // Se foram analisadas todas as células nessa camada de busca
             c_restantes = fila.length;  // A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
             distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
         }

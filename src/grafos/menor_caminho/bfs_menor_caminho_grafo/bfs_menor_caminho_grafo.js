@@ -14,12 +14,12 @@
 * todos os outros vértices do grafo (considerando que cada aresta tem peso 1). 
 * A distância do vértice de origem até cada um dos vértices será armazenada 
 * no array dist[]. Como inicialmente não sabemos a distância até cada vértice,
-* iremos definir todas as distâncias como 'infinito'. Conforme fazemos a travessia 
+* iremos definir todas as distâncias como -1. Conforme fazemos a travessia 
 * no grafo, armazenamos a distância até o vértice u em dist[u] (onde u é o número do vértice).
 *
 * Ao final, teremos o array definido com todas as distâncias e, as distâncias 
-* que estiverem ainda como 'infinito' indicam que aquele vértice não é conexo 
-* com o vértice de origem. Assim, podemos responder a menor distância entre 
+* que estiverem ainda como -1 indicam que aquele vértice não é conexo 
+* com o vértice de origem. Assim, podemos verificar a menor distância entre 
 * o vértice de origem e qualquer outro vértice do grafo em O(1).
 *
 * O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
@@ -45,9 +45,9 @@ let grafo = [  // Lista de adjacências do grafo de exemplo
 let dist = Array(vertices);  // Array para armazenar a distância do vértice de origem até os outros vértices
 
 // Função bfs
-function bfs(origem){
+function bfs(origem) {
 
-    dist.fill(Infinity);  // Definimos a distância até os outros vértices como 'infinito'
+    dist.fill(-1);  // Definimos a distância até os outros vértices como -1
     dist[origem] = 0;  // A distância da origem até a própria origem é 0
 
     let visitado = Array(vertices).fill(false);  // Array de vértices visitados (todos os elementos inicializados como 'false')
@@ -59,11 +59,11 @@ function bfs(origem){
     let v_restantes = 1;  // Vértices restantes na camada de busca (inicialmente só com o vértice de origem). Será utilizado para determinar o número de vértices em cada camada de busca
     let distancia = 1;  // Distância até os outros vértices, inicialmente 1 (1° camada de busca)
 
-    while(fila.length){  // Iteração para cada vértice na fila
+    while (fila.length) {  // Iteração para cada vértice na fila
         let v = fila.shift();  // Pegar o último vértice e removê-lo da fila
 
-        for(let u of grafo[v]){  // Iteração para cada vértice adjacente à 'v'
-            if(!visitado[u]){  // Se o vértice u não foi visitado
+        for (let u of grafo[v]) {  // Iteração para cada vértice adjacente à 'v'
+            if (!visitado[u]) {  // Se o vértice u não foi visitado
                 visitado[u] = true;  // Agora visitamos esse vértice
                 fila.push(u);  // Adicioná-lo à fila
                 dist[u] = distancia;  // Definir a distância até esse vértice
@@ -71,7 +71,7 @@ function bfs(origem){
         }
 
         v_restantes--;  // Diminuir o número de vértices na camada de busca
-        if(v_restantes == 0){  // Se foram analisados todos os vértices nessa camada de busca
+        if (v_restantes == 0) {  // Se foram analisados todos os vértices nessa camada de busca
             v_restantes = fila.length;  // A próxima camada de busca tem todos os vértices na próxima camada (tamanho atual da fila)
             distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
         }

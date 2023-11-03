@@ -34,12 +34,12 @@ int componente[vertices];  // Array para identificar o grupo de cada componente
 bool visitado[vertices] = {false};  // Array de vértices visitados (todos os elementos inicializados como 'false')
 
 // Função dfs
-void dfs(int v){
+void dfs(int v) {
     visitado[v] = true;  // O vértice passado na função agora é visitado
     componente[v] = id;  // Identificar o id do vértice no array (o grupo ao qual esse vértice pertence é o id atual)
 
-    for(int u : grafo[v]){  // Iteração para cada vértice adjacente à 'v'
-        if(!visitado[u]){  // Se o vértice 'u' não foi visitado
+    for (int u : grafo[v]) {  // Iteração para cada vértice adjacente à 'v'
+        if (!visitado[u]) {  // Se o vértice 'u' não foi visitado
             dfs(u);  // Chamar a função dfs para 'u'.
         }
     }
@@ -47,9 +47,9 @@ void dfs(int v){
 }
 
 // Função para identificar os vértices
-void encontrarComponentes(){
-    for(int i = 0; i < vertices; i++){  // Iteração para cada vértice no grafo
-        if(!visitado[i]){  // Se o vértice não foi visitado
+void encontrarComponentes() {
+    for (int i = 0; i < vertices; i++) {  // Iteração para cada vértice no grafo
+        if (!visitado[i]) {  // Se o vértice não foi visitado
             id++;  // Aumentar o id (número de grupos)
             dfs(i);  // Chamar a função dfs para esse vértice
         }
@@ -57,7 +57,7 @@ void encontrarComponentes(){
 
 }
 
-int main(){
+int main() {
     encontrarComponentes();
 
     // componente[] = {1, 2, 3, 4, 1, 1, 3, 2, 1, 3, 3, 2}
