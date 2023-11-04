@@ -2,7 +2,7 @@
 
 Algoritmo, do latim _algorismus_, em Ciência da Computação, é um conjunto de instruções - cálculos, comparações, repetições, processamentos a serem seguidos por um sistema a fim de encontrar uma resposta/solução para um determinado problema.
 
-Por sua vez, Estrutura de dados se refere à maneira com que as informações estão dispostas dentro de um sistema. Arrays, strings, filas e árvores são exemplos de estruturas de dados, e são utilizadas de acordo com a necessidade e/ou conveniência de suas aplicações.
+Por sua vez, Estrutura de dados se refere à maneira com que as informações estão dispostas dentro de um sistema. Arrays, strings, filas e árvores são exemplos de estruturas de dados, e são utilizadas de acordo com a necessidade ou conveniência de suas aplicações.
 
 O objetivo deste repositório é mostrar alguns algoritmos que podem ser implementados para solucionar problemas gerais ou específicos, buscando sempre uma boa performance. Cada algoritmo está comentado para melhor compreensão de seu funcionamento.
 
