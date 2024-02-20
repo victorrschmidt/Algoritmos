@@ -73,6 +73,7 @@ function bfs(origem) {
         }
 
         v_restantes--;  // Diminuir o número de vértices na camada de busca
+        
         if (v_restantes == 0) {  // Se foram analisados todos os vértices nessa camada de busca
             v_restantes = fila.length;  // A próxima camada de busca tem todos os vértices na próxima camada (tamanho atual da fila)
             distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
