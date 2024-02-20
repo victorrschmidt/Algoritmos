@@ -71,7 +71,7 @@ using namespace std;
 const int L = 6;  // Quantidade de linhas da matriz de exemplo
 const int C = 8;  // Quantidade de colunas da matriz de exemplo
 
-char matriz[L][C] = {  // Matriz
+char matriz[L][C] = {  // Matriz de exemplo
     {'C','.','#','.','.','.','.','#'},
     {'.','.','.','.','#','#','#','.'},
     {'.','#','.','.','.','#','.','.'},
@@ -129,6 +129,7 @@ int bfs() {
         }
 
         c_restantes--;  // Diminuir o número de células na camada de busca
+
         if (c_restantes == 0) {  // Se foram analisadas todas as células nessa camada de busca
             c_restantes = fila.size();  // A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
             distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
@@ -140,7 +141,7 @@ int bfs() {
 }
 
 int main() {
-    bfs();  // 11
+    cout << bfs() << '\n';  // 11
 
 
     return 0;

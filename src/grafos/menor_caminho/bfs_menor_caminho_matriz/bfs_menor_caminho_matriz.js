@@ -55,8 +55,8 @@
 * D(X) = V(X) - 1 e D(Y) = V(Y)
 *
 * Podemos armazenar a variação dos valores de X e Y em dois arrays:
-* x[] = {-1,0,1,0}
-* y[] = {0,1,0,-1}
+* x[] = [-1,0,1,0]
+* y[] = [0,1,0,-1]
 *
 * Obs: Estamos considerando uma matriz representada por um computador,
 * logo os valores de Y são crescentes de cima para baixo, diferente da
@@ -68,7 +68,7 @@
 const L = 6;  // Quantidade de linhas da matriz de exemplo
 const C = 8;  // Quantidade de colunas da matriz de exemplo
 
-let matriz = [  // Matriz
+let matriz = [  // Matriz de exemplo
     ['C','.','#','.','.','.','.','#'],
     ['.','.','.','.','#','#','#','.'],
     ['.','#','.','.','.','#','.','.'],
@@ -94,10 +94,10 @@ function bfs(){
     let c_restantes = 1;  // Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
     let distancia = 0;  // Contador de distância até a célula final
 
-    while (fila.length) {
+    while (fila.length) {  // Iteração para cada célula na fila
         let l = fila[0][0];  // Pegar a posição Y (linha) da célula
         let c = fila[0][1];  // Pegar a posição X (coluna) da célula
-        fila.shift();
+        fila.shift();  // Remover a célula da fila
 
         if (matriz[l][c] == 'F') {  // Se essa célula é a célula final
             return distancia;  // Retornar a distância entre a célula inicial e final
@@ -119,6 +119,7 @@ function bfs(){
         }
 
         c_restantes--;  // Diminuir o número de células na camada de busca
+
         if (c_restantes == 0) {  // Se foram analisadas todas as células nessa camada de busca
             c_restantes = fila.length;  // A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
             distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
@@ -129,4 +130,4 @@ function bfs(){
     return -1;  // Não existe caminho possível entre a célula inicial e final
 }
 
-bfs();  // 11
+console.log(bfs());  // 11

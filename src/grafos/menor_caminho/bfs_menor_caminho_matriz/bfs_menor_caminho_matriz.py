@@ -1,0 +1,130 @@
+# --------------------------------------------------------------------------------
+# BREADTH FIRST SEARCH - MENOR CAMINHO EM UMA MATRIZ
+# --------------------------------------------------------------------------------
+
+# Complexidade: O(N*M)
+#
+# - Onde N e M são as dimensões da matriz.
+
+# Temos o seguinte problema: Estamos presos em uma caverna, começando na posição inicial 'C', e 
+# queremos determinar o menor número de passos necessários para chegar até a saída da caverna 'F'.
+# Podemos atravessar todos os espaços vazios '.', e não podemos atravessar os espaços com pedras '#'.
+# Podemos nos mover para cima, para a direita, para baixo e para a esquerda.
+
+# A ideia do algoritmo é visitar todas as células adjacentes à célula inicial,
+# depois visitar todas as células adjacentes à essas, e assim sucessivamente.
+# Cada camada de busca corresponde a um movimento - a distância mínima possível
+# entre a célula inicial e a célula que está sendo visitada.
+
+# Assim, é possível determinar a menor distância entre a célula inicial e
+# a célula final (considerando que cada movimento tem peso 1).
+
+# Perceba que a matriz é basicamente um grafo, onde cada célula possui ligação 
+# com suas células adjacentes. As céluas adjacentes são: a célula de cima, da direita, 
+# de baixo e da esquerda.
+
+# Abaixo está a representação de uma célula (meio) e suas adjacências:
+
+#            | (x, y-1) |
+# -----------------------------------
+#  (x-1, y)  |  (x, y)  |  (x+1, y)  
+# -----------------------------------
+#            | (x, y+1) |
+
+# Ou seja, para analisar as células adjacentes, basta alterar o valor de X ou Y.
+# Para a célula de cima, diminuímos o Y em 1.
+# Para a célula da direita, aumentamos o X em 1.
+# Para a celula de baixo, aumentamos o Y em 1.
+# Para a célula da esquerda, diminuímos o X em 1.
+
+# Então, temos a seguinte notação para as células:
+
+# Célula do meio = V
+#
+# Célula de cima = A
+# A(X) = V(X) e A(Y) = V(Y) - 1
+# 
+# Célula da direita = B
+# B(X) = V(X) + 1 e B(Y) = V(Y)
+#
+# Célula de baixo = C
+# C(X) = V(X) e C(Y) = V(Y) + 1
+#
+# Célula da esquerda = D
+# D(X) = V(X) - 1 e D(Y) = V(Y)
+
+# Podemos armazenar a variação dos valores de X e Y em duas tuplas:
+# x = (-1,0,1,0)
+# y = (0,1,0,-1)
+
+# Obs: Estamos considerando uma matriz representada por um computador,
+# logo os valores de Y são crescentes de cima para baixo, diferente da
+# representação em um plano cartesiano.
+
+# A matriz utilizada de exemplo está no mesmo diretório deste arquivo.
+
+L = 6  # Quantidade de linhas da matriz de exemplo
+C = 8  # Quantidade de colunas da matriz de exemplo
+
+matriz = [  # Matriz de exemplo
+    ['C','.','#','.','.','.','.','#'],
+    ['.','.','.','.','#','#','#','.'],
+    ['.','#','.','.','.','#','.','.'],
+    ['#','.','.','#','.','#','F','#'],
+    ['.','.','#','#','.','.','.','.'],
+    ['#','.','.','.','.','.','.','#']
+]
+
+posL = 0  # Posição inicial Y (linha)
+posC = 0  # Posição inicial X (coluna)
+
+def bfs():
+
+    adjL = (-1,0,1,0)  # Valores a serem somados na posição Y (linha)
+    adjC = (0,1,0,-1)  # Valores a serem somados na posição X (coluna)
+
+    visitado = [[False for i in range(C)] for j in range(L)]  # Matriz de células visitadas (todas as células inicializadas como 'False')
+    visitado[posL][posC] = True  # Definir a célula inicial como visitada
+
+    fila = []  # Fila para verificar cada célula adjacente na matriz
+    fila.append([posL, posC])  # Adicionar a célula inicial na fila ( [eixo X, eixo Y] )
+
+    c_restantes = 1  # Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
+    distancia = 0  # Contador de distância até a célula final
+
+    while len(fila):  # Iteração para cada célula na fila
+        l = fila[0][0]  # Pegar a posição Y (linha) da célula
+        c = fila[0][1]  # Pegar a posição X (coluna) da célula
+        fila.pop(0)  # Remover a célula da fila
+
+        if matriz[l][c] == 'F':  # Se essa célula é a célula final
+            return distancia  # Retornar a distância entre a célula inicial e final
+
+        for i in range(4):  # Iteração para cada célula adjacente à célula que está sendo verificada
+            ll = l + adjL[i]  # Posição Y (linha) da célula a ser verificada
+            cc = c + adjC[i]  # Posição X (coluna) da célula a ser verificada
+
+            if ll < 0 or cc < 0:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
+                continue  
+            if ll >= L or cc >= C:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
+                continue  
+            if visitado[ll][cc]:  # Se a célula já foi visitada
+                continue  
+            if matriz[ll][cc] == '#':  # Se a célula é inacessível (pedra)
+                continue  
+
+            # Se qualquer uma das condições acima for verdadeira, a iteração reinicia
+
+            fila.append([ll, cc])  # Adicionar a célula à fila
+            visitado[ll][cc] = True  # Agora visitamos essa célula
+
+        c_restantes -= 1  # Diminuir o número de células na camada de busca
+
+        if c_restantes == 0:  # Se foram analisadas todas as células nessa camada de busca
+            c_restantes = len(fila)  # A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
+            distancia += 1  # Como teremos que analisar outra camada de busca, a distância aumenta em 1
+        
+
+    return -1  # Não existe caminho possível entre a célula inicial e final
+
+print(bfs())  # 11
