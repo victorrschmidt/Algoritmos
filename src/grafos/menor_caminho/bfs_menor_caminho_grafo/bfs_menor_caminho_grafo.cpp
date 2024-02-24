@@ -51,7 +51,6 @@ int dist[VERT];  // Array para armazenar a distância do vértice de origem até
 
 // Função bfs
 void bfs(int origem) {
-
     memset(dist, -1, sizeof(dist));  // Definimos a distância até os outros vértices como -1
 
     dist[origem] = 0;  // A distância da origem até a própria origem é 0
@@ -68,7 +67,7 @@ void bfs(int origem) {
     while (!fila.empty()) {  // Iteração para cada vértice na fila
         int v = fila.front(); fila.pop();  // Pegar o último vértice e removê-lo da fila
 
-        for (auto u : grafo[v]) {  // Iteração para cada vértice adjacente à 'v'
+        for (const auto u : grafo[v]) {  // Iteração para cada vértice adjacente à 'v'
             if (!visitado[u]) {  // Se o vértice u não foi visitado
                 visitado[u] = true;  // Agora visitamos esse vértice
                 fila.push(u);  // Adicioná-lo à fila

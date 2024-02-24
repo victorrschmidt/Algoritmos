@@ -80,8 +80,8 @@ let matriz = [  // Matriz de exemplo
 let posL = 0;  // Posição inicial Y (linha)
 let posC = 0;  // Posição inicial X (coluna)
 
+// Função bfs
 function bfs(){
-
     let adjL = [-1,0,1,0];  // Valores a serem somados na posição Y (linha)
     let adjC = [0,1,0,-1];  // Valores a serem somados na posição X (coluna)
 

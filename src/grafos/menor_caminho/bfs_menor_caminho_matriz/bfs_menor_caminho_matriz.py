@@ -78,8 +78,8 @@ matriz = [  # Matriz de exemplo
 posL = 0  # Posição inicial Y (linha)
 posC = 0  # Posição inicial X (coluna)
 
+# Função bfs
 def bfs():
-
     adjL = (-1,0,1,0)  # Valores a serem somados na posição Y (linha)
     adjC = (0,1,0,-1)  # Valores a serem somados na posição X (coluna)
 

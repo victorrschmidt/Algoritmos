@@ -48,7 +48,6 @@ let dist = Array(VERT);  // Array para armazenar a distância do vértice de ori
 
 // Função bfs
 function bfs(origem) {
-
     dist.fill(-1);  // Definimos a distância até os outros vértices como -1
     dist[origem] = 0;  // A distância da origem até a própria origem é 0
 
@@ -64,7 +63,7 @@ function bfs(origem) {
     while (fila.length) {  // Iteração para cada vértice na fila
         let v = fila.shift();  // Pegar o último vértice e removê-lo da fila
 
-        for (let u of grafo[v]) {  // Iteração para cada vértice adjacente à 'v'
+        for (const u of grafo[v]) {  // Iteração para cada vértice adjacente à 'v'
             if (!visitado[u]) {  // Se o vértice u não foi visitado
                 visitado[u] = true;  // Agora visitamos esse vértice
                 fila.push(u);  // Adicioná-lo à fila

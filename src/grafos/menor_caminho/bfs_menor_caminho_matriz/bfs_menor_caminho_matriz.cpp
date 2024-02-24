@@ -83,8 +83,8 @@ char matriz[L][C] = {  // Matriz de exemplo
 int posL = 0;  // Posição inicial Y (linha)
 int posC = 0;  // Posição inicial X (coluna)
 
+// Função bfs
 int bfs() {
-
     int adjL[] = {-1,0,1,0};  // Valores a serem somados na posição Y (linha)
     int adjC[] = {0,1,0,-1};  // Valores a serem somados na posição X (coluna)
 
