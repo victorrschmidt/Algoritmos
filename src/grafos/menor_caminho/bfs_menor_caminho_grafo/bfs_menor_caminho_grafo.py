@@ -45,7 +45,6 @@ grafo = [  # Lista de adjacências do grafo de exemplo
 
 # Função bfs
 def bfs(origem):
-
     global dist  # Lista para armazenar a distância do vértice de origem até os outros vértices
     dist = [-1 for i in range(VERT)]  # Definimos a distância até os outros vértices como -1
     dist[origem] = 0  # A distância da origem até a própria origem é 0
