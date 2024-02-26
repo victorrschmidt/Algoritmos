@@ -7,7 +7,7 @@
 # - Onde V e E são, respectivamente, a quantidade de vértices e arestas do grafo.
 
 # A ideia do algoritmo é visitar todos os vértices adjacentes ao vértice de origem,
-# depois visitar todos os vértices adjacentes a esses, e assim sucessivamente.
+# depois visitar todos os vértices adjacentes a esses e assim sucessivamente.
 # Cada camada de busca corresponde a um movimento - a distância mínima possível
 # entre o vértice que está sendo visitado e o vértice de origem.
 
@@ -18,12 +18,13 @@
 # iremos definir todas as distâncias como -1. Conforme fazemos a travessia 
 # no grafo, armazenamos a distância até o vértice u em dist[u] (onde u é o número do vértice).
 
-# Ao final, teremos a lista definida com todas as distâncias e, as distâncias 
+# No final, teremos a lista definida com todas as distâncias e, as distâncias 
 # que estiverem ainda como -1 indicam que aquele vértice não é conexo 
 # com o vértice de origem. Assim, podemos verificar a menor distância entre 
-# o vértice de origem e qualquer outro vértice do grafo em O(1).
+# o vértice de origem e qualquer outro vértice do grafo.
 
 # O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
+
 
 VERT = 13  # Número de vértices do grafo de exemplo
 
@@ -49,7 +50,7 @@ def bfs(origem):
     dist = [-1 for i in range(VERT)]  # Definimos a distância até os outros vértices como -1
     dist[origem] = 0  # A distância da origem até a própria origem é 0
 
-    visitado = [False for i in range(VERT)]  # Lista de vértices visitados (todos os elementos inicializados como 'false')
+    visitado = [False for i in range(VERT)]  # Lista de vértices visitados (todos os elementos inicializados como 'False')
     visitado[origem] = True  # Definir o vértice de origem como 'visitado'
 
     fila = []  # Fila para verificar as adjacências de cada vértice explorado
@@ -59,8 +60,8 @@ def bfs(origem):
     distancia = 1  # Distância até os outros vértices, inicialmente 1 (1° camada de busca)
 
     while len(fila):  # Iteração para cada vértice na fila
-        v = fila[0]  # Pegar o último vértice e removê-lo da fila
-        fila.pop(0)
+        v = fila[0]  # Pegar o último vértice
+        fila.pop(0)  # Removê-lo da fila
 
         for u in grafo[v]:  # Iteração para cada vértice adjacente à 'v'
             if not visitado[u]:  # Se o vértice u não foi visitado
