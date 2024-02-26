@@ -42,7 +42,6 @@ def dfs(v):
 
 # Função para identificar os vértices
 def encontrarComponentes():
-    global id
     for i in range(VERT):  # Iteração para cada vértice no grafo
         if not visitado[i]:  # Se o vértice não foi visitado
             global id  # Python moment
