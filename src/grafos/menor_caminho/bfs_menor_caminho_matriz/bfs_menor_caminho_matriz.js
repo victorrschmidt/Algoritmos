@@ -103,9 +103,9 @@ function bfs(){
             return distancia;  // Retornar a distância entre a célula inicial e final
         }
 
-        for (let i = 0; i < 4; i++) {  // Iteração para cada célula adjacente à célula que está sendo verificada
-            let ll = l + adjL[i];  // Posição Y (linha) da célula a ser verificada
-            let cc = c + adjC[i];  // Posição X (coluna) da célula a ser verificada
+        for (let i = 0; i < 4; i++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
+            let ll = l + adjL[i];  // Posição Y (linha) da célula a ser visitada
+            let cc = c + adjC[i];  // Posição X (coluna) da célula a ser visitada
 
             if (ll < 0 || cc < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
             if (ll >= L || cc >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)

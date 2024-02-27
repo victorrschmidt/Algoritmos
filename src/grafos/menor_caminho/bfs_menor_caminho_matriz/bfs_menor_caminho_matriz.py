@@ -63,6 +63,7 @@
 
 # A matriz utilizada de exemplo está no mesmo diretório deste arquivo.
 
+
 L = 6  # Quantidade de linhas da matriz de exemplo
 C = 8  # Quantidade de colunas da matriz de exemplo
 
@@ -100,9 +101,9 @@ def bfs():
         if matriz[l][c] == 'F':  # Se essa célula é a célula final
             return distancia  # Retornar a distância entre a célula inicial e final
 
-        for i in range(4):  # Iteração para cada célula adjacente à célula que está sendo verificada
-            ll = l + adjL[i]  # Posição Y (linha) da célula a ser verificada
-            cc = c + adjC[i]  # Posição X (coluna) da célula a ser verificada
+        for i in range(4):  # Iteração para cada célula adjacente à célula que está sendo visitada
+            ll = l + adjL[i]  # Posição Y (linha) da célula a ser visitada
+            cc = c + adjC[i]  # Posição X (coluna) da célula a ser visitada
 
             if ll < 0 or cc < 0:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
                 continue  
