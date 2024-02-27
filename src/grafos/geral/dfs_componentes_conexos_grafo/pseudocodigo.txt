@@ -1,0 +1,72 @@
+# --------------------------------------------------------------------------------
+# DEPTH FIRST SEARCH - COMPONENTES CONEXOS EM UM GRAFO
+# --------------------------------------------------------------------------------
+
+# Complexidade: O(V+E)
+#
+# - Onde V e E são, respectivamente, a quantidade de vértices e arestas do grafo.
+
+# A ideia do algoritmo é visitar um vértice adjacente ao vértice de origem, 
+# depois visitar um vértice adjacente a esse e assim sucessivamente, fazendo
+# uma busca em profundidade até chegarmos em um "beco sem saída". Quando não
+# houver mais vértices para visitar, iremos voltar ao vértice que estava sendo 
+# visitado anteriormente (backtracking) e procurar outro vértice para visitar.
+
+# Quando todos os vértices possíveis forem visitados dessa forma, podemos afirmar 
+# que todos pertencem ao mesmo grupo, pois conseguimos chegar até eles de alguma 
+# forma a partir do vértice de origem. Para determinar quais são os vértices que 
+# pertencem a esse grupo, teremos uma lista de inteiros componente[] de tamanho V, 
+# onde para cada visita iremos armazenar o número do grupo do vértice v em componente[v].
+
+# Para grafos desconexos, temos mais de um grupo, e caso nem todos os vértices
+# tenham sido visitados, iniciaremos outra busca em profundidade a partir do primeiro
+# vértice não visitado na ordem (considerando que os vértices são numerados de 0 até V-1),
+# assim determinando o grupo ao qual todos os vértices do grafo pertencem.
+
+# O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
+
+
+VERT = 12;
+
+grafo = [
+    [5,8,4],
+    [7,11],
+    [6],
+    [],
+    [0,8],
+    [0],
+    [2,9],
+    [1,11],
+    [0,4],
+    [10,6],
+    [9],
+    [1,7]
+];
+
+id = 0;
+componente = [];  # Tamanho = VERT
+visitado = [false, ..., false];  # Tamanho = VERT
+
+# Função dfs
+funcao dfs(v) {
+    visitado[v] = true;
+    componente[v] = id;
+
+    for (u em grafo[v]) {
+        if (!visitado[u]) {
+            dfs(u);
+        }
+    }
+
+}
+
+# Função para identificar os vértices
+function encontrarComponentes() {
+    for (i = 0; i < VERT; i++) {
+        if (!visitado[i]) {
+            id++;
+            dfs(i);
+        }
+    }
+
+}
