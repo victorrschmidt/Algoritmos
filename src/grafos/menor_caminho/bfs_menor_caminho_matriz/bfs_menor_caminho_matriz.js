@@ -82,8 +82,8 @@ let posC = 0;  // Posição inicial X (coluna)
 
 // Função bfs
 function bfs() {
-    let adjL = [-1,0,1,0];  // Valores a serem somados na posição Y (linha)
-    let adjC = [0,1,0,-1];  // Valores a serem somados na posição X (coluna)
+    const adjL = [-1,0,1,0];  // Valores a serem somados na posição Y (linha)
+    const adjC = [0,1,0,-1];  // Valores a serem somados na posição X (coluna)
 
     let visitado = Array.from(Array(L), () => Array(C).fill(false));  // Matriz de células visitadas (todas as células inicializadas como 'false')
     visitado[posL][posC] = true;  // Definir a célula inicial como visitada
