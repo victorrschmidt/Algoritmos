@@ -13,10 +13,14 @@
 * houver mais vértices para visitar, iremos voltar ao vértice que estava sendo 
 * visitado anteriormente (backtracking) e procurar outro vértice para visitar.
 *
+* O algoritmo utiliza recursividade, onde a função chama a si mesma conforme
+* visitamos outros vértices, colocando as chamadas mais antigas em uma prioridade
+* menor, priorizando as chamadas mais recentes.
+*
 * Quando todos os vértices possíveis forem visitados dessa forma, podemos afirmar 
 * que todos pertencem ao mesmo grupo, pois conseguimos chegar até eles de alguma 
 * forma a partir do vértice de origem. Para determinar quais são os vértices que 
-* pertencem a esse grupo, teremos um array de inteiros componente[] de tamanho V, 
+* pertencem a esse grupo, temos um array de inteiros componente[] de tamanho V, 
 * onde para cada visita iremos armazenar o número do grupo do vértice v em componente[v].
 *
 * Para grafos desconexos, temos mais de um grupo, e caso nem todos os vértices
