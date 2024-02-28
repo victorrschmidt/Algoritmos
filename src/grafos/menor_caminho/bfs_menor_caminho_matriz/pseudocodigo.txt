@@ -76,19 +76,19 @@ matriz = [
     ['#','.','.','.','.','.','.','#']
 ];
 
-posL = 0;
-posC = 0;
+pos_l = 0;
+pos_c = 0;
 
 # Função bfs
 funcao bfs() {
-    adjL = [-1,0,1,0];
-    adjC = [0,1,0,-1];
+    adj_l = [-1,0,1,0];
+    adj_c = [0,1,0,-1];
 
     visitado = [[false, ..., false], ..., [false, ... false]]  # Array de tamanho L, contendo arrays de tamanho C que contém 'false'
-    visitado[posL][posC] = true;
+    visitado[pos_l][pos_c] = true;
 
     fila = [];
-    fila.push([posL, posC]);
+    fila.push([pos_l, pos_c]);
 
     c_restantes = 1;
     distancia = 0;
@@ -103,8 +103,8 @@ funcao bfs() {
         }
 
         for (i = 0; i < 4; i++) {
-            ll = l + adjL[i];
-            cc = c + adjC[i];
+            ll = l + adj_l[i];
+            cc = c + adj_c[i];
 
             if (ll < 0 || cc < 0) continue;
             if (ll >= L || cc >= C) continue;
