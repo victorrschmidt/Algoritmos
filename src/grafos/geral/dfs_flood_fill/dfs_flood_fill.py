@@ -37,8 +37,6 @@ def floodFill(x, y):
         if l >= 0 and c >= 0 and l < L and c < C and matriz[l][c] == '.':
             floodFill(l, c)
         
-
-
 floodFill(2, 6)
 
 # matriz = [

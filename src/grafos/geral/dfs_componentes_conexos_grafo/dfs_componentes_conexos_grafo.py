@@ -60,8 +60,6 @@ def dfs(v):
         if not visitado[u]:  # Se o vértice 'u' não foi visitado
             dfs(u)  # Chamar a função dfs para 'u'
         
-    
-
 # Função para identificar os vértices
 def encontrarComponentes():
     for i in range(VERT):  # Iteração para cada vértice no grafo
@@ -70,8 +68,6 @@ def encontrarComponentes():
             id += 1  # Aumentar o id (número de grupos)
             dfs(i)  # Chamar a função dfs para esse vértice
         
-    
-
 encontrarComponentes()
 
 # componente = [1, 2, 3, 4, 1, 1, 3, 2, 1, 3, 3, 2]

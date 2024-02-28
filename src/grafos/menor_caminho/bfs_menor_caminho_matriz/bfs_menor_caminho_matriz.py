@@ -125,7 +125,6 @@ def bfs():
             c_restantes = len(fila)  # A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
             distancia += 1  # Como teremos que analisar outra camada de busca, a distância aumenta em 1
         
-
     return -1  # Não existe caminho possível entre a célula inicial e final
 
 print(bfs())  # 11

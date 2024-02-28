@@ -69,15 +69,12 @@ def bfs(origem):
                 fila.append(u)  # Adicioná-lo à fila
                 dist[u] = distancia  # Definir a distância até esse vértice
             
-        
         v_restantes -= 1  # Diminuir o número de vértices na camada de busca
         
         if v_restantes == 0:  # Se foram analisados todos os vértices nessa camada de busca
             v_restantes = len(fila)  # A próxima camada de busca tem todos os vértices na próxima camada (tamanho atual da fila)
             distancia += 1  # Como teremos que analisar outra camada de busca, a distância aumenta em 1
         
-
-
 bfs(0)  # dist = [0, 2, 2, 2, 3, 3, 1, 1, 3, 4, 5, 4, 3]
 
 bfs(5)  # dist = [3, 5, 2, 1, 4, 0, 2, 4, 3, 4, 5, 6, 6]
