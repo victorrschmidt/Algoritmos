@@ -76,19 +76,19 @@ matriz = [  # Matriz de exemplo
     ['#','.','.','.','.','.','.','#']
 ]
 
-posL = 0  # Posição inicial Y (linha)
-posC = 0  # Posição inicial X (coluna)
+pos_l = 0  # Posição inicial Y (linha)
+pos_c = 0  # Posição inicial X (coluna)
 
 # Função bfs
 def bfs():
-    adjL = (-1,0,1,0)  # Valores a serem somados na posição Y (linha)
-    adjC = (0,1,0,-1)  # Valores a serem somados na posição X (coluna)
+    adj_l = (-1,0,1,0)  # Valores a serem somados na posição Y (linha)
+    adj_c = (0,1,0,-1)  # Valores a serem somados na posição X (coluna)
 
     visitado = [[False for i in range(C)] for j in range(L)]  # Matriz de células visitadas (todas as células inicializadas como 'False')
-    visitado[posL][posC] = True  # Definir a célula inicial como visitada
+    visitado[pos_l][pos_c] = True  # Definir a célula inicial como visitada
 
     fila = []  # Fila para verificar cada célula adjacente na matriz
-    fila.append([posL, posC])  # Adicionar a célula inicial na fila ( [eixo X, eixo Y] )
+    fila.append([pos_l, pos_c])  # Adicionar a célula inicial na fila ( [eixo X, eixo Y] )
 
     c_restantes = 1  # Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
     distancia = 0  # Contador de distância até a célula final
@@ -102,8 +102,8 @@ def bfs():
             return distancia  # Retornar a distância entre a célula inicial e final
 
         for i in range(4):  # Iteração para cada célula adjacente à célula que está sendo visitada
-            ll = l + adjL[i]  # Posição Y (linha) da célula a ser visitada
-            cc = c + adjC[i]  # Posição X (coluna) da célula a ser visitada
+            ll = l + adj_l[i]  # Posição Y (linha) da célula a ser visitada
+            cc = c + adj_c[i]  # Posição X (coluna) da célula a ser visitada
 
             if ll < 0 or cc < 0:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
                 continue  

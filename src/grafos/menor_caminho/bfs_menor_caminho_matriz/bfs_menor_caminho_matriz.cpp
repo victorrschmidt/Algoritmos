@@ -80,13 +80,13 @@ char matriz[L][C] = {  // Matriz de exemplo
     {'#','.','.','.','.','.','.','#'}
 };
 
-int posL = 0;  // Posição inicial Y (linha)
-int posC = 0;  // Posição inicial X (coluna)
+int pos_l = 0;  // Posição inicial Y (linha)
+int pos_c = 0;  // Posição inicial X (coluna)
 
 // Função bfs
 int bfs() {
-    int adjL[] = {-1,0,1,0};  // Valores a serem somados na posição Y (linha)
-    int adjC[] = {0,1,0,-1};  // Valores a serem somados na posição X (coluna)
+    int adj_l[] = {-1,0,1,0};  // Valores a serem somados na posição Y (linha)
+    int adj_c[] = {0,1,0,-1};  // Valores a serem somados na posição X (coluna)
 
     bool visitado[L][C];  // Matriz de células visitadas
 
@@ -96,10 +96,10 @@ int bfs() {
         }
     }
 
-    visitado[posL][posC] = true;  // Definir a célula inicial como visitada
+    visitado[pos_l][pos_c] = true;  // Definir a célula inicial como visitada
 
     queue<pair<int,int>> fila;  // Fila para verificar cada célula adjacente na matriz
-    fila.push(make_pair(posL, posC));  // Adicionar a célula inicial na fila ( {eixo X, eixo Y} )
+    fila.push(make_pair(pos_l, pos_c));  // Adicionar a célula inicial na fila ( {eixo X, eixo Y} )
 
     int c_restantes = 1;  // Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
     int distancia = 0;  // Contador de distância até a célula final
@@ -114,8 +114,8 @@ int bfs() {
         }
 
         for (int i = 0; i < 4; i++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
-            int ll = l + adjL[i];  // Posição Y (linha) da célula a ser visitada
-            int cc = c + adjC[i];  // Posição X (coluna) da célula a ser visitada
+            int ll = l + adj_l[i];  // Posição Y (linha) da célula a ser visitada
+            int cc = c + adj_c[i];  // Posição X (coluna) da célula a ser visitada
 
             if (ll < 0 || cc < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
             if (ll >= L || cc >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)

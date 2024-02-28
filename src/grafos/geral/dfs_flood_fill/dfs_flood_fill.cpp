@@ -27,16 +27,16 @@ char matriz[L][C] = {
     {'#','#','.','.','.','.','#','.','.','.','.','.'}
 };
 
-int adjL[] = {-1,0,1,0};
-int adjC[] = {0,1,0,-1};
+int adj_l[] = {-1,0,1,0};
+int adj_c[] = {0,1,0,-1};
 
 // Função Flood Fill
 void floodFill(int x, int y) {
     matriz[x][y] = 'V';
 
     for (int i = 0; i < 4; i++) {
-        int l = x + adjL[i];
-        int c = y + adjC[i];
+        int l = x + adj_l[i];
+        int c = y + adj_c[i];
 
         if (l >= 0 && c >= 0 && l < L && c < C && matriz[l][c] == '.') {
             floodFill(l, c);

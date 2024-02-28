@@ -23,16 +23,16 @@ matriz = [
     ['#','#','.','.','.','.','#','.','.','.','.','.']
 ]
 
-adjL = (-1,0,1,0)
-adjC = (0,1,0,-1)
+adj_l = (-1,0,1,0)
+adj_c = (0,1,0,-1)
 
 # Função Flood Fill
 def floodFill(x, y):
     matriz[x][y] = 'V'
 
     for i in range(4):
-        l = x + adjL[i]
-        c = y + adjC[i]
+        l = x + adj_l[i]
+        c = y + adj_c[i]
 
         if l >= 0 and c >= 0 and l < L and c < C and matriz[l][c] == '.':
             floodFill(l, c)

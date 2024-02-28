@@ -24,16 +24,16 @@ let matriz = [
     ['#','#','.','.','.','.','#','.','.','.','.','.']
 ];
 
-const adjL = [-1,0,1,0];
-const adjC = [0,1,0,-1];
+const adj_l = [-1,0,1,0];
+const adj_c = [0,1,0,-1];
 
 // Função Flood Fill
 function floodFill(x, y) {
     matriz[x][y] = 'V';
 
     for (let i = 0; i < 4; i++) {
-        let l = x + adjL[i];
-        let c = y + adjC[i];
+        let l = x + adj_l[i];
+        let c = y + adj_c[i];
 
         if (l >= 0 && c >= 0 && l < L && c < C && matriz[l][c] == '.') {
             floodFill(l, c);
