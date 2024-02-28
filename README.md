@@ -21,7 +21,7 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 ### Geral
 
 - [**Depth-first search (componentes conexos em um grafo)**](src/grafos/geral/dfs_componentes_conexos_grafo) **- O(V+E)**
-- Depth-first search e Flood fill (componentes conexos em uma matriz) **- O(N*M)**
+- [**Depth-first search e Flood fill (componentes conexos em uma matriz)**](src/grafos/geral/dfs_flood_fill) **- O(N*M)**
 
 ### Menor caminho
 
