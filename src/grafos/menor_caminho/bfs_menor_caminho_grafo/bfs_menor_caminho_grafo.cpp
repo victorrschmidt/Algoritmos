@@ -22,7 +22,7 @@
 * No final, teremos o array definido com todas as distâncias e, as distâncias 
 * que estiverem ainda como -1 indicam que aquele vértice não é conexo 
 * com o vértice de origem. Assim, podemos verificar a menor distância entre 
-* o vértice de origem e qualquer outro vértice do grafo.
+* o vértice de origem e qualquer outro vértice do grafo em tempo constante.
 *
 * O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
 */

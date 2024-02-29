@@ -6,8 +6,6 @@
 #
 # - Onde N e M são as dimensões da matriz.
 
-# O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
-
 
 L = 10;
 C = 12;

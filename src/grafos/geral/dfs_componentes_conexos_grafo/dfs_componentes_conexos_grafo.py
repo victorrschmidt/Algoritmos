@@ -19,10 +19,10 @@
 # Quando todos os vértices possíveis forem visitados dessa forma, podemos afirmar 
 # que todos pertencem ao mesmo grupo, pois conseguimos chegar até eles de alguma 
 # forma a partir do vértice de origem. Para determinar quais são os vértices que 
-# pertencem a esse grupo, temos um array de inteiros componente[] de tamanho V, 
+# pertencem a esse grupo, temos uma lista de inteiros componente[] de tamanho V, 
 # onde para cada visita iremos armazenar o número do grupo do vértice v em componente[v].
 
-# Para grafos desconexos, temos mais de um grupo, e caso nem todos os vértices
+# Para grafos desconexos temos mais de um grupo e, caso nem todos os vértices
 # tenham sido visitados, iniciaremos outra busca em profundidade a partir do primeiro
 # vértice não visitado na ordem (considerando que os vértices são numerados de 0 até V-1),
 # assim determinando o grupo ao qual todos os vértices do grafo pertencem.

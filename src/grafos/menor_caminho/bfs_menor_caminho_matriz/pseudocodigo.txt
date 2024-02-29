@@ -53,9 +53,9 @@
 # Célula da esquerda = D
 # D(X) = V(X) - 1 e D(Y) = V(Y)
 
-# Podemos armazenar a variação dos valores de X e Y em duas tuplas:
-# x = (-1,0,1,0)
-# y = (0,1,0,-1)
+# Podemos armazenar a variação dos valores de X e Y em dois arrays:
+# x[] = [-1,0,1,0]
+# y[] = [0,1,0,-1]
 
 # Obs: Estamos considerando uma matriz representada por um computador,
 # logo os valores de Y são crescentes de cima para baixo, diferente da
