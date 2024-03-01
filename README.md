@@ -18,7 +18,7 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
 ## Estruturas de dados
 
-- [**set**](src/estruturas_de_dados/set)
+- [**Set**](src/estruturas_de_dados/set)
 
 ## Grafos
 
