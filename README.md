@@ -12,7 +12,7 @@ Este projeto é inspirado no repositório [**Algorithms**](https://github.com/wi
 
 Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
-<img src="https://skillicons.dev/icons?i=cpp,js,py" alt="cpp-javascript-python">
+<img src="https://skillicons.dev/icons?i=cpp,js,py" alt="cplusplus-javascript-python">
 
 # Conteúdo
 
