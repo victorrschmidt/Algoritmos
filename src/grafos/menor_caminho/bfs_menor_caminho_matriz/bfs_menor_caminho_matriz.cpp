@@ -26,11 +26,11 @@
 *
 * Abaixo está a representação de uma célula (meio) e suas adjacências:
 *
-*            | (x, y-1) |
-* -----------------------------------
-*  (x-1, y)  |  (x, y)  |  (x+1, y)  
-* -----------------------------------
-*            | (x, y+1) |
+*             | (x, y-1) |
+* ------------------------------------
+*   (x-1, y)  |  (x, y)  |  (x+1, y)  
+* ------------------------------------
+*             | (x, y+1) |
 *
 * Ou seja, para analisar as células adjacentes, basta alterar o valor de X ou Y.
 * Para a célula de cima, diminuímos o Y em 1.

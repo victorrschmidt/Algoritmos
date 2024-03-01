@@ -2,10 +2,11 @@
 # DEPTH FIRST SEARCH E FLOOD FILL - COMPONENTES CONEXOS EM UMA MATRIZ
 # --------------------------------------------------------------------------------
 
-# Complexidade: O(N*M)
-#
-# - Onde N e M são as dimensões da matriz.
+'''
+Complexidade: O(N*M)
 
+- Onde N e M são as dimensões da matriz.
+'''
 
 L = 10
 C = 12
