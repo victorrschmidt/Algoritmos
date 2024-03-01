@@ -20,8 +20,8 @@ let st = new Set(["cabra", "macaco", "galo"]);
 let st = new Set([null, true, false]);
 // {null, true, false}
 
-// A função recebe um único parâmetro - um objeto iterável, ou seja,
-// os valores devem estar entre colchetes além dos parênteses dentro da função.
+// O construtor recebe um único parâmetro - um objeto iterável, ou seja,
+// os valores devem estar entre colchetes além dos parênteses do construtor.
 // Se colocarmos uma string fora de colchetes, será criado um set com cada char da mesma.
 
 let st = new Set("porco");
@@ -40,7 +40,7 @@ let st = new Set(["rato", "boi", "tigre", "coelho", "serpente"]);
 st.size;
 // 5
 
-// set.has()
+// set.has(v)
 // Retorna true se o elemento v está contido no set, e false em caso contrário
 
 st.has("serpente");

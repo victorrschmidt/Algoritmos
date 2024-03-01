@@ -18,7 +18,7 @@ st = set(("cabra", "macaco", "galo"))
 # {'cabra', 'macaco', 'galo'}
 
 # A função recebe um único parâmetro - um objeto iterável, ou seja,
-# os valores devem estar entre parênteses além dos parênteses dentro da função.
+# os valores devem estar entre parênteses além dos parênteses da função.
 # Se colocarmos uma string fora de parênteses, será criado um set com cada char da mesma.
 
 st = set("porco")
@@ -97,6 +97,9 @@ st.clear()
 # ----------------------------------------
 # Iteração
 # ----------------------------------------
+
+# Para iterar através dos elementos de um set, podemos utilizar
+# o range-based loop, que retorna um iterador do mesmo
 
 # set de exemplo
 st = set((1, 2, 3, 4, 5))
