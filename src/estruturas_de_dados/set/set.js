@@ -1,6 +1,12 @@
 // --------------------------------------------------------------------------------
-// set
+// SET
 // --------------------------------------------------------------------------------
+
+/*
+* Set é uma estrutura de dados utilizada para armazenar um conjunto de elementos distintos 
+* A vantagem do set é que o mesmo permite acessar um elemento arbitrário de um conjunto 
+* em tempo logarítmico, sem precisar iterar todo o objeto.
+*/
 
 // ----------------------------------------
 // Inicialização
