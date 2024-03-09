@@ -11,7 +11,7 @@
 * depois visitar um vértice adjacente a esse e assim sucessivamente, fazendo
 * uma busca em profundidade até chegarmos em um "beco sem saída". Quando não
 * houver mais vértices para visitar, iremos voltar ao vértice que estava sendo 
-* visitado anteriormente (backtracking) e procurar outro vértice para visitar.
+* visitado inicialmente (backtracking) e procurar outro vértice para visitar.
 *
 * O algoritmo utiliza recursividade, onde a função chama a si mesma conforme
 * visitamos outros vértices, colocando as chamadas mais antigas em uma prioridade
