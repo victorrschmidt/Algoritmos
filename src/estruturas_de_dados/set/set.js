@@ -40,11 +40,13 @@ let st = new Set("porco");
 // set de exemplo
 let st = new Set(["rato", "boi", "tigre", "coelho", "serpente"]);
 
+
 // set.size
 // Retorna o número de elementos contidos no set
 
 st.size;
 // 5
+
 
 // set.has(v)
 // Retorna true se o elemento v está contido no set, e false em caso contrário
@@ -55,17 +57,20 @@ st.has("serpente");
 st.has("cavalo");
 // false
 
+
 // set.add(v)
 // Adiciona o elemento v ao set
 
 st.add("dragão");
 // {'rato', 'boi', 'tigre', 'coelho', 'serpente', 'dragão'}
 
+
 // set.delete(v)
 // Remove o elemento v se o mesmo existir no set
 
 st.delete("tigre");
 // {'rato', 'boi', 'coelho', 'serpente'}
+
 
 // set.clear()
 // Remove todos os elementos do set

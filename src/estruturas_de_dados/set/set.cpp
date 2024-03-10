@@ -26,7 +26,7 @@ set<int> st({1, 2, 3});
 // {1, 2, 3}
 
 set<string> st({"cabra", "macaco", "galo"});
-// {'cabra', 'macaco', 'galo'}
+// {"cabra", "macaco", "galo"}
 
 set<bool> st({true, false});
 // {1, 0}
@@ -41,11 +41,13 @@ set<bool> st({true, false});
 // set de exemplo
 set<string> st({"rato", "boi", "tigre", "coelho", "serpente"});
 
+
 // set.size()
 // Retorna o número de elementos contidos no set
 
 st.size();
 // 5
+
 
 // set.contains(v)
 // Retorna true se o elemento v está contido no set, e false em caso contrário
@@ -56,17 +58,20 @@ st.contains("serpente");
 st.contains("cavalo");
 // false
 
+
 // set.insert(v)
 // Adiciona o elemento v ao set
 
 st.insert("dragão");
-// {'rato', 'boi', 'tigre', 'coelho', 'serpente', 'dragão'}
+// {"rato", "boi", "tigre", "coelho", "serpente", "dragão"}
+
 
 // set.erase(v)
 // Remove o elemento v se o mesmo existir no set
 
 st.erase("tigre");
-// {'rato', 'boi', 'coelho', 'serpente'}
+// {"rato", "boi", "coelho", "serpente"}
+
 
 // set.clear()
 // Remove todos os elementos do set

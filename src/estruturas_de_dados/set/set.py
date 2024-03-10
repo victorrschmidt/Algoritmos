@@ -30,6 +30,7 @@ st = set(("cabra", "macaco", "galo"))
 st = set("porco")
 # {'p', 'o', 'r', 'c'}
 
+
 # Colocando os valores entre chaves
 
 st = {1, 2, 3}
@@ -52,13 +53,15 @@ type(st)
 # set de exemplo
 st = set(("rato", "boi", "tigre", "coelho", "serpente"))
 
-# len(st)
+
+# len(set)
 # Retorna o número de elementos contidos no set
 
 len(st)
 # 5
 
-# v in st
+
+# v in set
 # Retorna True se o elemento v está contido no set, e False em caso contrário
 
 "serpente" in st
@@ -67,7 +70,8 @@ len(st)
 "cavalo" in st
 # False
 
-# v not in st
+
+# v not in set
 # Retorna True se o elemento não está contido no set, e False em caso contrário
 
 "cavalo" not in st
@@ -76,11 +80,13 @@ len(st)
 "serpente" not in st
 # False
 
+
 # set.add(v)
 # Adiciona o elemento v ao set
 
 st.add("dragão")
 # {'rato', 'boi', 'tigre', 'coelho', 'serpente', 'dragão'}
+
 
 # set.remove(v)
 # Remove o elemento v do set. Se o elemento não existe dentro no set, é levantado um KeyError
@@ -88,11 +94,13 @@ st.add("dragão")
 st.remove("dragão")
 # {'rato', 'boi', 'tigre', 'coelho', 'serpente'}
 
+
 # set.discard(v)
 # Remove o elemento v se o mesmo existir no set
 
 st.discard("tigre")
 # {'rato', 'boi', 'coelho', 'serpente'}
+
 
 # set.clear()
 # Remove todos os elementos do set
