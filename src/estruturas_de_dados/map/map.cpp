@@ -18,7 +18,7 @@
 // Utilizando o construtor map<tipo_de_dado_chave, tipo_de_dado_valor>
 
 map<int, int> mp;
-map<char, int> mp
+map<char, int> mp;
 map<string, string> mp;
 
 map<string, int> mp = {{"um", 2}, {"dois", 2}, {"tres", 3}};

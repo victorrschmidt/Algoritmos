@@ -56,7 +56,7 @@ mp.set("roku", 6);
 // map.get(chave)
 // Retorna o valor atribuído a chave
 
-mp.get("ichi")
+mp.get("ichi");
 // 1
 
 
