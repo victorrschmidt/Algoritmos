@@ -118,7 +118,7 @@ list(dt)
 # dict de exemplo
 dt = {"bulbassauro": 1, "charmander": 4, "squirtle": 7}
 
-for [chave, valor] in dt.items():
+for chave, valor in dt.items():
     print(f"{chave}: {valor}")
 
 # bulbassauro: 1
