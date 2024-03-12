@@ -3,10 +3,10 @@
 // --------------------------------------------------------------------------------
 
 /*
-* Map é uma estrutura de dados utilizada para armazenar um conjunto de elementos que
-* podem ser acessados através de suas respectivas chaves. Essa função de acesso é conhecida
-* como função hash. A vantagem do map é que o mesmo permite atribuir uma informação à uma
-* chave de acesso de um tipo arbitrário (número, string, boolean).
+Map é uma estrutura de dados utilizada para armazenar um conjunto de elementos que
+podem ser acessados através de suas respectivas chaves. Essa função de acesso é conhecida
+como função hash. A vantagem do map é que o mesmo permite atribuir uma informação à uma
+chave de acesso de um tipo arbitrário (número, string, boolean).
 */
 
 #include <map>  // É necessário incluir a biblioteca homônima
@@ -20,6 +20,7 @@
 map<int, int> mp;
 map<char, int> mp;
 map<string, string> mp;
+// {}
 
 map<string, int> mp = {{"um", 2}, {"dois", 2}, {"tres", 3}};
 // {"um": 1, "dois": 2, "tres": 3}
