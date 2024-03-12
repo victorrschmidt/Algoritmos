@@ -18,6 +18,7 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
 ## Estruturas de dados
 
+- [**Fila**](src/estruturas_de_dados/fila)
 - [**Set**](src/estruturas_de_dados/set)
 - [**Map**](src/estruturas_de_dados/map)
 
