@@ -3,32 +3,32 @@
 // --------------------------------------------------------------------------------
 
 /*
-* Complexidade: O(V+E)
-*
-* - Onde V e E são, respectivamente, a quantidade de vértices e arestas do grafo.
-* 
-* A ideia do algoritmo é visitar um vértice adjacente ao vértice de origem, 
-* depois visitar um vértice adjacente a esse e assim sucessivamente, fazendo
-* uma busca em profundidade até chegarmos em um "beco sem saída". Quando não
-* houver mais vértices para visitar, iremos voltar ao vértice que estava sendo 
-* visitado inicialmente (backtracking) e procurar outro vértice para visitar.
-*
-* O algoritmo utiliza recursividade, onde a função chama a si mesma conforme
-* visitamos outros vértices, colocando as chamadas mais antigas em uma prioridade
-* menor, priorizando as chamadas mais recentes.
-*
-* Quando todos os vértices possíveis forem visitados dessa forma, podemos afirmar 
-* que todos pertencem ao mesmo grupo, pois conseguimos chegar até eles de alguma 
-* forma a partir do vértice de origem. Para determinar quais são os vértices que 
-* pertencem a esse grupo, temos um array de inteiros componente[] de tamanho V, 
-* onde para cada visita iremos armazenar o número do grupo do vértice v em componente[v].
-*
-* Para grafos desconexos temos mais de um grupo e, caso nem todos os vértices
-* tenham sido visitados, iniciaremos outra busca em profundidade a partir do primeiro
-* vértice não visitado na ordem (considerando que os vértices são numerados de 0 até V-1),
-* assim determinando o grupo ao qual todos os vértices do grafo pertencem.
-*
-* O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
+Complexidade: O(V+E)
+
+- Onde V e E são, respectivamente, a quantidade de vértices e arestas do grafo.
+
+A ideia do algoritmo é visitar um vértice adjacente ao vértice de origem, 
+depois visitar um vértice adjacente a esse e assim sucessivamente, fazendo
+uma busca em profundidade até chegarmos em um "beco sem saída". Quando não
+houver mais vértices para visitar, iremos voltar ao vértice que estava sendo 
+visitado inicialmente (backtracking) e procurar outro vértice para visitar.
+
+O algoritmo utiliza recursividade, onde a função chama a si mesma conforme
+visitamos outros vértices, colocando as chamadas mais antigas em uma prioridade
+menor, priorizando as chamadas mais recentes.
+
+Quando todos os vértices possíveis forem visitados dessa forma, podemos afirmar 
+que todos pertencem ao mesmo grupo, pois conseguimos chegar até eles de alguma 
+forma a partir do vértice de origem. Para determinar quais são os vértices que 
+pertencem a esse grupo, temos um array de inteiros componente[] de tamanho V, 
+onde para cada visita iremos armazenar o número do grupo do vértice v em componente[v].
+
+Para grafos desconexos temos mais de um grupo e, caso nem todos os vértices
+tenham sido visitados, iniciaremos outra busca em profundidade a partir do primeiro
+vértice não visitado na ordem (considerando que os vértices são numerados de 0 até V-1),
+assim determinando o grupo ao qual todos os vértices do grafo pertencem.
+
+O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
 */
 
 #include <bits/stdc++.h>
