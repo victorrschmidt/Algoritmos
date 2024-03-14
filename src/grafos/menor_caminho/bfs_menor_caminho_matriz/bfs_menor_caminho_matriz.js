@@ -95,9 +95,8 @@ function bfs() {
     let distancia = 0;  // Contador de distância até a célula final
 
     while (fila.length) {  // Iteração para cada célula na fila
-        let l = fila[0][0];  // Pegar a posição Y (linha) da célula
-        let c = fila[0][1];  // Pegar a posição X (coluna) da célula
-        fila.shift();  // Remover a célula da fila
+        let [l, c] = fila.shift();  // Pegar a posição Y (linha) da célula e a posição X (coluna) da célula
+        // Remover a célula da fila
 
         if (matriz[l][c] == 'F') {  // Se essa célula é a célula final
             return distancia;  // Retornar a distância entre a célula inicial e final

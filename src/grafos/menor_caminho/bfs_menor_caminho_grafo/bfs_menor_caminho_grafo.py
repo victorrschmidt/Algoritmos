@@ -27,6 +27,8 @@ o vértice de origem e qualquer outro vértice do grafo em tempo constante.
 O grafo utilizado de exemplo está no mesmo diretório deste arquivo.
 '''
 
+from queue import Queue
+
 VERT = 13  # Número de vértices do grafo de exemplo
 
 grafo = [  # Lista de adjacências do grafo de exemplo
@@ -54,26 +56,25 @@ def bfs(origem):
     visitado = [False for i in range(VERT)]  # Lista de vértices visitados (todos os elementos inicializados como 'False')
     visitado[origem] = True  # Definir o vértice de origem como 'visitado'
 
-    fila = []  # Fila para verificar as adjacências de cada vértice explorado
-    fila.append(origem)  # Adicionar o vértice de origem à fila
+    fila = Queue()  # Fila para verificar as adjacências de cada vértice explorado
+    fila.put(origem)  # Adicionar o vértice de origem à fila
 
     v_restantes = 1  # Vértices restantes na camada de busca (inicialmente só com o vértice de origem). Será utilizado para determinar o número de vértices em cada camada de busca
     distancia = 1  # Distância até os outros vértices, inicialmente 1 (1° camada de busca)
 
-    while len(fila):  # Iteração para cada vértice na fila
-        v = fila[0]  # Pegar o último vértice
-        fila.pop(0)  # Removê-lo da fila
+    while not fila.empty():  # Iteração para cada vértice na fila
+        v = fila.get()  # Pegar o último vértice e removê-lo da fila
 
         for u in grafo[v]:  # Iteração para cada vértice adjacente à 'v'
             if not visitado[u]:  # Se o vértice u não foi visitado
                 visitado[u] = True  # Agora visitamos esse vértice
-                fila.append(u)  # Adicioná-lo à fila
+                fila.put(u)  # Adicioná-lo à fila
                 dist[u] = distancia  # Definir a distância até esse vértice
             
         v_restantes -= 1  # Diminuir o número de vértices na camada de busca
         
         if v_restantes == 0:  # Se foram analisados todos os vértices nessa camada de busca
-            v_restantes = len(fila)  # A próxima camada de busca tem todos os vértices na próxima camada (tamanho atual da fila)
+            v_restantes = fila.qsize()  # A próxima camada de busca tem todos os vértices na próxima camada (tamanho atual da fila)
             distancia += 1  # Como teremos que analisar outra camada de busca, a distância aumenta em 1
         
 bfs(0)  # dist = [0, 2, 2, 2, 3, 3, 1, 1, 3, 4, 5, 4, 3]

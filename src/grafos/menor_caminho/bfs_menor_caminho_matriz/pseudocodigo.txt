@@ -85,7 +85,7 @@ funcao bfs() {
     adj_l = [-1,0,1,0];
     adj_c = [0,1,0,-1];
 
-    visitado = [[false, ..., false], ..., [false, ... false]]  # Array de tamanho L, contendo arrays de tamanho C que contém 'false'
+    visitado = [[false, ..., false], ..., [false, ... false]];  # Array de tamanho L, contendo arrays de tamanho C que contém 'false'
     visitado[pos_l][pos_c] = true;
 
     fila = [];
