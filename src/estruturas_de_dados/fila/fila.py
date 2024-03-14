@@ -41,50 +41,43 @@ cabeça         cauda
 *Adicionar o 1 na fila.
 '''
 
-from queue import Queue  # É necessário importar o namespace Queue do módulo queue
+from collections import deque  # É necessário importar o namespace deque do módulo collections
 
 # ----------------------------------------
 # Inicialização
 # ----------------------------------------
 
-# Utilizando o construtor Queue()
+# Utilizando o construtor deque()
 
-q = Queue()
+q = deque()
 # []
 
 # ----------------------------------------
 # Métodos
 # ----------------------------------------
 
-# queue de exemplo
-q = Queue()
+# deque de exemplo
+q = deque()
 
 
-# queue.qsize()
+# len(deque)
 # Retorna a quantidade de elementos presentes na fila
 
-q.qsize()
+len(q)
 # 0
 
 
-# queue.empty()
-# Retorna True se a fila estiver vazia (queue.qsize() == 0), e False em caso contrário
-
-q.empty()
-# True
-
-
-# queue.put(item)
+# deque.append(item)
 # Adiciona o item à fila (cauda)
 
-q.put(1)
+q.append(1)
 # [1]
 
 
-# q.get()
+# deque.popleft()
 # Remove e retorna o elemento prioritário (cabeça) da fila
 
-q.get()
+q.popleft()
 # 1
 
 # ----------------------------------------
@@ -94,16 +87,16 @@ q.get()
 # Iterar através de uma fila consiste em acessar seus elementos utilizando seus métodos.
 
 # queue de exemplo
-q = Queue()
+q = deque()
 
-q.put(5)
-q.put(2)
-q.put(3)
-q.put(1)
-q.put(4)
+q.append(5)
+q.append(2)
+q.append(3)
+q.append(1)
+q.append(4)
 
-while not q.empty():
-    print(q.get())
+while len(q):
+    print(q.popleft())
 
 # 5
 # 2
