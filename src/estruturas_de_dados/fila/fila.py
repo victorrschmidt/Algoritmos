@@ -39,6 +39,10 @@ cabeça         cauda
 (head)         (tail)
 
 *Adicionar o 1 na fila.
+
+
+Em Python, é recomendado utilizar a estrutura "deque" para implementar uma fila, por ser
+mais rápida e eficiente.
 '''
 
 from collections import deque  # É necessário importar o namespace deque do módulo collections
@@ -56,7 +60,7 @@ q = deque()
 # Métodos
 # ----------------------------------------
 
-# deque de exemplo
+# queue de exemplo
 q = deque()
 
 

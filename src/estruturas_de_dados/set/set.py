@@ -113,7 +113,7 @@ st.clear()
 # ----------------------------------------
 
 # Para iterar através dos elementos de um set, podemos utilizar
-# o range-based loop, que retorna um iterador do mesmo
+# o range-based loop, que retorna um iterador do mesmo.
 
 # set de exemplo
 st = set((1, 2, 3, 4, 5))

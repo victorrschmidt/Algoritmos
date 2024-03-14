@@ -6,7 +6,8 @@
 Map é uma estrutura de dados utilizada para armazenar um conjunto de elementos que
 podem ser acessados através de suas respectivas chaves. Essa função de acesso é conhecida
 como função hash. A vantagem do map é que o mesmo permite atribuir uma informação à uma
-chave de acesso de um tipo arbitrário (número, string, boolean).
+chave de acesso de um tipo arbitrário (número, string, boolean), facilitando a associação
+entre duas informações distintas.
 */
 
 #include <map>  // É necessário incluir a biblioteca homônima
@@ -28,8 +29,7 @@ map<string, int> mp = {{"um", 2}, {"dois", 2}, {"tres", 3}};
 map<int, int> mp = {{1, 10}, {2, 20}, {3, 30}};
 // {1: 10, 2: 20, 3: 30}
 
-// Um map só pode possuir chaves de um único de tipo de dado e
-// valores de um único tipo de dado
+// Um map só pode possuir chaves de um único de tipo de dado e valores de um único tipo de dado
 
 // ----------------------------------------
 // Métodos
@@ -54,7 +54,7 @@ mp.empty();
 
 
 // map[chave]
-// Retorna o valor atribuído a chave
+// Retorna o valor atribuído à chave
 
 mp["ichi"];
 // 1

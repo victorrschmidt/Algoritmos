@@ -31,7 +31,7 @@ set<string> st({"cabra", "macaco", "galo"});
 set<bool> st({true, false});
 // {1, 0}
 
-// O construtor só pode receber um único parâmetro - uma lista de elementos, ou seja,
+// O construtor pode receber um único parâmetro - uma lista de elementos, ou seja,
 // os valores devem estar entre chaves além dos parênteses do construtor.
 
 // ----------------------------------------
@@ -84,7 +84,7 @@ st.clear();
 // ----------------------------------------
 
 // Para iterar através dos elementos de um set, podemos utilizar 
-// o range-based loop, que retorna um iterador do mesmo
+// o range-based loop, que retorna um iterador do mesmo.
 
 // set de exemplo
 set<int> st({1, 2, 3, 4, 5});
