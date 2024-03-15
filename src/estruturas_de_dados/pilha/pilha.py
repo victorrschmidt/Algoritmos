@@ -38,6 +38,10 @@ Para adicionar um novo elemento, enfileiramos o mesmo (push).
               (top)
 
 *Adicionar o 5 na pilha.
+
+
+Em Python, é recomendado utilizar a estrutura "deque" para implementar uma fila, por ser
+mais rápida e eficiente.
 '''
 
 from collections import deque
@@ -46,10 +50,59 @@ from collections import deque
 # Inicialização
 # ----------------------------------------
 
+# Utilizando o construtor deque()
+
+stk = deque()
+# []
+
 # ----------------------------------------
 # Métodos
 # ----------------------------------------
 
+# stack de exemplo
+stk = deque()
+
+
+# len(deque)
+# Retorna a quantidade de elementos presentes na pilha
+
+len(stk)
+# 0
+
+
+# deque.append(item)
+# Adiciona o item à pilha (topo)
+
+stk.append(1)
+# [1]
+
+
+# deque.pop()
+# Remove e retorna o elemento prioritário (topo) da pilha
+
+stk.pop()
+# 1
+
 # ----------------------------------------
 # Iteração
 # ----------------------------------------
+
+# Iterar através de uma pilha consiste em acessar seus elementos utilizando seus métodos.
+
+# stack de exemplo
+stk = deque()
+
+stk.append(5)
+stk.append(2)
+stk.append(3)
+stk.append(1)
+stk.append(4)
+
+while len(stk):
+    print(stk.pop())
+
+# 4
+# 1
+# 3
+# 2
+# 5
