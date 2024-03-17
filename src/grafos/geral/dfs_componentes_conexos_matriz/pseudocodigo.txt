@@ -98,9 +98,11 @@ funcao floodFill(x, y) {
         l = x + adj_l[i];
         c = y + adj_c[i];
 
-        if (l >= 0 && c >= 0 && l < L && c < C && matriz[l][c] == '.') {
-            floodFill(l, c);
-        }
+        if (l < 0 or c < 0) continue;
+        if (l >= L or c >= C) continue;
+        if (matriz[l][c] == '#') continue;
+
+        floodFill(l, c);
     }
 
 }

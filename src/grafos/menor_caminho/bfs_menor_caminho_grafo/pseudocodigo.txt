@@ -65,7 +65,7 @@ funcao bfs(origem) {
         v = fila[0];
         fila.pop();  # Remover elemento mais antigo
 
-        for (u em grafo[v]) {
+        for (u in grafo[v]) {
             if (!visitado[u]) {
                 visitado[u] = true;
                 fila.push(u);

@@ -105,8 +105,7 @@ int bfs() {
     int distancia = 0;  // Contador de distância até a célula final
 
     while (!fila.empty()) {  // Iteração para cada célula na fila
-        int l = fila.front().first;  // Pegar a posição Y (linha) da célula
-        int c = fila.front().second;  // Pegar a posição X (coluna) da célula
+        auto [l, c] = fila.front();  // Pegar a posição Y (linha) da célula e a posição X (coluna) da célula
         fila.pop();  // Remover a célula da fila
 
         if (matriz[l][c] == 'F') {  // Se essa célula é a célula final

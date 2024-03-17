@@ -57,7 +57,7 @@ funcao dfs(v) {
     visitado[v] = true;
     componente[v] = id;
 
-    for (u em grafo[v]) {
+    for (u in grafo[v]) {
         if (!visitado[u]) {
             dfs(u);
         }

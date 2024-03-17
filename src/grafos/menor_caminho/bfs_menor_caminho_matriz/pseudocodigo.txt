@@ -107,8 +107,8 @@ funcao bfs() {
             ll = l + adj_l[i];
             cc = c + adj_c[i];
 
-            if (ll < 0 || cc < 0) continue;
-            if (ll >= L || cc >= C) continue;
+            if (ll < 0 or cc < 0) continue;
+            if (ll >= L or cc >= C) continue;
             if (visitado[ll][cc]) continue;
             if (matriz[ll][cc] == '#') continue;
 
