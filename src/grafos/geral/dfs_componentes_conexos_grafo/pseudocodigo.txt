@@ -53,7 +53,7 @@ componente = [];  # Tamanho = VERT
 visitado = [false, ..., false];  # Tamanho = VERT
 
 # Função dfs
-funcao dfs(v) {
+void dfs(v) {
     visitado[v] = true;
     componente[v] = id;
 
@@ -66,7 +66,7 @@ funcao dfs(v) {
 }
 
 # Função para identificar os vértices
-function encontrarComponentes() {
+void encontrarComponentes() {
     for (i = 0; i < VERT; i++) {
         if (!visitado[i]) {
             id++;

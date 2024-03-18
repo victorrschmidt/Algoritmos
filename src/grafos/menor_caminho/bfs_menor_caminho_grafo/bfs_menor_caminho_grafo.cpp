@@ -47,6 +47,7 @@ vector<int> grafo[VERT] = {  // Lista de adjacências do grafo de exemplo
     {10,12},
     {1,11}
 };
+
 int dist[VERT];  // Array para armazenar a distância do vértice de origem até os outros vértices
 
 // Função bfs

@@ -91,7 +91,7 @@ adj_l = [-1,0,1,0];
 adj_c = [0,1,0,-1];
 
 # Função Flood Fill
-funcao floodFill(x, y) {
+void floodFill(x, y) {
     matriz[x][y] = 'V';
 
     for (i = 0; i < 4; i++) {

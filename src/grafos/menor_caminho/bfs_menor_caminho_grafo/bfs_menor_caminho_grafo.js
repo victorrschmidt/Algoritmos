@@ -44,6 +44,7 @@ let grafo = [  // Lista de adjacências do grafo de exemplo
     [10,12],
     [1,11]
 ];
+
 let dist = Array(VERT);  // Array para armazenar a distância do vértice de origem até os outros vértices
 
 // Função bfs
