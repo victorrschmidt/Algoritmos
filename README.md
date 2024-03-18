@@ -29,16 +29,16 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
 ### Geral
 
-- [**Depth-first search (componentes conexos em um grafo)**](src/grafos/geral/dfs_componentes_conexos_grafo) **- O(V+E)**
-- [**Depth-first search e Flood fill (componentes conexos em uma matriz)**](src/grafos/geral/dfs_componentes_conexos_matriz) **- O(N*M)**
+- [**Depth-first search (componentes conexos em um grafo)**](src/grafos/geral/dfs_componentes_conexos_grafo) **- O(v+e)**
+- [**Depth-first search e Flood fill (componentes conexos em uma matriz)**](src/grafos/geral/dfs_componentes_conexos_matriz) **- O(n*m)**
 
 ### Menor caminho
 
-- [**Breadth-first search (menor caminho em um grafo não valorado)**](src/grafos/menor_caminho/bfs_menor_caminho_grafo) **- O(V+E)**
-- [**Breadth-first search (menor caminho em uma matriz)**](src/grafos/menor_caminho/bfs_menor_caminho_matriz) **- O(N*M)**
+- [**Breadth-first search (menor caminho em um grafo não valorado)**](src/grafos/menor_caminho/bfs_menor_caminho_grafo) **- O(v+e)**
+- [**Breadth-first search (menor caminho em uma matriz)**](src/grafos/menor_caminho/bfs_menor_caminho_matriz) **- O(n*m)**
 
 ## Matemática
 
 ### Números primos
 
-- [**Teste de primalidade**](src/matematica/numeros_primos/primalidade) **- O(√N)**
+- [**Teste de primalidade**](src/matematica/numeros_primos/primalidade) **- O(√n)**
