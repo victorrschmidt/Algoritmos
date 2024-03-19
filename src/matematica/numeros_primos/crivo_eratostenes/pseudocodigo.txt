@@ -8,8 +8,12 @@ Complexidade: O(n*log(log(n)))
 - Onde n é o número limite a ser considerado
 */
 
+/**
+ * @param {number} n
+ * @return {boolean[]}
+ */
 function crivo(n) {
-    primos = [true, ..., true]  # Tamanho = n+1
+    primos = [true, ..., true];  // Tamanho = n+1
 
     primos[0] = primos[1] = false;
 

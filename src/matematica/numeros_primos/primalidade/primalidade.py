@@ -27,7 +27,6 @@ intervalo [2, √n]. Em caso negativo, o número é primo.
 
 from math import sqrt  # Importar a função sqrt (raiz quadrada)
 
-# Função
 def primo(n):
     if n < 2:  # Caso especial: um número para ser primo precisa ser maior que 1
         return False

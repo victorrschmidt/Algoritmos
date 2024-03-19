@@ -15,7 +15,7 @@ vector<bool> crivo(int n) {
     vector<bool> primos(n+1);
     fill(primos.begin(), primos.end(), true);
 
-    primos[0] = primos[1] = false;
+    primos[0] = primos[1] = false;  // Casos especiais: 0 e 1 não são primos
 
     int p = 2;
 

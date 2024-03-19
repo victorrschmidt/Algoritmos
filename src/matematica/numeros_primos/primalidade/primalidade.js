@@ -25,7 +25,6 @@ O teste de primalidade é um algoritmo que verifica se um dado número n possui 
 intervalo [2, √n]. Em caso negativo, o número é primo.
 */
 
-// Função
 function primo(n) {
     if (n < 2) {  // Caso especial: um número para ser primo precisa ser maior que 1
         return false;

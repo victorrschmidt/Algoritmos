@@ -28,7 +28,6 @@ intervalo [2, √n]. Em caso negativo, o número é primo.
 #include <bits/stdc++.h>
 using namespace std;
 
-// Função
 bool primo(int n) {
     if (n < 2) {  // Caso especial: um número para ser primo precisa ser maior que 1
         return false;

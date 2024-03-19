@@ -49,11 +49,13 @@ grafo = [
 ];
 
 id = 0;
-componente = [];  # Tamanho = VERT
-visitado = [false, ..., false];  # Tamanho = VERT
+componente = [];  // Tamanho = VERT
+visitado = [false, ..., false];  // Tamanho = VERT
 
-# Função dfs
-void dfs(v) {
+/**
+ * @param {number} v
+ */
+function dfs(v) {
     visitado[v] = true;
     componente[v] = id;
 
@@ -65,8 +67,7 @@ void dfs(v) {
 
 }
 
-# Função para identificar os vértices
-void encontrarComponentes() {
+function encontrarComponentes() {
     for (i = 0; i < VERT; i++) {
         if (!visitado[i]) {
             id++;
