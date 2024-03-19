@@ -3,9 +3,9 @@
 # --------------------------------------------------------------------------------
 
 '''
-Complexidade: O(N*M)
+Complexidade: O(n*m)
 
-- Onde N e M são as dimensões da matriz.
+- Onde n e m são as dimensões da matriz.
 
 Temos o seguinte problema: Estamos presos em uma caverna, começando na posição inicial 'C', e 
 queremos determinar o menor número de passos necessários para chegar até a saída da caverna 'F'.

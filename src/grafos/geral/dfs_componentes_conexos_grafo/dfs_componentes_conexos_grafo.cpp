@@ -3,9 +3,9 @@
 // --------------------------------------------------------------------------------
 
 /*
-Complexidade: O(V+E)
+Complexidade: O(v+e)
 
-- Onde V e E são, respectivamente, a quantidade de vértices e arestas do grafo.
+- Onde v e 'e' são, respectivamente, a quantidade de vértices e arestas do grafo.
 
 A ideia do algoritmo é visitar um vértice adjacente ao vértice de origem, 
 depois visitar um vértice adjacente a esse e assim sucessivamente, fazendo

@@ -3,9 +3,9 @@
 // --------------------------------------------------------------------------------
 
 /*
-Complexidade: O(N*M)
+Complexidade: O(n*m)
 
-- Onde N e M são as dimensões da matriz.
+- Onde n e m são as dimensões da matriz.
 
 Flood fill - preenchimento por inundação é um algoritmo utilizado para determinar
 a conectividade entre vértices de um grafo a partir de um vértice de origem e, 
