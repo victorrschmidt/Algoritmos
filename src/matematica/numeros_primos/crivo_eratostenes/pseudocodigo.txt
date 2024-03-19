@@ -1,0 +1,29 @@
+// --------------------------------------------------------------------------------
+// CRIVO DE ERATÓSTENES
+// --------------------------------------------------------------------------------
+
+/*
+Complexidade: O(n*log(log(n)))
+
+- Onde n é o número limite a ser considerado
+*/
+
+function crivo(n) {
+    primos = [true, ..., true]  # Tamanho = n+1
+
+    primos[0] = primos[1] = false;
+
+    p = 2;
+
+    while (p * p <= n) {
+        if (primos[p]) {
+            for (i = p * p; i <= n; i += p) {
+                primos[i] = false;
+            }
+        }
+
+        p++;
+    }
+
+    return primos;
+}

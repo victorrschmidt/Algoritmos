@@ -42,3 +42,4 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 ### Números primos
 
 - [**Teste de primalidade**](src/matematica/numeros_primos/primalidade) **- O(√n)**
+- [**Crivo de Eratóstenes**](src/matematica/numeros_primos/crivo_eratostenes) **- O(n*log(log(n)))**
