@@ -103,7 +103,7 @@ function floodFill(x, y) {
 
         if (l < 0 or c < 0) continue;
         if (l >= L or c >= C) continue;
-        if (matriz[l][c] == '#') continue;
+        if (matriz[l][c] != '.') continue;
 
         floodFill(l, c);
     }

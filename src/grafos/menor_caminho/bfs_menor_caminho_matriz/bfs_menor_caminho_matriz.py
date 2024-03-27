@@ -96,7 +96,7 @@ def bfs():
     c_restantes = 1  # Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
     distancia = 0  # Contador de distância até a célula final
 
-    while len(fila):  # Iteração para cada célula na fila
+    while fila:  # Iteração para cada célula na fila
         l, c = fila.popleft()  # Pegar a posição Y (linha) da célula e a posição X (coluna) da célula
         # Remover a célula da fila
 

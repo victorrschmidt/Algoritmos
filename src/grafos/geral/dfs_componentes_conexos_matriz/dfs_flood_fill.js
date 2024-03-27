@@ -100,7 +100,7 @@ function floodFill(x, y) {
 
         if (l < 0 || c < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
         if (l >= L || c >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
-        if (matriz[l][c] == '#') continue;  // Se a célula não é modificável (#)
+        if (matriz[l][c] != '.') continue;  // Se a célula não é um espaço em branco '.'
 
         // Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 

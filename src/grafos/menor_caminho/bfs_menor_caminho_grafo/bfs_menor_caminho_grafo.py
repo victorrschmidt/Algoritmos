@@ -62,7 +62,7 @@ def bfs(origem):
     v_restantes = 1  # Vértices restantes na camada de busca (inicialmente só com o vértice de origem). Será utilizado para determinar o número de vértices em cada camada de busca
     distancia = 1  # Distância até os outros vértices, inicialmente 1 (1° camada de busca)
 
-    while len(fila):  # Iteração para cada vértice na fila
+    while fila:  # Iteração para cada vértice na fila
         v = fila.popleft()  # Pegar o último vértice e removê-lo da fila
 
         for u in grafo[v]:  # Iteração para cada vértice adjacente à 'v'

@@ -102,7 +102,7 @@ def floodFill(x, y):
             continue
         if l >= L or c >= C:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
             continue
-        if matriz[l][c] == '#':  # Se a célula não é modificável (#)
+        if matriz[l][c] != '.':  # Se a célula não é um espaço em branco '.'
             continue
 
         # Se qualquer uma das condições acima for verdadeira, a iteração reinicia
