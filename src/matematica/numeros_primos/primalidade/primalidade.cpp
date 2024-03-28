@@ -7,13 +7,13 @@ Complexidade: O(√n)
 
 - Onde n é o número a ser verificado.
 
-Um número primo é um número natural maior que 1 que só é divisível por 1 e por ele mesmo. 
+Um número primo é um número natural maior que 1 que só é divisível por 1 e por ele mesmo.
 Em contrapartida, um número composto é um número natural maior que 1 e que possui um ou mais
 divisores, além do 1 e ele mesmo.
 
 Uma das propriedades dos números compostos (n) é que estes podem ser representados pelo produto
 a * b onde a, b < n. Esta propriedade se confirma pelo fato de que, como mostrado anteriormente,
-todo número composto possui pelo menos um divisor (fator) que não seja o 1 ou ele mesmo. 
+todo número composto possui pelo menos um divisor (fator) que não seja o 1 ou ele mesmo.
 Além disso, ou a ou b tem que ser menor ou igual a √n, pois √n * √n = n.
 
 Tendo isso em mente, para um número ser considerado composto, este deve possuir pelo menos um
