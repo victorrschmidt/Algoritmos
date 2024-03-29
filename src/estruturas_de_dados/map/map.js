@@ -26,7 +26,7 @@ let mp = new Map([[1, 10], [2, 20], [3, 30]]);
 // {1: 10, 2: 20, 3: 30}
 
 // Em Javascript, o map é semelhante a um objeto. Ambos possuem atribuição e acesso
-// de valores através da função hash. Porém, o objeto não é performático para adicionar e 
+// de valores através da função hash. Porém, o objeto não é performático para adicionar e
 // remover chaves, além de não possuir os métodos de um map.
 
 // Para ver as diferenças entre map e objeto, acesse o link abaixo:
@@ -88,7 +88,7 @@ mp.clear();
 // Iteração
 // ----------------------------------------
 
-// Para iterar através dos elementos de um map, podemos utilizar 
+// Para iterar através dos elementos de um map, podemos utilizar
 // o método map.entries(), que retorna um iterador do mesmo. Cada elemento
 // do iterador será um array no formato [chave, valor].
 

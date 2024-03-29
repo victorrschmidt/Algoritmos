@@ -59,9 +59,9 @@ mp.empty();
 mp["ichi"];
 // 1
 
-// Também é possível fazer atribuição e incremento dessa forma
+// Também é possível fazer atribuição dessa forma
 dt["ichi"] = 2;
-dt["ichi"]++;
+dt["ichi"]--;
 
 
 // map.count(chave)
@@ -91,7 +91,7 @@ mp.clear();
 // Iteração
 // ----------------------------------------
 
-// Para iterar através dos elementos de um map, podemos utilizar 
+// Para iterar através dos elementos de um map, podemos utilizar
 // o range-based loop, que retorna um iterador do mesmo. Cada elemento
 // do iterador será um pair no formato {chave, valor}.
 

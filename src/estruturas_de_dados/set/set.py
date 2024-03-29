@@ -3,8 +3,8 @@
 # --------------------------------------------------------------------------------
 
 '''
-Set é uma estrutura de dados utilizada para armazenar um conjunto de elementos distintos. 
-A vantagem do set é que o mesmo permite acessar um elemento arbitrário em seu conjunto 
+Set é uma estrutura de dados utilizada para armazenar um conjunto de elementos distintos.
+A vantagem do set é que o mesmo permite acessar um elemento arbitrário em seu conjunto
 (verificar a presença ou ausência do elemento), sem precisar iterar todo o objeto.
 '''
 
@@ -20,14 +20,14 @@ st = set()
 st = set((1, 2, 3))
 # {1, 2, 3}
 
-st = set(("cabra", "macaco", "galo"))
+st = set(('cabra', 'macaco', 'galo'))
 # {'cabra', 'macaco', 'galo'}
 
 # A função recebe um único parâmetro - um objeto iterável, ou seja,
 # os valores devem estar entre parênteses além dos parênteses da função.
 # Se colocarmos uma string fora de parênteses, será criado um set com cada char da mesma.
 
-st = set("porco")
+st = set('porco')
 # {'p', 'o', 'r', 'c'}
 
 
@@ -51,7 +51,7 @@ type(st)
 # ----------------------------------------
 
 # set de exemplo
-st = set(("rato", "boi", "tigre", "coelho", "serpente"))
+st = set(('rato', 'boi', 'tigre', 'coelho', 'serpente'))
 
 
 # len(set)
@@ -64,41 +64,41 @@ len(st)
 # v in set
 # Retorna True se o elemento v está contido no set, e False em caso contrário
 
-"serpente" in st
+'serpente' in st
 # True
 
-"cavalo" in st
+'cavalo' in st
 # False
 
 
 # v not in set
 # Retorna True se o elemento não está contido no set, e False em caso contrário
 
-"cavalo" not in st
+'cavalo' not in st
 # True
 
-"serpente" not in st
+'serpente' not in st
 # False
 
 
 # set.add(v)
 # Adiciona o elemento v ao set
 
-st.add("dragão")
+st.add('dragão')
 # {'rato', 'boi', 'tigre', 'coelho', 'serpente', 'dragão'}
 
 
 # set.remove(v)
 # Remove o elemento v do set. Se o elemento não existe dentro no set, é levantado um KeyError
 
-st.remove("dragão")
+st.remove('dragão')
 # {'rato', 'boi', 'tigre', 'coelho', 'serpente'}
 
 
 # set.discard(v)
 # Remove o elemento v se o mesmo existir no set
 
-st.discard("tigre")
+st.discard('tigre')
 # {'rato', 'boi', 'coelho', 'serpente'}
 
 

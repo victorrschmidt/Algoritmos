@@ -3,8 +3,8 @@
 // --------------------------------------------------------------------------------
 
 /*
-Set é uma estrutura de dados utilizada para armazenar um conjunto de elementos distintos. 
-A vantagem do set é que o mesmo permite acessar um elemento arbitrário em seu conjunto 
+Set é uma estrutura de dados utilizada para armazenar um conjunto de elementos distintos.
+A vantagem do set é que o mesmo permite acessar um elemento arbitrário em seu conjunto
 (verificar a presença ou ausência do elemento), sem precisar iterar todo o objeto.
 */
 
@@ -82,7 +82,7 @@ st.clear();
 // Iteração
 // ----------------------------------------
 
-// Para iterar através dos elementos de um set, podemos utilizar 
+// Para iterar através dos elementos de um set, podemos utilizar
 // o método set.values(), que retorna um iterador do mesmo.
 
 // set de exemplo

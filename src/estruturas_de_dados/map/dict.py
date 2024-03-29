@@ -25,7 +25,7 @@ dt = dict(um=1, dois=2, tres=3)
 # Padrão (chave=valor, ..., chave=valor)
 # Neste tipo de inicialização, as chaves só podem ser strings
 
-dt = dict([("um", 1), ("dois", 2), ("tres", 3)])
+dt = dict([('um', 1), ('dois', 2), ('tres', 3)])
 # {'um': 1, 'dois': 2, 'tres': 3}
 
 dt = dict([(1, 10), (2, 20), (3, 30)])
@@ -39,7 +39,7 @@ dt = dict([(1, 10), (2, 20), (3, 30)])
 dt = {}
 # {}
 
-dt = {"um": 1, "dois": 2, "tres": 3}
+dt = {'um': 1, 'dois': 2, 'tres': 3}
 # {'um': 1, 'dois': 2, 'tres': 3}
 
 # ----------------------------------------
@@ -47,7 +47,7 @@ dt = {"um": 1, "dois": 2, "tres": 3}
 # ----------------------------------------
 
 # dict de exemplo
-dt = {"ichi": 1, "ni": 2, "san": 3, "yon": 4, "go": 5}
+dt = {'ichi': 1, 'ni': 2, 'san': 3, 'yon': 4, 'go': 5}
 
 
 # len(dict)
@@ -60,38 +60,38 @@ len(dt)
 # dict[chave]
 # Retorna o valor atribuído à chave
 
-dt["ichi"]
+dt['ichi']
 # 1
 
-# Também é possível fazer atribuição e incremento dessa forma
-dt["ichi"] = 2
-dt["ichi"] -= 1
+# Também é possível fazer atribuição dessa forma
+dt['ichi'] = 2
+dt['ichi'] -= 1
 
 
 # chave in dict
 # Retorna True se a chave está definida no dict, e False em caso contrário
 
-"san" in dt
+'san' in dt
 # True
 
-"roku" in dt
+'roku' in dt
 # False
 
 
 # chave not in dict
 # Retorna True se a chave não está definida no dict, e False em caso contrário
 
-"nana" not in dt
+'nana' not in dt
 # True
 
-"ni" not in dt
+'ni' not in dt
 # False
 
 
 # del dict[chave]
 # Remove a chave do dict. Se a chave não está definida no dict, é levantado um KeyError
 
-del dt["go"]
+del dt['go']
 # {'ichi': 1, 'ni': 2, 'san': 3, 'yon': 4}
 
 
@@ -117,7 +117,7 @@ list(dt)
 # do iterador será uma tupla no formato (chave, valor).
 
 # dict de exemplo
-dt = {"bulbassauro": 1, "charmander": 4, "squirtle": 7}
+dt = {'bulbassauro': 1, 'charmander': 4, 'squirtle': 7}
 
 for chave, valor in dt.items():
     print(f"{chave}: {valor}")

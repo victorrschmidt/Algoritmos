@@ -3,9 +3,9 @@
 # --------------------------------------------------------------------------------
 
 '''
-Fila (queue) é uma estrutura de dados utilizada para armazenar um conjunto de elementos 
+Fila (queue) é uma estrutura de dados utilizada para armazenar um conjunto de elementos
 que são organizados na ordem que são inseridos, sendo os mais "antigos" com maior
-prioridade, e os mais "novos" com menor prioridade. A fila é utilizada quando é necessário 
+prioridade, e os mais "novos" com menor prioridade. A fila é utilizada quando é necessário
 armazenar e analisar um conjunto de dados em ordem.
 
 e.g.
@@ -30,10 +30,10 @@ Para acessar e remover o elemento mais antigo, desenfileiramos o mesmo (dequeue)
 
 *Remover o 5 da fila.
 
-    
+
 Para adicionar um novo elemento, enfileiramos o mesmo (enqueue).
 
- [4, 3, 8, 9, 2, 1] <- 
+ [4, 3, 8, 9, 2, 1] <-
   ^              ^
 cabeça         cauda
 (head)         (tail)
@@ -99,7 +99,7 @@ q.append(3)
 q.append(1)
 q.append(4)
 
-while len(q):
+while q:
     print(q.popleft())
 
 # 5

@@ -5,7 +5,7 @@
 '''
 Pilha (stack) é uma estrutura de dados utilizada para armazenar um conjunto de elementos
 que são organizados na ordem que são inseridos, sendo os mais "novos" com maior prioridade,
-e os mais "antigos" com menor prioridade. A pilha é utilizada quando é necessário 
+e os mais "antigos" com menor prioridade. A pilha é utilizada quando é necessário
 armazenar e analisar um conjunto de dados em ordem.
 
 e.g.
@@ -29,10 +29,10 @@ Para acessar e remover o elemento mais novo, desenfileiramos o mesmo (pop).
 
 *Remover o 3 da pilha.
 
-    
+
 Para adicionar um novo elemento, enfileiramos o mesmo (push).
 
-[4, 2, 1, 8, 6, 5] <- 
+[4, 2, 1, 8, 6, 5] <-
                 ^
               topo
               (top)
@@ -40,11 +40,11 @@ Para adicionar um novo elemento, enfileiramos o mesmo (push).
 *Adicionar o 5 na pilha.
 
 
-Em Python, é recomendado utilizar a estrutura "deque" para implementar uma fila, por ser
+Em Python, é recomendado utilizar a estrutura "deque" para implementar uma pilha, por ser
 mais rápida e eficiente.
 '''
 
-from collections import deque
+from collections import deque  # É necessário importar o namespace deque do módulo collections
 
 # ----------------------------------------
 # Inicialização
@@ -98,7 +98,7 @@ stk.append(3)
 stk.append(1)
 stk.append(4)
 
-while len(stk):
+while stk:
     print(stk.pop())
 
 # 4
