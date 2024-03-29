@@ -8,7 +8,7 @@ Complexidade: O(n*m)
 - Onde n e m são as dimensões da matriz.
 
 Flood fill - preenchimento por inundação é um algoritmo utilizado para determinar
-a conectividade entre vértices de um grafo a partir de um vértice de origem e, 
+a conectividade entre vértices de um grafo a partir de um vértice de origem e,
 por sua vez, alterar uma informação de cada vértice pertencente a esse grupo conexo.
 
 Esse algoritmo é utilizado, por exemplo, na ferramenta de balde de tinta do
@@ -21,22 +21,22 @@ matriz a partir de uma célula arbitrária, modificando o valor de todas as cél
 modificáveis e adjacentes à essa por 'V' (utilizando o mesmo conceito do balde do Paint).
 
 A ideia do algoritmo é visitar todas as células adjacentes à célula de origem e
-verificar se estas são modificáveis. Em caso positivo, alteramos seu valor e 
+verificar se estas são modificáveis. Em caso positivo, alteramos seu valor e
 visitamos todas as células adjacentes à essa, assim repetindo o ciclo inicial.
 
 O algoritmo utiliza recursividade, onde a função chama a si mesma conforme
 visitamos outros vértices, colocando as chamadas mais antigas em uma prioridade
 menor, priorizando as chamadas mais recentes.
 
-Perceba que a matriz é basicamente um grafo, onde cada célula possui ligação 
-com suas células adjacentes. As céluas adjacentes são: a célula de cima, da direita, 
+Perceba que a matriz é basicamente um grafo, onde cada célula possui ligação
+com suas células adjacentes. As céluas adjacentes são: a célula de cima, da direita,
 de baixo e da esquerda.
 
 Abaixo está a representação de uma célula (meio) e suas adjacências:
 
             | (x, y-1) |
 ------------------------------------
-  (x-1, y)  |  (x, y)  |  (x+1, y) 
+  (x-1, y)  |  (x, y)  |  (x+1, y)
 ------------------------------------
             | (x, y+1) |
 
@@ -52,7 +52,7 @@ Célula do meio = V
 
 Célula de cima = A
 A(X) = V(X) e A(Y) = V(Y) - 1
- 
+
 Célula da direita = B
 B(X) = V(X) + 1 e B(Y) = V(Y)
 
@@ -90,7 +90,6 @@ matriz = [  # Matriz de exemplo
 adj_l = (-1,0,1,0)  # Valores a serem somados na posição Y (linha)
 adj_c = (0,1,0,-1)  # Valores a serem somados na posição X (coluna)
 
-# Função Flood Fill
 def floodFill(x, y):
     matriz[x][y] = 'V'  # Alterar o valor da célula
 
@@ -107,8 +106,8 @@ def floodFill(x, y):
 
         # Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-        floodFill(l, c)  # Chamar a função Flood Fill para a célula adjacente
-        
+        floodFill(l, c)  # Chamar a função Flood fill para a célula adjacente
+
 floodFill(2, 6)
 
 # matriz = [
