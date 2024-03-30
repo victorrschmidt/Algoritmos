@@ -90,20 +90,20 @@ let matriz = [  // Matriz de exemplo
 const adj_l = [-1,0,1,0];  // Valores a serem somados na posição Y (linha)
 const adj_c = [0,1,0,-1];  // Valores a serem somados na posição X (coluna)
 
-function floodFill(x, y) {
-    matriz[x][y] = 'V';  // Alterar o valor da célula
+function floodFill(l, c) {
+    matriz[l][c] = 'V';  // Alterar o valor da célula
 
     for (let i = 0; i < 4; i++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
-        let l = x + adj_l[i];  // Posição Y (linha) da célula a ser visitada
-        let c = y + adj_c[i];  // Posição X (coluna) da célula a ser visitada
+        let nova_l = l + adj_l[i];  // Posição Y (linha) da célula a ser visitada
+        let nova_c = c + adj_c[i];  // Posição X (coluna) da célula a ser visitada
 
-        if (l < 0 || c < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
-        if (l >= L || c >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
-        if (matriz[l][c] != '.') continue;  // Se a célula não é um espaço em branco '.'
+        if (nova_l < 0 || nova_c < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
+        if (nova_l >= L || nova_c >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
+        if (matriz[nova_l][nova_c] != '.') continue;  // Se a célula não é um espaço em branco '.'
 
         // Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-        floodFill(l, c);  // Chamar a função Flood fill para a célula adjacente
+        floodFill(nova_l, nova_c);  // Chamar a função Flood fill para a célula adjacente
     }
 
 }

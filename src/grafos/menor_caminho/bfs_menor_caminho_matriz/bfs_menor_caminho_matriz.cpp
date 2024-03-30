@@ -7,7 +7,7 @@ Complexidade: O(n*m)
 
 - Onde n e m são as dimensões da matriz.
 
-Temos o seguinte problema: Estamos presos em uma caverna, começando na posição inicial 'C', e 
+Temos o seguinte problema: Estamos presos em uma caverna, começando na posição inicial 'C', e
 queremos determinar o menor número de passos necessários para chegar até a saída da caverna 'F'.
 Podemos atravessar todos os espaços vazios '.', e não podemos atravessar os espaços com pedras '#'.
 Podemos nos mover para cima, para a direita, para baixo e para a esquerda.
@@ -20,15 +20,15 @@ entre a célula inicial e a célula que está sendo visitada.
 Assim, é possível determinar a menor distância entre a célula inicial e
 a célula final (considerando que cada movimento tem peso 1).
 
-Perceba que a matriz é basicamente um grafo, onde cada célula possui ligação 
-com suas células adjacentes. As céluas adjacentes são: a célula de cima, da direita, 
+Perceba que a matriz é basicamente um grafo, onde cada célula possui ligação
+com suas células adjacentes. As céluas adjacentes são: a célula de cima, da direita,
 de baixo e da esquerda.
 
 Abaixo está a representação de uma célula (meio) e suas adjacências:
 
             | (x, y-1) |
 ------------------------------------
-  (x-1, y)  |  (x, y)  |  (x+1, y) 
+  (x-1, y)  |  (x, y)  |  (x+1, y)
 ------------------------------------
             | (x, y+1) |
 
@@ -83,7 +83,6 @@ char matriz[L][C] = {  // Matriz de exemplo
 int pos_l = 0;  // Posição inicial Y (linha)
 int pos_c = 0;  // Posição inicial X (coluna)
 
-// Função bfs
 int bfs() {
     int adj_l[] = {-1,0,1,0};  // Valores a serem somados na posição Y (linha)
     int adj_c[] = {0,1,0,-1};  // Valores a serem somados na posição X (coluna)
@@ -113,18 +112,18 @@ int bfs() {
         }
 
         for (int i = 0; i < 4; i++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
-            int ll = l + adj_l[i];  // Posição Y (linha) da célula a ser visitada
-            int cc = c + adj_c[i];  // Posição X (coluna) da célula a ser visitada
+            int nova_l = l + adj_l[i];  // Posição Y (linha) da célula a ser visitada
+            int nova_c = c + adj_c[i];  // Posição X (coluna) da célula a ser visitada
 
-            if (ll < 0 || cc < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
-            if (ll >= L || cc >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
-            if (visitado[ll][cc]) continue;  // Se a célula já foi visitada
-            if (matriz[ll][cc] == '#') continue;  // Se a célula é inacessível (pedra)
+            if (nova_l < 0 || nova_c < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
+            if (nova_l >= L || nova_c >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
+            if (visitado[nova_l][nova_c]) continue;  // Se a célula já foi visitada
+            if (matriz[nova_l][nova_c] == '#') continue;  // Se a célula é inacessível (pedra)
 
             // Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-            fila.push(make_pair(ll, cc));  // Adicionar a célula à fila
-            visitado[ll][cc] = true;  // Agora visitamos essa célula
+            fila.push(make_pair(nova_l, nova_c));  // Adicionar a célula à fila
+            visitado[nova_l][nova_c] = true;  // Agora visitamos essa célula
         }
 
         c_restantes--;  // Diminuir o número de células na camada de busca
@@ -133,7 +132,7 @@ int bfs() {
             c_restantes = fila.size();  // A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
             distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
         }
-        
+
     }
 
     return -1;  // Não existe caminho possível entre a célula inicial e final

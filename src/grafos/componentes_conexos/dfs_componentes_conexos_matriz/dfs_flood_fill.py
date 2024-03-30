@@ -90,23 +90,23 @@ matriz = [  # Matriz de exemplo
 adj_l = (-1,0,1,0)  # Valores a serem somados na posição Y (linha)
 adj_c = (0,1,0,-1)  # Valores a serem somados na posição X (coluna)
 
-def floodFill(x, y):
-    matriz[x][y] = 'V'  # Alterar o valor da célula
+def floodFill(l, c):
+    matriz[l][c] = 'V'  # Alterar o valor da célula
 
     for i in range(4):  # Iteração para cada célula adjacente à célula que está sendo visitada
-        l = x + adj_l[i]  # Posição Y (linha) da célula a ser visitada
-        c = y + adj_c[i]  # Posição X (coluna) da célula a ser visitada
+        nova_l = l + adj_l[i]  # Posição Y (linha) da célula a ser visitada
+        nova_c = c + adj_c[i]  # Posição X (coluna) da célula a ser visitada
 
-        if l < 0 or c < 0:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
+        if nova_l < 0 or nova_c < 0:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
             continue
-        if l >= L or c >= C:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
+        if nova_l >= L or nova_c >= C:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
             continue
-        if matriz[l][c] != '.':  # Se a célula não é um espaço em branco '.'
+        if matriz[nova_l][nova_c] != '.':  # Se a célula não é um espaço em branco '.'
             continue
 
         # Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-        floodFill(l, c)  # Chamar a função Flood fill para a célula adjacente
+        floodFill(nova_l, nova_c)  # Chamar a função Flood fill para a célula adjacente
 
 floodFill(2, 6)
 
