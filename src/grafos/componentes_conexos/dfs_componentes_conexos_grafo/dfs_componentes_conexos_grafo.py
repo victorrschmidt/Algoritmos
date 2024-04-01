@@ -58,16 +58,20 @@ def dfs(v):
     componente[v] = id  # Identificar o id do vértice na lista (o grupo ao qual esse vértice pertence é o id atual)
 
     for u in adj[v]:  # Iteração para cada vértice adjacente à 'v'
-        if not visitado[u]:  # Se o vértice 'u' não foi visitado
-            dfs(u)  # Chamar a função dfs para 'u'
+        if visitado[u]:  # Se o vértice 'u' já foi visitado
+            continue  # Continuar a iteração
+
+        dfs(u)  # Chamar a função dfs para 'u'
 
 # Função para identificar os vértices
 def encontrarComponentes():
     for i in range(V):  # Iteração para cada vértice no grafo
-        if not visitado[i]:  # Se o vértice não foi visitado
-            global id  # Python moment
-            id += 1  # Aumentar o id (número de grupos)
-            dfs(i)  # Chamar a função dfs para esse vértice
+        if visitado[i]:  # Se o vértice já foi visitado
+            continue  # Continuar a iteração
+
+        global id
+        id += 1  # Aumentar o id (número de grupos)
+        dfs(i)  # Chamar a função dfs para esse vértice
 
 encontrarComponentes()
 

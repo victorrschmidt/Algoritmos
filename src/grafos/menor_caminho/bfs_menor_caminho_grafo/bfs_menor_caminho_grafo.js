@@ -61,11 +61,13 @@ function bfs(origem) {
         let v = fila.shift();  // Pegar o último vértice e removê-lo da fila
 
         for (const u of adj[v]) {  // Iteração para cada vértice adjacente à 'v'
-            if (!visitado[u]) {  // Se o vértice u não foi visitado
-                visitado[u] = true;  // Agora visitamos esse vértice
-                fila.push(u);  // Adicioná-lo à fila
-                dist[u] = dist[v]+1;  // Definir a distância até esse vértice (distância até o vértice anterior + 1)
+            if (visitado[u]) {  // Se o vértice u já foi visitado
+                continue;  // Continuar a iteração
             }
+
+            visitado[u] = true;  // Agora visitamos esse vértice
+            fila.push(u);  // Adicioná-lo à fila
+            dist[u] = dist[v]+1;  // Definir a distância até esse vértice (distância até o vértice anterior + 1)
         }
     }
 
