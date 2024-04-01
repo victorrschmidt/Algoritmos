@@ -19,7 +19,6 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 # Conteúdo
 
 ## Estruturas de dados
-
 - [**Pilha (Stack)**](src/estruturas_de_dados/pilha)
 - [**Fila (Queue)**](src/estruturas_de_dados/fila)
 - [**Set**](src/estruturas_de_dados/set)
@@ -28,18 +27,15 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 ## Grafos
 
 ### Componentes conexos
-
 - [**Depth-first search (componentes conexos em um grafo)**](src/grafos/componentes_conexos/dfs_componentes_conexos_grafo) **- O(v+e)**
 - [**Depth-first search/Flood fill (componentes conexos em uma matriz)**](src/grafos/componentes_conexos/dfs_componentes_conexos_matriz) **- O(n*m)**
 
 ### Menor caminho
-
 - [**Breadth-first search (menor caminho em um grafo não valorado)**](src/grafos/menor_caminho/bfs_menor_caminho_grafo) **- O(v+e)**
 - [**Breadth-first search (menor caminho em uma matriz)**](src/grafos/menor_caminho/bfs_menor_caminho_matriz) **- O(n*m)**
 
 ## Matemática
 
 ### Números primos
-
 - [**Teste de primalidade**](src/matematica/numeros_primos/primalidade) **- O(√n)**
 - [**Crivo de Eratóstenes**](src/matematica/numeros_primos/crivo_eratostenes) **- O(n*log(log(n)))**
