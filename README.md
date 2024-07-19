@@ -14,7 +14,7 @@ Caso você encontre algum erro em algum arquivo, sinta-se à vontade para report
 
 Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
-<img src="https://skillicons.dev/icons?i=cpp,js,py" alt="cplusplus-javascript-python">
+<img src="https://skillicons.dev/icons?i=cpp,py" alt="cplusplus-python">
 
 # Conteúdo
 
