@@ -3,12 +3,13 @@
 // --------------------------------------------------------------------------------
 
 /*
-Complexidade: O(n*log(log(n)))
+Complexidade de tempo: O(n*log(log(n)))
+Complexidade de espaço: O(n)
 
 - Onde n é o número limite a ser considerado.
 
 O Crivo de Eratóstenes é um algoritmo antigo utilizado para encontrar números primos
-no intervalo [0, n], onde n é um número natural arbitrário utilizado como limite.
+no intervalo [0, n], onde n é um número inteiro arbitrário utilizado como limite.
 
 O algoritmo funciona da seguinte forma:
 
@@ -30,18 +31,18 @@ Funcionamento
     Definimos um ponteiro P que será utilizado para iterar através os elementos de primos[].
     Inicialmente, P = 2, o primeiro número primo.
 
-    Em seguida, iremos definir como false todos os múltiplos de P no intervalo [P * P, n].
+    Em seguida, iremos definir como false todos os múltiplos de P no intervalo [P*P, n].
 
 
     {false, false, true, true, false, true, false, true, false, true, false}
        0      1      2     3     4      5     6      7     8      9    10
-                                 ^            ^            ^           ^
+                                 ^            ^            ^            ^
 
 
     Após isso, iremos incrementar o valor de P em 1, ou seja, P = 3.
 
     Iremos verificar que primos[P] é true, logo faremos o mesmo processo, definir como
-    false todos os múltiplos de P no intervalo [P * P, n].
+    false todos os múltiplos de P no intervalo [P*P, n].
 
 
     {false, false, true, true, false, true, false, true, false, false, false}
@@ -51,34 +52,33 @@ Funcionamento
 
     Após isso, iremos incrementar o valor de P em 1, ou seja, P = 4.
 
-    Observe que P * P > n, ou seja, o valor de P agora ultrapassa o intervalo limitado por n.
+    Observe que P*P > n, ou seja, o valor de P agora ultrapassa o intervalo limitado por n.
     Ou seja, no algoritmo, o valor de P estará no intervalo [2, √n], visto que se P > √n,
-    consequentemente P * P > n.
+    consequentemente P*P > n.
 
 Terminus
 
     Quando o valor de P ultrapassar o valor de √n, o algoritmo se encerra, e teremos o array
     primos[] definido. Com isso, podemos verificar se um número arbitrário x é primo em O(1).
 
-Uma visualização do funcionamento do algoritmo pode ser vista em crivo.gif, no mesmo diretório deste arquivo:
+Uma visualização do funcionamento do algoritmo pode ser vista em crivo.gif, no mesmo diretório deste arquivo.
 */
 
 #include <bits/stdc++.h>
 using namespace std;
 
 vector<bool> crivo(int n) {
-    vector<bool> primos(n+1);  // Array de primos
-    fill(primos.begin(), primos.end(), true);  // Todos os elementos inicializados como true
+    vector<bool> primos(n+1, true);  // Array de primos (todos os elementos inicializados como true)
 
     primos[0] = primos[1] = false;  // Casos especiais: 0 e 1 não são primos
 
-    for (int p = 2; p <= sqrt(n); p++) {  // Iteração de p no intervalo [2, √n]
+    for (int p = 2; p*p <= n; p++) {  // Iteração de p no intervalo [2, √n]
         if (!primos[p]) {  // Se o número não é primo
             continue;  // Continuar a iteração
         }
 
-        for (int i = p * p; i <= n; i += p) {  // Iteração de i (múltiplos de p) no intervalo [p * p, n]
-            primos[i] = false;  // Definir o número como não-primo
+        for (int i = p*p; i <= n; i += p) {  // Iteração de i (múltiplos de p) no intervalo [p*p, n]
+            primos[i] = false;  // Definir o número como composto (não-primo)
         }
     }
 
@@ -88,7 +88,7 @@ vector<bool> crivo(int n) {
 int main() {
     vector<bool> v = crivo(14);
 
-    // [false, false, true, true, false, true, false, true, false, false, false, true, false, true, false]
+    // {false, false, true, true, false, true, false, true, false, false, false, true, false, true, false}
     //    0      1      2     3     4      5     6      7     8      9     10     11    12     13    14
     //                primo primo        primo        primo                      primo        primo
 
