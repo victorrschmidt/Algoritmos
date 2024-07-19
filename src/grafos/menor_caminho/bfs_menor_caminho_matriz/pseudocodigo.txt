@@ -3,13 +3,14 @@
 // --------------------------------------------------------------------------------
 
 /*
-Complexidade: O(n*m)
+Complexidade de tempo: O(n*m)
+Complexidade de espaço: O(n*m)
 
 - Onde n e m são as dimensões da matriz.
 
 Temos o seguinte problema: Estamos presos em uma caverna, começando na posição inicial 'C', e
 queremos determinar o menor número de passos necessários para chegar até a saída da caverna 'F'.
-Podemos atravessar todos os espaços vazios '.', e não podemos atravessar os espaços com pedras ''.
+Podemos atravessar todos os espaços vazios '.', e não podemos atravessar os espaços com pedras '#'.
 Podemos nos mover para cima, para a direita, para baixo e para a esquerda.
 
 A ideia do algoritmo é visitar todas as células adjacentes à célula inicial,
@@ -55,8 +56,8 @@ Célula da esquerda = D
 D(X) = V(X) - 1 e D(Y) = V(Y)
 
 Podemos armazenar a variação dos valores de X e Y em dois arrays:
-x[] = [-1,0,1,0]
-y[] = [0,1,0,-1]
+x[] = {-1,0,1,0}
+y[] = {0,1,0,-1}
 
 Obs: Estamos considerando uma matriz representada por um computador,
 logo os valores de Y são crescentes de cima para baixo, diferente da
@@ -80,14 +81,11 @@ matriz = [  // Matriz de exemplo
 pos_l = 0;  // Posição inicial Y (linha)
 pos_c = 0;  // Posição inicial X (coluna)
 
-/**
- * @return {number}
- */
-function bfs() {
-    adj_l = [-1,0,1,0];  // Valores a serem somados na posição Y (linha)
-    adj_c = [0,1,0,-1];  // Valores a serem somados na posição X (coluna)
+funcao bfs() {
+    dl = [-1,0,1,0];  // Valores a serem somados na posição Y (linha)
+    dc = [0,1,0,-1];  // Valores a serem somados na posição X (coluna)
 
-    visitado = [[false, ..., false], ..., [false, ... false]];  // Matriz de células visitadas (array de tamanho L, contendo arrays de tamanho C que contém 'false')
+    visitado = [[false, ..., false], ..., [false, ... false]];  // Matriz de células visitadas (array de tamanho L, contendo arrays de tamanho C que contém false)
     visitado[pos_l][pos_c] = true;  // Definir a célula inicial como visitada
 
     fila = [];  // Fila para verificar cada célula adjacente na matriz
@@ -105,8 +103,8 @@ function bfs() {
         }
 
         for (i = 0; i < 4; i++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
-            nova_l = l + adj_l[i];  // Posição Y (linha) da célula a ser visitada
-            nova_c = c + adj_c[i];  // Posição X (coluna) da célula a ser visitada
+            nova_l = l + dl[i];  // Posição Y (linha) da célula a ser visitada
+            nova_c = c + dc[i];  // Posição X (coluna) da célula a ser visitada
 
             if (nova_l < 0 or nova_c < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
             if (nova_l >= L or nova_c >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
@@ -121,9 +119,9 @@ function bfs() {
 
         c_restantes--;  // Diminuir o número de células na camada de busca
 
-        if (c_restantes == 0) {  // Se foram analisadas todas as células nessa camada de busca
+        if (c_restantes == 0) {  // Se foram verificadas todas as células nessa camada de busca
             c_restantes = fila.tamanho;  // A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
-            distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
+            distancia++;  // Como teremos que verificar outra camada de busca, a distância aumenta em 1
         }
 
     }

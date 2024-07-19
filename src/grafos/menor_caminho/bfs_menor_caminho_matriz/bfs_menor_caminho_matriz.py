@@ -3,13 +3,14 @@
 # --------------------------------------------------------------------------------
 
 '''
-Complexidade: O(n*m)
+Complexidade de tempo: O(n*m)
+Complexidade de espaço: O(n*m)
 
 - Onde n e m são as dimensões da matriz.
 
 Temos o seguinte problema: Estamos presos em uma caverna, começando na posição inicial 'C', e
 queremos determinar o menor número de passos necessários para chegar até a saída da caverna 'F'.
-Podemos atravessar todos os espaços vazios '.', e não podemos atravessar os espaços com pedras ''.
+Podemos atravessar todos os espaços vazios '.', e não podemos atravessar os espaços com pedras '#'.
 Podemos nos mover para cima, para a direita, para baixo e para a esquerda.
 
 A ideia do algoritmo é visitar todas as células adjacentes à célula inicial,
@@ -82,11 +83,11 @@ matriz = [  # Matriz de exemplo
 pos_l = 0  # Posição inicial Y (linha)
 pos_c = 0  # Posição inicial X (coluna)
 
-def bfs():
-    adj_l = (-1,0,1,0)  # Valores a serem somados na posição Y (linha)
-    adj_c = (0,1,0,-1)  # Valores a serem somados na posição X (coluna)
+def bfs() -> int:
+    dl = (-1,0,1,0)  # Valores a serem somados na posição Y (linha)
+    dc = (0,1,0,-1)  # Valores a serem somados na posição X (coluna)
 
-    visitado = [[False for i in range(C)] for j in range(L)]  # Matriz de células visitadas (todas as células inicializadas como 'False')
+    visitado = [[False for i in range(C)] for j in range(L)]  # Matriz de células visitadas (todas as células inicializadas como False)
     visitado[pos_l][pos_c] = True  # Definir a célula inicial como visitada
 
     fila = deque()  # Fila para verificar cada célula adjacente na matriz
@@ -103,8 +104,8 @@ def bfs():
             return distancia  # Retornar a distância entre a célula inicial e final
 
         for i in range(4):  # Iteração para cada célula adjacente à célula que está sendo visitada
-            nova_l = l + adj_l[i]  # Posição Y (linha) da célula a ser visitada
-            nova_c = c + adj_c[i]  # Posição X (coluna) da célula a ser visitada
+            nova_l = l + dl[i]  # Posição Y (linha) da célula a ser visitada
+            nova_c = c + dc[i]  # Posição X (coluna) da célula a ser visitada
 
             if nova_l < 0 or nova_c < 0:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
                 continue
@@ -122,9 +123,9 @@ def bfs():
 
         c_restantes -= 1  # Diminuir o número de células na camada de busca
 
-        if c_restantes == 0:  # Se foram analisadas todas as células nessa camada de busca
+        if c_restantes == 0:  # Se foram verificadas todas as células nessa camada de busca
             c_restantes = len(fila)  # A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
-            distancia += 1  # Como teremos que analisar outra camada de busca, a distância aumenta em 1
+            distancia += 1  # Como teremos que verificar outra camada de busca, a distância aumenta em 1
 
     return -1  # Não existe caminho possível entre a célula inicial e final
 

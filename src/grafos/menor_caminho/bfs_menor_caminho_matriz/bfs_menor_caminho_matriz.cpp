@@ -3,7 +3,8 @@
 // --------------------------------------------------------------------------------
 
 /*
-Complexidade: O(n*m)
+Complexidade de tempo: O(n*m)
+Complexidade de espaço: O(n*m)
 
 - Onde n e m são as dimensões da matriz.
 
@@ -71,7 +72,7 @@ using namespace std;
 const int L = 6;  // Quantidade de linhas da matriz de exemplo
 const int C = 8;  // Quantidade de colunas da matriz de exemplo
 
-char matriz[L][C] = {  // Matriz de exemplo
+vector<vector<char>> matriz{  // Matriz de exemplo
     {'C','.','#','.','.','.','.','#'},
     {'.','.','.','.','#','#','#','.'},
     {'.','#','.','.','.','#','.','.'},
@@ -84,17 +85,10 @@ int pos_l = 0;  // Posição inicial Y (linha)
 int pos_c = 0;  // Posição inicial X (coluna)
 
 int bfs() {
-    int adj_l[] = {-1,0,1,0};  // Valores a serem somados na posição Y (linha)
-    int adj_c[] = {0,1,0,-1};  // Valores a serem somados na posição X (coluna)
+    vector<int> dl{-1,0,1,0};  // Valores a serem somados na posição Y (linha)
+    vector<int> dc{0,1,0,-1};  // Valores a serem somados na posição X (coluna)
 
-    bool visitado[L][C];  // Matriz de células visitadas
-
-    for (int i = 0; i < L; i++) {
-        for (int j = 0; j < C; j++) {
-            visitado[i][j] = false;  // Matriz de células visitadas (todas as células inicializadas como 'false')
-        }
-    }
-
+    vector<vector<bool>> visitado(L, vector<bool>(C));  // Matriz de células visitadas (todas as células inicializadas como false)
     visitado[pos_l][pos_c] = true;  // Definir a célula inicial como visitada
 
     queue<pair<int,int>> fila;  // Fila para verificar cada célula adjacente na matriz
@@ -112,8 +106,8 @@ int bfs() {
         }
 
         for (int i = 0; i < 4; i++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
-            int nova_l = l + adj_l[i];  // Posição Y (linha) da célula a ser visitada
-            int nova_c = c + adj_c[i];  // Posição X (coluna) da célula a ser visitada
+            int nova_l = l + dl[i];  // Posição Y (linha) da célula a ser visitada
+            int nova_c = c + dc[i];  // Posição X (coluna) da célula a ser visitada
 
             if (nova_l < 0 || nova_c < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
             if (nova_l >= L || nova_c >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
@@ -128,9 +122,9 @@ int bfs() {
 
         c_restantes--;  // Diminuir o número de células na camada de busca
 
-        if (c_restantes == 0) {  // Se foram analisadas todas as células nessa camada de busca
+        if (c_restantes == 0) {  // Se foram verificadas todas as células nessa camada de busca
             c_restantes = fila.size();  // A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
-            distancia++;  // Como teremos que analisar outra camada de busca, a distância aumenta em 1
+            distancia++;  // Como teremos que verificar outra camada de busca, a distância aumenta em 1
         }
 
     }
@@ -140,7 +134,6 @@ int bfs() {
 
 int main() {
     cout << bfs() << '\n';  // 11
-
 
     return 0;
 }

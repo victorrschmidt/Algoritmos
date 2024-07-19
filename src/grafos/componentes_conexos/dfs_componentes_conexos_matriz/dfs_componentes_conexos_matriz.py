@@ -63,7 +63,7 @@ C(X) = V(X) e C(Y) = V(Y) + 1
 Célula da esquerda = D
 D(X) = V(X) - 1 e D(Y) = V(Y)
 
-Podemos armazenar a variação dos valores de X e Y em dois arrays:
+Podemos armazenar a variação dos valores de X e Y em duas tuplas:
 x = (-1,0,1,0)
 y = (0,1,0,-1)
 
