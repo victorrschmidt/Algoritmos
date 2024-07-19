@@ -3,7 +3,8 @@
 # --------------------------------------------------------------------------------
 
 '''
-Complexidade: O(n*m)
+Complexidade de tempo: O(n*m)
+Complexidade de espaço: O(1)
 
 - Onde n e m são as dimensões da matriz.
 
@@ -62,7 +63,7 @@ C(X) = V(X) e C(Y) = V(Y) + 1
 Célula da esquerda = D
 D(X) = V(X) - 1 e D(Y) = V(Y)
 
-Podemos armazenar a variação dos valores de X e Y em duas tuplas:
+Podemos armazenar a variação dos valores de X e Y em dois arrays:
 x = (-1,0,1,0)
 y = (0,1,0,-1)
 
@@ -87,15 +88,15 @@ matriz = [  # Matriz de exemplo
     ['#','#','.','.','.','.','#','.','.','.','.','.']
 ]
 
-adj_l = (-1,0,1,0)  # Valores a serem somados na posição Y (linha)
-adj_c = (0,1,0,-1)  # Valores a serem somados na posição X (coluna)
+dl = (-1,0,1,0)  # Valores a serem somados na posição Y (linha)
+dc = (0,1,0,-1)  # Valores a serem somados na posição X (coluna)
 
-def floodFill(l, c):
+def floodFill(l: int, c: int) -> None:
     matriz[l][c] = 'V'  # Alterar o valor da célula
 
     for i in range(4):  # Iteração para cada célula adjacente à célula que está sendo visitada
-        nova_l = l + adj_l[i]  # Posição Y (linha) da célula a ser visitada
-        nova_c = c + adj_c[i]  # Posição X (coluna) da célula a ser visitada
+        nova_l = l + dl[i]  # Posição Y (linha) da célula a ser visitada
+        nova_c = c + dc[i]  # Posição X (coluna) da célula a ser visitada
 
         if nova_l < 0 or nova_c < 0:  # Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
             continue

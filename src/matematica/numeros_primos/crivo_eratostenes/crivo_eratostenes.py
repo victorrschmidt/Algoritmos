@@ -64,7 +64,7 @@ Terminus
 Uma visualização do funcionamento do algoritmo pode ser vista em crivo.gif, no mesmo diretório deste arquivo.
 '''
 
-def crivo(n):
+def crivo(n: int) -> list[bool]:
     primos = [True for i in range(n+1)]  # Lista de primos (todos os elementos inicializados como True)
 
     primos[0] = primos[1] = False  # Casos especiais: 0 e 1 não são primos

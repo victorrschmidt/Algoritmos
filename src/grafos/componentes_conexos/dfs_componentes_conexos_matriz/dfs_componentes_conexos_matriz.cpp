@@ -3,7 +3,8 @@
 // --------------------------------------------------------------------------------
 
 /*
-Complexidade: O(n*m)
+Complexidade de tempo: O(n*m)
+Complexidade de espaço: O(1)
 
 - Onde n e m são as dimensões da matriz.
 
@@ -77,7 +78,7 @@ using namespace std;
 const int L = 10;  // Quantidade de linhas da matriz de exemplo
 const int C = 12;  // Quantidade de colunas da matriz de exemplo
 
-char matriz[L][C] = {  // Matriz de exemplo
+vector<vector<char>> matriz{  // Matriz de exemplo
     {'#','.','.','#','#','#','.','#','#','.','#','#'},
     {'#','#','.','#','#','.','.','.','#','#','#','.'},
     {'.','#','#','.','.','#','.','.','.','.','.','#'},
@@ -90,15 +91,15 @@ char matriz[L][C] = {  // Matriz de exemplo
     {'#','#','.','.','.','.','#','.','.','.','.','.'}
 };
 
-int adj_l[] = {-1,0,1,0};  // Valores a serem somados na posição Y (linha)
-int adj_c[] = {0,1,0,-1};  // Valores a serem somados na posição X (coluna)
+vector<int> dl{-1,0,1,0};  // Valores a serem somados na posição Y (linha)
+vector<int> dc{0,1,0,-1};  // Valores a serem somados na posição X (coluna)
 
 void floodFill(int l, int c) {
     matriz[l][c] = 'V';  // Alterar o valor da célula
 
     for (int i = 0; i < 4; i++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
-        int nova_l = l + adj_l[i];  // Posição Y (linha) da célula a ser visitada
-        int nova_c = c + adj_c[i];  // Posição X (coluna) da célula a ser visitada
+        int nova_l = l + dl[i];  // Posição Y (linha) da célula a ser visitada
+        int nova_c = c + dc[i];  // Posição X (coluna) da célula a ser visitada
 
         if (nova_l < 0 || nova_c < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
         if (nova_l >= L || nova_c >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)

@@ -23,10 +23,10 @@ map<char, int> mp;
 map<string, string> mp;
 // {}
 
-map<string, int> mp = {{"um", 2}, {"dois", 2}, {"tres", 3}};
+map<string, int> mp{{"um", 2}, {"dois", 2}, {"tres", 3}};
 // {"um": 1, "dois": 2, "tres": 3}
 
-map<int, int> mp = {{1, 10}, {2, 20}, {3, 30}};
+map<int, int> mp{{1, 10}, {2, 20}, {3, 30}};
 // {1: 10, 2: 20, 3: 30}
 
 // Um map só pode possuir chaves de um único de tipo de dado e valores de um único tipo de dado
@@ -36,7 +36,7 @@ map<int, int> mp = {{1, 10}, {2, 20}, {3, 30}};
 // ----------------------------------------
 
 // map de exemplo
-map<string, int> mp = {{"ichi", 1}, {"ni", 2}, {"san", 3}, {"yon", 4}, {"go", 5}};
+map<string, int> mp{{"ichi", 1}, {"ni", 2}, {"san", 3}, {"yon", 4}, {"go", 5}};
 
 
 // map.size()
@@ -96,7 +96,7 @@ mp.clear();
 // do iterador será um pair no formato {chave, valor}.
 
 // map de exemplo
-map<string, int> mp = {{"bulbassauro", 1}, {"charmander", 4}, {"squirtle", 7}};
+map<string, int> mp{{"bulbassauro", 1}, {"charmander", 4}, {"squirtle", 7}};
 
 for (auto [chave, valor] : mp) {
     std::cout << chave << ": " << valor << '\n';
