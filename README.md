@@ -19,10 +19,10 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 # Conteúdo
 
 ## Estruturas de dados
-- [**Pilha (Stack)**](src/estruturas_de_dados/pilha)
-- [**Fila (Queue)**](src/estruturas_de_dados/fila)
 - [**Set**](src/estruturas_de_dados/set)
 - [**Map**](src/estruturas_de_dados/map)
+- [**Fila (Queue)**](src/estruturas_de_dados/fila)
+- [**Pilha (Stack)**](src/estruturas_de_dados/pilha)
 
 ## Grafos
 
