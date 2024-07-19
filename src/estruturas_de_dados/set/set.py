@@ -106,7 +106,7 @@ st.discard('tigre')
 # Remove todos os elementos do set
 
 st.clear()
-# set()
+# {}
 
 # ----------------------------------------
 # Iteração

@@ -49,14 +49,14 @@ st.size();
 // 5
 
 
-// set.contains(v)
-// Retorna true se o elemento v está contido no set, e false em caso contrário
+// set.count(v)
+// Retorna 1 se o elemento v está contido no set, e 0 em caso contrário
 
-st.contains("serpente");
-// true
+st.count("serpente");
+// 1
 
-st.contains("cavalo");
-// false
+st.count("cavalo");
+// 0
 
 
 // set.insert(v)

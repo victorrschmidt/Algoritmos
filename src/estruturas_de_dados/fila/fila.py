@@ -4,11 +4,11 @@
 
 '''
 Fila (queue) é uma estrutura de dados utilizada para armazenar um conjunto de elementos
-que são organizados na ordem que são inseridos, sendo os mais "antigos" com maior
-prioridade, e os mais "novos" com menor prioridade. A fila é utilizada quando é necessário
+que são organizados na ordem que são inseridos, sendo os mais "antigos" com a maior
+prioridade, e os mais "novos" com a menor prioridade. A fila é utilizada quando é necessário
 armazenar e analisar um conjunto de dados em ordem.
 
-e.g.
+Exemplo de fila:
 
  [5, 4, 3, 8, 9, 2]
   ^              ^
@@ -45,7 +45,7 @@ Em Python, é recomendado utilizar a estrutura "deque" para implementar uma fila
 mais rápida e eficiente.
 '''
 
-from collections import deque  # É necessário importar o namespace deque do módulo collections
+from collections import deque  # É necessário importar a classe deque do módulo collections
 
 # ----------------------------------------
 # Inicialização

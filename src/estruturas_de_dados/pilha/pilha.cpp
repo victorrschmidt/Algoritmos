@@ -4,11 +4,11 @@
 
 /*
 Pilha (stack) é uma estrutura de dados utilizada para armazenar um conjunto de elementos
-que são organizados na ordem que são inseridos, sendo os mais "novos" com maior prioridade,
-e os mais "antigos" com menor prioridade. A pilha é utilizada quando é necessário
+que são organizados na ordem que são inseridos, sendo os mais "novos" com a maior prioridade,
+e os mais "antigos" com a menor prioridade. A pilha é utilizada quando é necessário
 armazenar e analisar um conjunto de dados em ordem.
 
-e.g.
+Exemplo de pilha:
 
 {4, 2, 1, 8, 6, 3}
                 ^
