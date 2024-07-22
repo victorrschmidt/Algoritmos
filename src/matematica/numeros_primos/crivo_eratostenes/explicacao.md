@@ -43,7 +43,7 @@ Iremos verificar que $primos[p]$ é $true$, logo faremos o mesmo processo, defin
 
 Após isso, iremos incrementar o valor de $p$ em $1$, ou seja, $p = 4$.
 
-Observe que $p * p > n$, ou seja, o valor de $p * p$ agora ultrapassa o intervalo limitado por $n$. Ou seja, no algoritmo, o valor de $p$ estará no intervalo $[2, ⌊√n⌋]$, visto que se $p > √n$, consequentemente $p * p > n$.
+Observe que $p * p > n$, ou seja, o valor de $p * p$ agora ultrapassa o intervalo limitado por $n$. Ou seja, no algoritmo, o valor de $p$ estará no intervalo $[2, ⌊√n⌋]$, visto que se $p * p > n$, consequentemente $p > √n$.
 
 ## Conclusão
 
