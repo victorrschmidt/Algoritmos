@@ -23,7 +23,7 @@ Suponhamos que o número limite seja $n = 10$.
 
 Definimos um ponteiro $p$ que será utilizado para iterar através os elementos de $primos[]$. Inicialmente, $p = 2$, o primeiro número primo.
 
-Em seguida, iremos definir como $false$ todos os múltiplos de $p$ no intervalo $[p², n]$.
+Em seguida, iremos definir como $false$ todos os múltiplos de $p$ no intervalo $[p * p, n]$.
 
 ```cpp
 {false, false, true, true, false, true, false, true, false, true, false}
@@ -33,7 +33,7 @@ Em seguida, iremos definir como $false$ todos os múltiplos de $p$ no intervalo 
 
 Após isso, iremos incrementar o valor de $p$ em $1$, ou seja, $p = 3$.
 
-Iremos verificar que $primos[p]$ é $true$, logo faremos o mesmo processo, definir como $false$ todos os múltiplos de $p$ no intervalo $[p², n]$.
+Iremos verificar que $primos[p]$ é $true$, logo faremos o mesmo processo, definir como $false$ todos os múltiplos de $p$ no intervalo $[p * p, n]$.
 
 ```cpp
 {false, false, true, true, false, true, false, true, false, false, false}
@@ -41,19 +41,12 @@ Iremos verificar que $primos[p]$ é $true$, logo faremos o mesmo processo, defin
                                                               ^
 ```
 
+Após isso, iremos incrementar o valor de $p$ em $1$, ou seja, $p = 4$.
 
+Observe que $p * p > n$, ou seja, o valor de $p * p$ agora ultrapassa o intervalo limitado por $n$. Ou seja, no algoritmo, o valor de $p$ estará no intervalo $[2, ⌊√n⌋]$, visto que se $p > √n$, consequentemente $p * p > n$.
 
+## Conclusão
 
-    Após isso, iremos incrementar o valor de P em 1, ou seja, P = 4.
-
-    Observe que P*P > n, ou seja, o valor de P agora ultrapassa o intervalo limitado por n.
-    Ou seja, no algoritmo, o valor de P estará no intervalo [2, √n], visto que se P > √n,
-    consequentemente P*P > n.
-
-Terminus
-
-    Quando o valor de P ultrapassar o valor de √n, o algoritmo se encerra, e teremos o array
-    primos[] definido. Com isso, podemos verificar se um número arbitrário x é primo em O(1).
+Quando o valor de $p$ ultrapassar o valor de $√n$, o algoritmo se encerra, e teremos o array $primos[]$ definido. Com isso, podemos verificar se um número arbitrário $x$ é primo em $O(1)$.
 
 Uma visualização do funcionamento do algoritmo pode ser vista em crivo.gif, no mesmo diretório deste arquivo.
-*/
