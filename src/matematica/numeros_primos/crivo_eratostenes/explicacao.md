@@ -1,49 +1,47 @@
-/*
-Complexidade de tempo: O(n*log(log(n)))
-Complexidade de espaço: O(n)
+# Crivo de Eratóstenes
 
-- Onde n é o número limite a ser considerado.
+Complexidade de tempo: **$O(n*log(log(n)))$**  
+Complexidade de espaço: **$O(n)$**  
 
-O Crivo de Eratóstenes é um algoritmo antigo utilizado para encontrar números primos
-no intervalo [0, n], onde n é um número inteiro arbitrário utilizado como limite.
+- Onde $n$ é o número limite a ser considerado.
 
-O algoritmo funciona da seguinte forma:
+# Explicação
 
-Início
+O Crivo de Eratóstenes é um algoritmo antigo utilizado para encontrar números primos no intervalo $[0, n]$, onde $n$ é um número inteiro arbitrário utilizado como limite.
 
-    Primeiro definimos um número natural n como o limite para o intervalo [0, n].
+## Início
 
-    Em seguida, geramos um array booleano primos[] de tamanho n+1 contendo todos os valores
-    definidos como true. Ele será utilizado para armazenar a informação de primalidade de
-    um número, ou seja, para saber se um número arbitrário x é primo, bastar verificar em
-    primos[x] (x deve pertencer ao intervalo [0, n]).
+Primeiro definimos um número inteiro $n$ como o limite para o intervalo $[0, n]$.  
 
-    Os números 0 e 1 são casos especiais, e são definidos como false no início do algoritmo.
+Em seguida, geramos um array booleano $primos[]$ de tamanho $n+1$ contendo todos os valores definidos como $true$. Ele será utilizado para armazenar a informação de primalidade de um número, ou seja, para saber se um número arbitrário $x$ é primo, bastar verificar em $primos[x]$.
 
-Funcionamento
+Os números $0$ e $1$ são casos especiais, e são definidos como $false$ no início do algoritmo.
 
-    Supomos que o número limite n = 10.
+## Funcionamento
 
-    Definimos um ponteiro P que será utilizado para iterar através os elementos de primos[].
-    Inicialmente, P = 2, o primeiro número primo.
+Suponhamos que o número limite seja $n = 10$.
 
-    Em seguida, iremos definir como false todos os múltiplos de P no intervalo [P*P, n].
+Definimos um ponteiro $p$ que será utilizado para iterar através os elementos de $primos[]$. Inicialmente, $p = 2$, o primeiro número primo.
+
+Em seguida, iremos definir como $false$ todos os múltiplos de $p$ no intervalo $[p², n]$.
+
+```cpp
+{false, false, true, true, false, true, false, true, false, true, false}
+   0      1      2     3     4      5     6      7     8      9    10
+                             ^            ^            ^            ^
+```
+
+Após isso, iremos incrementar o valor de $p$ em $1$, ou seja, $p = 3$.
+
+Iremos verificar que $primos[p]$ é $true$, logo faremos o mesmo processo, definir como $false$ todos os múltiplos de $p$ no intervalo $[p², n]$.
+
+```cpp
+{false, false, true, true, false, true, false, true, false, false, false}
+   0      1      2     3     4      5     6      7     8      9     10
+                                                              ^
+```
 
 
-    {false, false, true, true, false, true, false, true, false, true, false}
-       0      1      2     3     4      5     6      7     8      9    10
-                                 ^            ^            ^            ^
-
-
-    Após isso, iremos incrementar o valor de P em 1, ou seja, P = 3.
-
-    Iremos verificar que primos[P] é true, logo faremos o mesmo processo, definir como
-    false todos os múltiplos de P no intervalo [P*P, n].
-
-
-    {false, false, true, true, false, true, false, true, false, false, false}
-       0      1      2     3     4      5     6      7     8      9     10
-                                                                  ^
 
 
     Após isso, iremos incrementar o valor de P em 1, ou seja, P = 4.
