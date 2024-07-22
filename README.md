@@ -19,25 +19,25 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 # Conteúdo
 
 ## Estruturas de dados
-- [**Set**](src/estruturas_de_dados/set)
-- [**Map**](src/estruturas_de_dados/map)
-- [**Fila (Queue)**](src/estruturas_de_dados/fila)
-- [**Pilha (Stack)**](src/estruturas_de_dados/pilha)
+- [**Set**](src/estruturas_de_dados/set/explicacao.md)
+- [**Map**](src/estruturas_de_dados/map/explicacao.md)
+- [**Fila (Queue)**](src/estruturas_de_dados/fila/explicacao.md)
+- [**Pilha (Stack)**](src/estruturas_de_dados/pilha/explicacao.md)
 
 ## Grafos
 
 ### Componentes conexos
-- [**Depth-first search (componentes conexos em um grafo)**](src/grafos/componentes_conexos/dfs_componentes_conexos_grafo) **- $O(v+e)$**
-- [**Depth-first search/Flood fill (componentes conexos em uma matriz)**](src/grafos/componentes_conexos/dfs_componentes_conexos_matriz) **- $O(n*m)$**
+- [**Depth-first search (componentes conexos em um grafo)**](src/grafos/componentes_conexos/dfs_componentes_conexos_grafo/explicacao.md) **- $O(v+e)$**
+- [**Depth-first search/Flood fill (componentes conexos em uma matriz)**](src/grafos/componentes_conexos/dfs_componentes_conexos_matriz/explicacao.md) **- $O(n*m)$**
 
 ### Menor caminho
-- [**Breadth-first search (menor caminho em um grafo não valorado)**](src/grafos/menor_caminho/bfs_menor_caminho_grafo) **- $O(v+e)$**
-- [**Breadth-first search (menor caminho em uma matriz)**](src/grafos/menor_caminho/bfs_menor_caminho_matriz) **- $O(n*m)$**
+- [**Breadth-first search (menor caminho em um grafo não valorado)**](src/grafos/menor_caminho/bfs_menor_caminho_grafo/explicacao.md) **- $O(v+e)$**
+- [**Breadth-first search (menor caminho em uma matriz)**](src/grafos/menor_caminho/bfs_menor_caminho_matriz/explicacao.md) **- $O(n*m)$**
 
 ## Matemática
 
-- [**Exponenciação rápida**](src/matematica/exponenciacao_rapida) **- $O(log(e))$**
+- [**Exponenciação rápida**](src/matematica/exponenciacao_rapida/explicacao.md) **- $O(log(e))$**
 
 ### Números primos
-- [**Teste de primalidade**](src/matematica/numeros_primos/primalidade) **- $O(√n)$**
-- [**Crivo de Eratóstenes**](src/matematica/numeros_primos/crivo_eratostenes) **- $O(n*log(log(n)))$**
+- [**Teste de primalidade**](src/matematica/numeros_primos/primalidade/explicacao.md) **- $O(√n)$**
+- [**Crivo de Eratóstenes**](src/matematica/numeros_primos/crivo_eratostenes/explicacao.md) **- $O(n*log(log(n)))$**
