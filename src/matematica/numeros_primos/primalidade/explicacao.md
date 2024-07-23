@@ -17,11 +17,11 @@ $$∀n ∈ C, ∃a, b: a > 1 ∧ b > 1 ∧ ab = n$$
 
 Por exemplo, a fatoração dos números compostos $8$ e $9$:
 
-$$8 = 1 * 8 = 2 * 4 = 4 * 2 = 8 * 1$$
+$$8 = 1 \cdot 8 = 2 \cdot 4 = 4 \cdot 2 = 8 \cdot 1$$
 
-$$9 = 1 * 9 = 3 * 3 = 9 * 1$$
+$$9 = 1 \cdot 9 = 3 \cdot 3 = 9 \cdot 1$$
 
-Perceba que os fatores se invertem em certo ponto, onde o primeiro fator passa a ser maior que o segundo. Esse ponto é simplesmente $⌊√n⌋$, já que por definição, $√n * √n = n$, então quando o primeiro fator alcança o primeiro número maior ou igual a $√n$, o segundo fator passa a ser menor ou igual ao primeiro, assim repetindo os fatores.
+Perceba que os fatores se invertem em certo ponto, onde o primeiro fator passa a ser maior que o segundo. Esse ponto é simplesmente $⌊√n⌋$, já que por definição, $√n \cdot √n = n$, então quando o primeiro fator alcança o primeiro número maior ou igual a $√n$, o segundo fator passa a ser menor ou igual ao primeiro, assim repetindo os fatores.
 
 Tendo isso em mente, para um número ser considerado composto, este deve possuir pelo menos um divisor no intervalo $[2, ⌊√n⌋]$. Dessa forma, para um número ser considerado primo, a proposição anterior deve ser falsa, ou seja, um número primo não pode possuir nenhum divisor no dado intervalo.
 
