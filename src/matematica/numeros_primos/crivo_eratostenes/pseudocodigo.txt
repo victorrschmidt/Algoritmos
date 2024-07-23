@@ -3,7 +3,7 @@
 // --------------------------------------------------------------------------------
 
 funcao crivo(n) {
-    primos = [true, ..., true];  // Array de primos[n+1] (todos os elementos inicializados como true)
+    primos[n+1] = [true, ..., true];  // Array de primos (todos os elementos inicializados como true)
 
     primos[0] = primos[1] = false;  // Casos especiais: 0 e 1 não são primos
 
