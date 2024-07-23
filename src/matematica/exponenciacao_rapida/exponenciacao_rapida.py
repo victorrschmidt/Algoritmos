@@ -23,5 +23,5 @@ def fpow(b: int, e: int) -> int:
         return 1
     if e & 1:  # Se o expoente for ímpar, retornar b * b^(e-1) % mod
         return b * fpow(b, e - 1) % MOD
-    p = fpow(b, e // 2) % MOD  # Se o expoente for par, definir p como b^(e/2) % mod
+    p = fpow(b, e // 2)  # Se o expoente for par, definir p como b^(e/2)
     return p*p % MOD  # Retornar p*p % mod = b^(e/2) * b^(e/2) % mod
