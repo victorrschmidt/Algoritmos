@@ -47,6 +47,6 @@ Observe que $p * p > n$, ou seja, o valor de $p * p$ agora ultrapassa o interval
 
 ## Conclusão
 
-Quando o valor de $p$ ultrapassar o valor de $√n$, o algoritmo se encerra, e teremos o array $primos[]$ definido. Com isso, podemos verificar se um número arbitrário $x$ é primo em $O(1)$.
+Quando o valor de $p$ ultrapassar o valor de $√n$, o algoritmo se encerra, e teremos o array $primos[]$ definido. Com isso, podemos verificar se um número é primo em $O(1)$.
 
 Uma visualização do funcionamento do algoritmo pode ser vista em crivo.gif, no mesmo diretório deste arquivo.
