@@ -1,6 +1,6 @@
 # Crivo de Eratóstenes
 
-Complexidade de tempo: **$O(n*log(log(n)))$**  
+Complexidade de tempo: **$O(n \cdot log(log(n)))$**  
 Complexidade de espaço: **$O(n)$**  
 
 - Onde $n$ é o número limite a ser considerado.
@@ -11,7 +11,7 @@ O Crivo de Eratóstenes é um algoritmo antigo utilizado para encontrar números
 
 ## Início
 
-Primeiro definimos um número inteiro $n$ como o limite para o intervalo $[0, n]$.  
+Primeiro definimos um número inteiro $n$ como o limite para o intervalo $[0, n]$.
 
 Em seguida, geramos um array booleano $primos[]$ de tamanho $n+1$ contendo todos os valores definidos como $true$. Ele será utilizado para armazenar a informação de primalidade de um número, ou seja, para saber se um número arbitrário $x$ é primo, bastar verificar em $primos[x]$.
 
@@ -23,7 +23,7 @@ Suponhamos que o número limite seja $n = 10$.
 
 Definimos um ponteiro $p$ que será utilizado para iterar através os elementos de $primos[]$. Inicialmente, $p = 2$, o primeiro número primo.
 
-Em seguida, iremos definir como $false$ todos os múltiplos de $p$ no intervalo $[p * p, n]$.
+Em seguida, iremos definir como $false$ todos os múltiplos de $p$ no intervalo $[p \cdot p, n]$.
 
 ```cpp
 {false, false, true, true, false, true, false, true, false, true, false}
@@ -33,7 +33,7 @@ Em seguida, iremos definir como $false$ todos os múltiplos de $p$ no intervalo 
 
 Após isso, iremos incrementar o valor de $p$ em $1$, ou seja, $p = 3$.
 
-Iremos verificar que $primos[p]$ é $true$, logo faremos o mesmo processo, definir como $false$ todos os múltiplos de $p$ no intervalo $[p * p, n]$.
+Iremos verificar que $primos[p]$ é $true$, logo faremos o mesmo processo, definir como $false$ todos os múltiplos de $p$ no intervalo $[p \cdot p, n]$.
 
 ```cpp
 {false, false, true, true, false, true, false, true, false, false, false}
@@ -43,7 +43,7 @@ Iremos verificar que $primos[p]$ é $true$, logo faremos o mesmo processo, defin
 
 Após isso, iremos incrementar o valor de $p$ em $1$, ou seja, $p = 4$.
 
-Observe que $p * p > n$, ou seja, o valor de $p * p$ agora ultrapassa o intervalo limitado por $n$. Ou seja, no algoritmo, o valor de $p$ estará no intervalo $[2, ⌊√n⌋]$, visto que se $p * p > n$, consequentemente $p > √n$.
+Observe que $p \cdot p > n$, ou seja, o valor de $p \cdot p$ agora ultrapassa o intervalo limitado por $n$. Ou seja, no algoritmo, o valor de $p$ estará no intervalo $[2, ⌊√n⌋]$, visto que se $p \cdot p > n$, consequentemente $p > √n$.
 
 ## Conclusão
 
