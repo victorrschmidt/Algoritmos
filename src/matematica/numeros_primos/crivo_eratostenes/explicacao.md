@@ -13,7 +13,7 @@ O Crivo de Eratóstenes é um algoritmo antigo utilizado para encontrar números
 
 Primeiro definimos um número inteiro $n$ como o limite para o intervalo $[0, n]$.
 
-Em seguida, geramos um array booleano $primos[]$ de tamanho $n+1$ contendo todos os valores definidos como $true$. Ele será utilizado para armazenar a informação de primalidade de um número, ou seja, para saber se um número arbitrário $x$ é primo, bastar verificar em $primos[x]$.
+Em seguida, geramos um array booleano $primos[]$ de tamanho $n + 1$ contendo todos os valores definidos como $true$. Ele será utilizado para armazenar a informação de primalidade de um número, ou seja, para saber se um número arbitrário $x$ é primo, bastar verificar em $primos[x]$.
 
 Os números $0$ e $1$ são casos especiais, e são definidos como $false$ no início do algoritmo.
 
