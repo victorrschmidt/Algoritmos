@@ -27,12 +27,12 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 ## Grafos
 
 ### Componentes conexos
-- [**Depth-first search (componentes conexos em um grafo)**](src/grafos/componentes_conexos/dfs_componentes_conexos_grafo/explicacao.md) **- $O(v+e)$**
-- [**Depth-first search/Flood fill (componentes conexos em uma matriz)**](src/grafos/componentes_conexos/dfs_componentes_conexos_matriz/explicacao.md) **- $O(n*m)$**
+- [**Depth-first search (componentes conexos em um grafo)**](src/grafos/componentes_conexos/dfs_componentes_conexos_grafo/explicacao.md) **- $O(v + e)$**
+- [**Depth-first search/Flood fill (componentes conexos em uma matriz)**](src/grafos/componentes_conexos/dfs_componentes_conexos_matriz/explicacao.md) **- $O(n \cdot m)$**
 
 ### Menor caminho
-- [**Breadth-first search (menor caminho em um grafo não valorado)**](src/grafos/menor_caminho/bfs_menor_caminho_grafo/explicacao.md) **- $O(v+e)$**
-- [**Breadth-first search (menor caminho em uma matriz)**](src/grafos/menor_caminho/bfs_menor_caminho_matriz/explicacao.md) **- $O(n*m)$**
+- [**Breadth-first search (menor caminho em um grafo não valorado)**](src/grafos/menor_caminho/bfs_menor_caminho_grafo/explicacao.md) **- $O(v + e)$**
+- [**Breadth-first search (menor caminho em uma matriz)**](src/grafos/menor_caminho/bfs_menor_caminho_matriz/explicacao.md) **- $O(n \cdot m)$**
 
 ## Matemática
 
@@ -40,4 +40,4 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
 ### Números primos
 - [**Teste de primalidade**](src/matematica/numeros_primos/primalidade/explicacao.md) **- $O(√n)$**
-- [**Crivo de Eratóstenes**](src/matematica/numeros_primos/crivo_eratostenes/explicacao.md) **- $O(n*log(log(n)))$**
+- [**Crivo de Eratóstenes**](src/matematica/numeros_primos/crivo_eratostenes/explicacao.md) **- $O(n \cdot log(log(n)))$**
