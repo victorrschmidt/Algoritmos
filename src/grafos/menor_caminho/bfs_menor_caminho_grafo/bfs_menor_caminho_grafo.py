@@ -30,7 +30,7 @@ def bfs(origem: int) -> None:
     visitado = [False for i in range(V)]  # Lista de vértices visitados (todos os elementos inicializados como False)
     visitado[origem] = True  # Definir o vértice de origem como 'visitado'
 
-    fila = deque()  # Fila para verificar as adjacências de cada vértice explorado
+    fila = deque()  # Fila para verificar as adjacências de cada vértice processado
     fila.append(origem)  # Adicionar o vértice de origem à fila
 
     while fila:  # Iteração para cada vértice na fila
@@ -40,7 +40,7 @@ def bfs(origem: int) -> None:
             if visitado[u]:  # Se o vértice u ainda não foi visitado
                 visitado[u] = True  # Agora visitamos esse vértice
                 fila.append(u)  # Adicioná-lo à fila
-                dist[u] = dist[v]+1  # Definir a distância até esse vértice (distância até o vértice anterior + 1)
+                dist[u] = dist[v]+1  # Definir a distância até esse vértice (distância até o vértice v + 1)
 
 bfs(0)  # dist = [0, 2, 2, 2, 3, 3, 1, 1, 3, 4, 5, 4, 3]
 

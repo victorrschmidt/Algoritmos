@@ -20,16 +20,15 @@ adj = [  // Lista de adjacências do grafo de exemplo
     [1,11]
 ];
 
-dist = [];  // Array para armazenar a distância do vértice de origem até os outros vértices (tamanho = V)
+dist[V] = [-1, ..., -1];  // Array para armazenar a distância do vértice de origem até os outros vértices (com todas as distância inicializadas como -1)
 
 funcao bfs(origem) {
-    dist.preencher(-1);  // Definimos a distância até os outros vértices como -1
     dist[origem] = 0;  // A distância da origem até a própria origem é 0
 
-    visitado = [false, ..., false];  // Array de vértices visitados (todos os elementos inicializados como false, tamanho = V)
+    visitado[V] = [false, ..., false];  // Array de vértices visitados (todos os elementos inicializados como false)
     visitado[origem] = true;  // Definir o vértice de origem como 'visitado'
 
-    fila = [];  // Fila para verificar as adjacências de cada vértice explorado
+    fila = [];  // Fila para verificar as adjacências de cada vértice processado
     fila.push(origem);  // Adicionar o vértice de origem à fila
 
     while (fila.tamanho > 0) {  // Iteração para cada vértice na fila
@@ -40,7 +39,7 @@ funcao bfs(origem) {
             if (!visitado[u]) {  // Se o vértice u ainda não foi visitado
                 visitado[u] = true;  // Agora visitamos esse vértice
                 fila.push(u);  // Adicioná-lo à fila
-                dist[u] = dist[v]+1;  // Definir a distância até esse vértice (distância até o vértice anterior + 1)
+                dist[u] = dist[v]+1;  // Definir a distância até esse vértice (distância até o vértice v + 1)
             }
         }
     }
