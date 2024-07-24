@@ -21,7 +21,7 @@ Uma das formas de calcular $b^e$, seria criar um loop de $i$ até $e$, e para ca
 int res = 1;
 
 for (int i = 1; i <= e; i++) {
-  res *= b;
+    res *= b;
 }
 ```
 
