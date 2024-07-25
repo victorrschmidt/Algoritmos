@@ -42,7 +42,7 @@ b^e = b^\frac{e}{2} \cdot b^\frac{e}{2}
 E se o expoente for ímpar, podemos definir:
 
 ```math
-b^e = b^e \cdot b^{e-1}
+b^e = b \cdot b^{e-1}
 ```
 
 Dessa forma, podemos definir a seguinte recorrência:
