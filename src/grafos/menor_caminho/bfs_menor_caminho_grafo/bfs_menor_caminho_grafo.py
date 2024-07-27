@@ -34,13 +34,13 @@ def bfs(origem: int) -> None:
     fila.append(origem)  # Adicionar o vértice de origem à fila
 
     while fila:  # Iteração para cada vértice na fila
-        v = fila.popleft()  # Pegar o último vértice e removê-lo da fila
+        u = fila.popleft()  # Pegar o último vértice e removê-lo da fila
 
-        for u in adj[v]:  # Iteração para cada vértice adjacente à v
-            if visitado[u]:  # Se o vértice u ainda não foi visitado
-                visitado[u] = True  # Agora visitamos esse vértice
-                fila.append(u)  # Adicioná-lo à fila
-                dist[u] = dist[v]+1  # Definir a distância até esse vértice (distância até o vértice v + 1)
+        for v in adj[u]:  # Iteração para cada vértice adjacente à u
+            if visitado[v]:  # Se o vértice v ainda não foi visitado
+                visitado[v] = True  # Agora visitamos esse vértice
+                fila.append(v)  # Adicioná-lo à fila
+                dist[v] = dist[u]+1  # Definir a distância até esse vértice (distância até o vértice u + 1)
 
 bfs(0)  # dist = [0, 2, 2, 2, 3, 3, 1, 1, 3, 4, 5, 4, 3]
 

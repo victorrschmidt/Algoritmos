@@ -32,14 +32,14 @@ funcao bfs(origem) {
     fila.push(origem);  // Adicionar o vértice de origem à fila
 
     while (fila.tamanho > 0) {  // Iteração para cada vértice na fila
-        v = fila[0];  // Pegar o último vértice
+        u = fila[0];  // Pegar o último vértice
         fila.pop();  // Removê-lo da fila
 
-        for (u in adj[v]) {  // Iteração para cada vértice adjacente à v
-            if (!visitado[u]) {  // Se o vértice u ainda não foi visitado
-                visitado[u] = true;  // Agora visitamos esse vértice
-                fila.push(u);  // Adicioná-lo à fila
-                dist[u] = dist[v]+1;  // Definir a distância até esse vértice (distância até o vértice v + 1)
+        for (v in adj[u]) {  // Iteração para cada vértice adjacente à u
+            if (!visitado[v]) {  // Se o vértice v ainda não foi visitado
+                visitado[v] = true;  // Agora visitamos esse vértice
+                fila.push(v);  // Adicioná-lo à fila
+                dist[v] = dist[u]+1;  // Definir a distância até esse vértice (distância até o vértice u + 1)
             }
         }
     }

@@ -35,14 +35,14 @@ void bfs(int origem) {
     fila.push(origem);  // Adicionar o vértice de origem à fila
 
     while (!fila.empty()) {  // Iteração para cada vértice na fila
-        int v = fila.front();  // Pegar o último vértice
+        int u = fila.front();  // Pegar o último vértice
         fila.pop();  // Removê-lo da fila
 
-        for (const auto u : adj[v]) {  // Iteração para cada vértice adjacente à v
-            if (!visitado[u]) {  // Se o vértice u ainda não foi visitado
-                visitado[u] = true;  // Agora visitamos esse vértice
-                fila.push(u);  // Adicioná-lo à fila
-                dist[u] = dist[v]+1;  // Definir a distância até esse vértice (distância até o vértice v + 1)
+        for (const auto v : adj[u]) {  // Iteração para cada vértice adjacente à u
+            if (!visitado[v]) {  // Se o vértice v ainda não foi visitado
+                visitado[v] = true;  // Agora visitamos esse vértice
+                fila.push(v);  // Adicioná-lo à fila
+                dist[v] = dist[u]+1;  // Definir a distância até esse vértice (distância até o vértice u + 1)
             }
         }
     }
