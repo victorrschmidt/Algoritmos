@@ -1,63 +1,63 @@
-/*
-Complexidade de tempo: O(n*m)
-Complexidade de espaço: O(n*m)
+# Breadth first search - Menor caminho em uma matriz
 
-- Onde n e m são as dimensões da matriz.
+Complexidade de tempo: **$O(n \cdot m)$**  
+Complexidade de espaço: **$O(n \cdot m)$**  
 
-Temos o seguinte problema: Estamos presos em uma caverna, começando na posição inicial 'C', e
-queremos determinar o menor número de passos necessários para chegar até a saída da caverna 'F'.
-Podemos atravessar todos os espaços vazios '.', e não podemos atravessar os espaços com pedras '#'.
-Podemos nos mover para cima, para a direita, para baixo e para a esquerda.
+- Onde $n$ e $m$ são as dimensões da matriz.
 
-A ideia do algoritmo é visitar todas as células adjacentes à célula inicial,
-depois visitar todas as células adjacentes à essas, e assim sucessivamente.
-Cada camada de busca corresponde a um movimento - a distância mínima possível
-entre a célula inicial e a célula que está sendo visitada.
+## Explicação
 
-Assim, é possível determinar a menor distância entre a célula inicial e
-a célula final (considerando que cada movimento tem peso 1).
+Temos o seguinte problema: Estamos presos em uma caverna, começando na posição inicial 'C', e queremos determinar o menor número de passos necessários para chegar até a saída da caverna 'F'. Podemos atravessar todos os espaços vazios '.', e não podemos atravessar os espaços com pedras '#'. Podemos nos mover para cima, para a direita, para baixo e para a esquerda.
 
-Perceba que a matriz é basicamente um grafo, onde cada célula possui ligação
-com suas células adjacentes. As céluas adjacentes são: a célula de cima, da direita,
-de baixo e da esquerda.
+```cpp
+{'C','.','#','.','.','.','.','#'},
+{'.','.','.','.','#','#','#','.'},
+{'.','#','.','.','.','#','.','.'},
+{'#','.','.','#','.','#','F','#'},
+{'.','.','#','#','.','.','.','.'},
+{'#','.','.','.','.','.','.','#'}
+```
 
-Abaixo está a representação de uma célula (meio) e suas adjacências:
+Esse é um problema trivial que pode ser resolvido utilizando o conceito de grafo e de busca em largura (bfs).
 
-            | (x, y-1) |
-------------------------------------
-  (x-1, y)  |  (x, y)  |  (x+1, y)
-------------------------------------
-            | (x, y+1) |
+A ideia do algoritmo é visitar todas as células adjacentes à célula inicial, depois visitar todas as células adjacentes à essas, e assim sucessivamente. Cada camada de busca corresponde a um movimento - a distância mínima possível entre a célula inicial e a célula que está sendo visitada.
 
-Ou seja, para analisar as células adjacentes, basta alterar o valor de X ou Y.
-Para a célula de cima, diminuímos o Y em 1.
-Para a célula da direita, aumentamos o X em 1.
-Para a celula de baixo, aumentamos o Y em 1.
-Para a célula da esquerda, diminuímos o X em 1.
+Para cada célula processada, iremos adicioná-la a uma fila (queue), que prioriza as primeiras células adicionadas. Sendo assim, a busca é feita em largura, processando primeiro as células na menor profundidade (depht).
 
-Então, temos a seguinte notação para as células:
+Assim, é possível determinar a menor distância entre a célula inicial e a célula final (considerando que cada movimento tem peso 1).
 
-Célula do meio = V
+Perceba que a matriz é basicamente um grafo, onde cada célula possui ligação (arestas) com suas células adjacentes. As células adjacentes são: a célula de cima, da direita, de baixo e da esquerda.
 
-Célula de cima = A
-A(X) = V(X) e A(Y) = V(Y) - 1
+Abaixo está a representação de uma célula e suas adjacências:
 
-Célula da direita = B
-B(X) = V(X) + 1 e B(Y) = V(Y)
+```math
+\begin{pmatrix}
+  \cdots & i-1,\ j & \cdots \\\\
+  i,\ j-1 & i,\ j & i,\ j+1 \\\\
+  \cdots  & i+1,\ j  & \cdots
+\end{pmatrix}
+```
 
-Célula de baixo = C
-C(X) = V(X) e C(Y) = V(Y) + 1
+Em resumo, para analisar as células adjacentes, basta alterar o valor de $i$ ou $j$.
 
-Célula da esquerda = D
-D(X) = V(X) - 1 e D(Y) = V(Y)
+Podemos armazenar a variação dos valores de $i$ e $j$ (começando pela célula de cima, e seguindo no sentido horário) em dois arrays:
 
-Podemos armazenar a variação dos valores de X e Y em dois arrays:
-x[] = {-1,0,1,0}
-y[] = {0,1,0,-1}
+$$vi[\ ] = [-1,\ 0,\ 1,\ 0]$$
 
-Obs: Estamos considerando uma matriz representada por um computador,
-logo os valores de Y são crescentes de cima para baixo, diferente da
-representação em um plano cartesiano.
+$$vj[\ ] = [0,\ 1,\ 0,\ -1]$$
 
-A matriz utilizada de exemplo está no mesmo diretório deste arquivo.
-*/
+Assim, para saber os valores de $i$ e $j$ de uma célula adjacente, basta adicionar os valores dos arrays em uma posição $k$. Considerando $c$, $d$, $b$ e $e$ como as células de cima, direita, baixo e esquerda, temos a seguinte notação para os valores de $i$ e $j$ de cada.
+
+$$i_{c} = i + vi[0],\ j_{c} = j + vj[0]$$
+
+$$i_{d} = i + vi[1],\ j_{d} = j + vj[1]$$
+
+$$i_{b} = i + vi[2],\ j_{b} = j + vj[2]$$
+
+$$i_{e} = i + vi[3],\ j_{e} = j + vj[3]$$
+
+Colocando o algoritmo em prática, é possível determinar o menor caminho entre duas células da matriz. Abaixo está um dos caminhos ótimos possíveis para a matriz utilizada de exemplo no início.
+
+<p align="center">
+   <img src="https://github.com/victorrschmidt/Algoritmos/blob/main/img/bfs_menor_caminho_matriz_1.png" width="480" alt="matriz-caminho">
+</p>
