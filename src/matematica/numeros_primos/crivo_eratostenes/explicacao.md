@@ -43,7 +43,7 @@ Iremos verificar que $primos[p]$ é $true$, logo faremos o mesmo processo, defin
 
 Após isso, iremos incrementar o valor de $p$ em $1$, ou seja, $p = 4$.
 
-Observe que $p \cdot p > n$, ou seja, o valor de $p \cdot p$ agora ultrapassa o intervalo limitado por $n$. Ou seja, no algoritmo, o valor de $p$ estará no intervalo $[2, ⌊√n⌋]$, visto que se $p \cdot p > n$, consequentemente $p > √n$.
+Observe que $p \cdot p > n$, ou seja, o valor de $p \cdot p$ agora ultrapassa o intervalo limitado por $n$. Assim, no algoritmo, o valor de $p$ estará no intervalo $[2, ⌊√n⌋]$, visto que se $p \cdot p > n$, consequentemente $p > √n$.
 
 ## Conclusão
 
