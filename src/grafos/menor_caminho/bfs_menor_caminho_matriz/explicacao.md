@@ -22,7 +22,7 @@ Esse é um problema trivial que pode ser resolvido utilizando o conceito de graf
 
 A ideia do algoritmo é visitar todas as células adjacentes à célula inicial, depois visitar todas as células adjacentes à essas, e assim sucessivamente. Cada camada de busca corresponde a um movimento - a distância mínima possível entre a célula inicial e a célula que está sendo visitada.
 
-Para cada célula processada, iremos adicioná-la a uma fila (queue), que prioriza as primeiras células adicionadas. Sendo assim, a busca é feita em largura, processando primeiro as células na menor profundidade (depht).
+Para cada célula processada, iremos adicioná-la a uma fila (queue), que prioriza as primeiras células adicionadas. Sendo assim, a busca é feita em largura, processando primeiro as células na menor profundidade (depht). Além disso, criaremos uma matriz booleana $visitado[\ ][\ ]$ inicializada inteiramente como $false$. Ao processar uma célula $c$, marcaremos $visitado[i_{c}][j_{c}]$ como $true$. Assim, somente as células não-visitadas serão processadas.
 
 Assim, é possível determinar a menor distância entre a célula inicial e a célula final (considerando que cada movimento tem peso 1).
 
