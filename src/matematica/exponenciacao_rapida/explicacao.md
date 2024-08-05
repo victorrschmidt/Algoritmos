@@ -7,7 +7,7 @@ Complexidade de espaço: **$O(log(e))$**
 
 # Explicação
 
-Exponenciação é uma operação matemática envolvendo uma base $b$ e um expoente $e$, onde o resultado é a multiplicação de $b$ por $b$, $e$ vezes.
+Exponenciação é uma operação matemática envolvendo uma base $b$ e um expoente $e$, onde o resultado é o produto de $b$ por $b$, $e$ vezes.
 
 ```math
 b^e =
@@ -27,7 +27,7 @@ for (int i = 1; i <= e; i++) {
 
 Um algoritmo desse tipo teria uma complexidade de tempo de $O(e)$, pois teríamos que fazer $e$ iterações.
 
-Entretanto, existe uma forma mais eficiente de calcular $b^e$, utilizando uma das propriedades da exponenciação; a multiplicação de potências de mesma base:
+Entretanto, existe uma forma mais eficiente de calcular $b^e$, utilizando uma das propriedades da exponenciação - a multiplicação de potências de mesma base:
 
 ```math
 b^x \cdot b^y = b^{x+y}
@@ -49,7 +49,7 @@ Dessa forma, podemos definir a seguinte recorrência:
 
 ```math
 b^e = \begin{cases}
-  1 & \text{se } e = 0  \\
+  1 & \text{se } e=0  \\
   b \cdot b^{e-1} & \text{se } e \text{ for ímpar} \\
   b^\frac{e}{2} \cdot b^\frac{e}{2} & \text{se } e \text{ for par}
 \end{cases}$$
@@ -59,9 +59,9 @@ Assim, é possível escrever uma função recursiva $f(b, e)$, que calcula $b^e$
 
 ```math
 f\Big(b, e\Big) = \begin{cases}
-  1, \text{ se } e = 0  \\
-  b \cdot f\Big(b, e - 1\Big), \text{ se } e \text{ for ímpar} \\
-  f\Big(b, \frac{e}{2}\Big) \cdot f\Big(b, \frac{e}{2}\Big), \text{ se } e \text{ for par}
+  1 & \text{ se } e=0  \\
+  b \cdot f\Big(b, e-1\Big) & \text{ se } e \text{ for ímpar} \\
+  f\Big(b, \frac{e}{2}\Big) \cdot f\Big(b, \frac{e}{2}\Big) & \text{ se } e \text{ for par}
 \end{cases}$$
 ```
 
@@ -75,8 +75,8 @@ O mesmo algoritmo pode ser utilizado com um módulo $m$, apenas adicionando-o à
 
 ```math
 f\Big(b, e\Big) \bmod m = \begin{cases}
-  1, \text{ se } e = 0  \\
-  b \cdot f\Big(b, e - 1\Big) \bmod m, \text{ se } e \text{ for ímpar} \\
-  f\Big(b, \frac{e}{2}\Big) \cdot f\Big(b, \frac{e}{2}\Big) \bmod m, \text{ se } e \text{ for par}
+  1 & \text{ se } e = 0  \\
+  b \cdot f\Big(b, e-1\Big) \bmod m & \text{ se } e \text{ for ímpar} \\
+  f\Big(b, \frac{e}{2}\Big) \cdot f\Big(b, \frac{e}{2}\Big) \bmod m & \text{ se } e \text{ for par}
 \end{cases}$$
 ```
