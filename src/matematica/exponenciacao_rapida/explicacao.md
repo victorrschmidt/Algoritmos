@@ -49,9 +49,9 @@ Dessa forma, podemos definir a seguinte recorrência:
 
 ```math
 b^e = \begin{cases}
-  1, \text{ se } e = 0  \\
-  b \cdot b^{e-1}, \text{ se } e \text{ for ímpar} \\
-  b^\frac{e}{2} \cdot b^\frac{e}{2}, \text{ se } e \text{ for par}
+  1 & \text{se } e = 0  \\
+  b \cdot b^{e-1} & \text{se } e \text{ for ímpar} \\
+  b^\frac{e}{2} \cdot b^\frac{e}{2} & \text{se } e \text{ for par}
 \end{cases}$$
 ```
 
