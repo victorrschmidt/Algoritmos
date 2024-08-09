@@ -11,11 +11,10 @@ Exponenciação é uma operação matemática envolvendo uma base $b$ e um expoe
 
 ```math
 b^e =
-\underbrace{b \cdot b \cdot \text{ ... } \cdot b}_\text{$e$ vezes} =
-\prod_{i=1}^e b
+\underbrace{b \cdot b \cdot \dotsc \cdot b}_\text{$e$ vezes}
 ```
 
-Uma das formas de calcular $b^e$, seria criar um loop de $i$ até $e$, e para cada iteração, multiplicar o resultado por $b$.
+Uma das formas de calcular $b^e$ é criar um loop de $i$ até $e$, e para cada iteração, multiplicar o resultado por $b$.
 
 ```cpp
 int res = 1;
@@ -33,7 +32,7 @@ Entretanto, existe uma forma mais eficiente de calcular $b^e$, utilizando uma da
 b^x \cdot b^y = b^{x+y}
 ```
 
-Ou seja, se o expoente $e$ for par, podemos definir:
+Com essa propriedade, se o expoente $e$ for par, podemos definir:
 
 ```math
 b^e = b^\frac{e}{2} \cdot b^\frac{e}{2}
@@ -52,17 +51,17 @@ b^e = \begin{cases}
   1 & \text{se } e=0  \\
   b \cdot b^{e-1} & \text{se } e \text{ for ímpar} \\
   b^\frac{e}{2} \cdot b^\frac{e}{2} & \text{se } e \text{ for par}
-\end{cases}$$
+\end{cases}
 ```
 
 Assim, é possível escrever uma função recursiva $f(b, e)$, que calcula $b^e$:
 
 ```math
-f\Big(b, e\Big) = \begin{cases}
+f\big(b, e\big) = \begin{cases}
   1 & \text{ se } e=0  \\
-  b \cdot f\Big(b, e-1\Big) & \text{ se } e \text{ for ímpar} \\
-  f\Big(b, \frac{e}{2}\Big) \cdot f\Big(b, \frac{e}{2}\Big) & \text{ se } e \text{ for par}
-\end{cases}$$
+  b \cdot f\big(b, e-1\big) & \text{ se } e \text{ for ímpar} \\
+  f\big(b, \frac{e}{2}\big) \cdot f\big(b, \frac{e}{2}\big) & \text{ se } e \text{ for par}
+\end{cases}
 ```
 
 A complexidade de tempo do algoritmo acima é de $O(log(e))$, que é a quantidade de vezes que iremos dividir $e$ por $2$ até chegar no caso base: $0$. A complexidade de espaço também é de $O(log(e))$, que é a profundidade (depht) máximo da função.
@@ -74,9 +73,9 @@ A exponenciação modular é utilizada para calcular a potência quando a base e
 O mesmo algoritmo pode ser utilizado com um módulo $m$, apenas adicionando-o à recorrência.
 
 ```math
-f\Big(b, e\Big) \bmod m = \begin{cases}
+f\big(b, e\big) \bmod m = \begin{cases}
   1 & \text{ se } e = 0  \\
-  b \cdot f\Big(b, e-1\Big) \bmod m & \text{ se } e \text{ for ímpar} \\
-  f\Big(b, \frac{e}{2}\Big) \cdot f\Big(b, \frac{e}{2}\Big) \bmod m & \text{ se } e \text{ for par}
-\end{cases}$$
+  b \cdot f\big(b, e-1\big) \bmod m & \text{ se } e \text{ for ímpar} \\
+  f\big(b, \frac{e}{2}\big) \cdot f\big(b, \frac{e}{2}\big) \bmod m & \text{ se } e \text{ for par}
+\end{cases}
 ```
