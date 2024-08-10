@@ -1,4 +1,4 @@
-# Breadth first search - Menor caminho em uma matriz
+# Breadth-first search - Menor caminho em uma matriz
 
 Complexidade de tempo: **$O(n \cdot m)$**  
 Complexidade de espaço: **$O(n \cdot m)$**  
