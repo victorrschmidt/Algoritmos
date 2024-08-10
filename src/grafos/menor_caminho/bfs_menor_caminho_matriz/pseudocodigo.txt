@@ -18,8 +18,8 @@ i0 = 0;  // Posição inicial i (linha)
 j0 = 0;  // Posição inicial j (coluna)
 
 funcao bfs() {
-    vi[4] = [-1,0,1,0];  // Variação de valores da posição i (linha)
-    vj[4] = [0,1,0,-1];  // Variação de valores da posição j (coluna)
+    vi[] = [-1,0,1,0];  // Variação de valores da posição i (linha)
+    vj[] = [0,1,0,-1];  // Variação de valores da posição j (coluna)
 
     visitado[L][C] = [[false, ..., false], ..., [false, ... false]];  // Matriz de células visitadas (array de tamanho L, contendo arrays de tamanho C que contém false)
     visitado[i0][j0] = true;  // Definir a célula inicial como visitada

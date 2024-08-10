@@ -21,7 +21,7 @@ j0 = 0  # Posição inicial j (coluna)
 
 def bfs() -> int:
     vi = (-1,0,1,0)  # Variação de valores da posição i (linha)
-    jv = (0,1,0,-1)  # Variação de valores da posição j (coluna)
+    vj = (0,1,0,-1)  # Variação de valores da posição j (coluna)
 
     visitado = [[False for i in range(C)] for j in range(L)]  # Matriz de células visitadas (todas as células inicializadas como False)
     visitado[i0][j0] = True  # Definir a célula inicial como visitada

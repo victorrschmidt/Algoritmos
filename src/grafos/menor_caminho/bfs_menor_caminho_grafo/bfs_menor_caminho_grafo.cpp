@@ -23,9 +23,10 @@ vector<vector<int>> adj{  // Lista de adjacências do grafo de exemplo
     {1,11}
 };
 
-vector<int> dist(V, -1);  // Array para armazenar a distância do vértice de origem até os outros vértices (com todas as distância inicializadas como -1)
+vector<int> dist(V);  // Array para armazenar a distância do vértice de origem até os outros vértices
 
 void bfs(int origem) {
+    fill(dist.begin(), dist.end(), -1);  // Definir a distância até os outros vértices como -1
     dist[origem] = 0;  // A distância da origem até a própria origem é 0
 
     vector<bool> visitado(V);  // Array de vértices visitados (todos os elementos inicializados como false)

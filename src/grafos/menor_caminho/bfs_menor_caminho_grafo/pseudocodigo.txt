@@ -20,9 +20,10 @@ adj = [  // Lista de adjacências do grafo de exemplo
     [1,11]
 ];
 
-dist[V] = [-1, ..., -1];  // Array para armazenar a distância do vértice de origem até os outros vértices (com todas as distância inicializadas como -1)
+dist[V];  // Array para armazenar a distância do vértice de origem até os outros vértices
 
 funcao bfs(origem) {
+    dist.preencher(-1);  // Definir a distância até os outros vértices como -1
     dist[origem] = 0;  // A distância da origem até a própria origem é 0
 
     visitado[V] = [false, ..., false];  // Array de vértices visitados (todos os elementos inicializados como false)

@@ -24,7 +24,7 @@ adj = [  # Lista de adjacências do grafo de exemplo
 
 def bfs(origem: int) -> None:
     global dist  # Lista para armazenar a distância do vértice de origem até os outros vértices
-    dist = [-1 for i in range(V)]  # Definimos a distância até os outros vértices como -1
+    dist = [-1 for i in range(V)]  # Definir a distância até os outros vértices como -1
     dist[origem] = 0  # A distância da origem até a própria origem é 0
 
     visitado = [False for i in range(V)]  # Lista de vértices visitados (todos os elementos inicializados como False)
