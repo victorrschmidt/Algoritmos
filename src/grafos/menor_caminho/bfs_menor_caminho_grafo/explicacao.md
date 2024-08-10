@@ -1,4 +1,4 @@
-# Breadth first search - Menor caminho em um grafo não valorado
+# Breadth-first search - Menor caminho em um grafo não valorado
 
 Complexidade de tempo: **$O(v + e)$**  
 Complexidade de espaço: **$O(v)$**  
