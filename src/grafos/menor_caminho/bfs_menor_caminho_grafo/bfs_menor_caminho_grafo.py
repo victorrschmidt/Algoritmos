@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------------
-# BREADTH FIRST SEARCH - MENOR CAMINHO EM UM GRAFO NÃO VALORADO
+# BREADTH-FIRST SEARCH - MENOR CAMINHO EM UM GRAFO NÃO VALORADO
 # --------------------------------------------------------------------------------
 
 from collections import deque

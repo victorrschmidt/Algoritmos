@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------
-// BREADTH FIRST SEARCH - MENOR CAMINHO EM UMA MATRIZ
+// BREADTH-FIRST SEARCH - MENOR CAMINHO EM UMA MATRIZ
 // --------------------------------------------------------------------------------
 
 L = 6;  // Quantidade de linhas da matriz de exemplo

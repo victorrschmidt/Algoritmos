@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------
-// BREADTH FIRST SEARCH - MENOR CAMINHO EM UMA MATRIZ
+// BREADTH-FIRST SEARCH - MENOR CAMINHO EM UMA MATRIZ
 // --------------------------------------------------------------------------------
 
 #include <bits/stdc++.h>
