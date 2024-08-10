@@ -13,7 +13,7 @@ Uma das propriedades dos números compostos é:
 
 $$\forall n((n \in C) \implies (\exists a(\exists b(a > 1 \land b > 1 \land ab = n))))$$
 
-- Para qualquer número $n$ pertencente ao conjunto dos números compostos, existe pelo menos um par de números $a$ e $b$ tal que $a > 1$ e $b > 1$ e $ab = n$.
+- Para todo número $n$ pertencente ao conjunto dos números compostos, existe pelo menos um par de números $a$ e $b$ tal que $a > 1$ e $b > 1$ e $ab = n$.
 
 Por exemplo, a fatoração dos números compostos $8$ e $9$:
 
