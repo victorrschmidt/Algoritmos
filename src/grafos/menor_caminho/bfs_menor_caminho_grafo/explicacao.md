@@ -24,9 +24,9 @@ No fim, teremos o array definido com todas as distâncias e, as distâncias que 
 Abaixo está um exemplo de um grafo e o funcionamento do algoritmo em questão, com o vértice de origem sendo o $0$.
 
 <p align="center">
-   <img src="https://github.com/victorrschmidt/Algoritmos/blob/main/img/bfs_menor_caminho_grafo_1.png" width="480" alt="bfs-img">
+   <img src="/img/bfs_menor_caminho_grafo_1.png" width="480" alt="bfs-img">
 </p>
 
 <p align="center">
-   <img src="https://github.com/victorrschmidt/Algoritmos/blob/main/img/bfs_menor_caminho_grafo_2.gif" width="480" alt="bfs-gif">
+   <img src="/img/bfs_menor_caminho_grafo_2.gif" width="480" alt="bfs-gif">
 </p>
