@@ -52,5 +52,5 @@ Quando o valor de $p$ ultrapassar o valor de $√n$, o algoritmo se encerra, e t
 Abaixo está uma visualização do funcionamento do algoritmo.
 
 <p align="center">
-   <img src="https://github.com/victorrschmidt/Algoritmos/blob/main/img/crivo_eratostenes_1.gif" width="480" alt="crivo">
+   <img src="/img/crivo_eratostenes_1.gif" width="480" alt="crivo">
 </p>
