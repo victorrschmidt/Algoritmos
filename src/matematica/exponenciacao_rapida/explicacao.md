@@ -68,7 +68,7 @@ A complexidade de tempo do algoritmo acima é de $O(log(e))$, que é a quantidad
 
 ## Exponenciação modular
 
-A exponenciação modular é utilizada para calcular a potência quando a base e/ou expoente é muito grande, e para isso é utilizado um módulo para limitar o tamanho do resutado.
+A exponenciação modular é utilizada para calcular a potência quando a base e/ou expoente é muito grande, e para isso é utilizado um módulo para limitar o tamanho do resultado.
 
 O mesmo algoritmo pode ser utilizado com um módulo $m$, apenas adicionando-o à recorrência.
 
