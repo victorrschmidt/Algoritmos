@@ -1,13 +1,13 @@
 // --------------------------------------------------------------------------------
-// DEPTH FIRST SEARCH - COMPONENTES CONEXOS EM UM GRAFO
+// DEPTH-FIRST SEARCH - COMPONENTES CONEXOS EM UM GRAFO
 // --------------------------------------------------------------------------------
 
 V = 12;  // Número de vértices do grafo de exemplo
 
 adj = [  // Lista de adjacências do grafo de exemplo
-    [5,8,4],  // 0 se liga com 5, 8 e 4
-    [7,11],  // 1 se liga com 7 e 11
-    [6],  // 2 se liga com 6
+    [5,8,4],  // 0->5, 0->8, 0->4
+    [7,11],  // 1->7, 1->11
+    [6],  // 2->6
     [],  // ...
     [0,8],
     [0],
@@ -19,22 +19,23 @@ adj = [  // Lista de adjacências do grafo de exemplo
     [1,7]
 ];
 
-id = 0;  // Define o número do grupo de cada vértice
-componente = [];  // Array para identificar o grupo ao qual cada vértice pertence (tamanho = V)
-visitado = [false, ..., false];  // Array de vértices visitados (todos os elementos inicializados como false. Tamanho = V)
+id = 0;  // Número que define o número do grupo de cada vértice
+componente[V];  // Array para identificar o grupo ao qual cada vértice pertence
+visitado[V] = [false, ..., false];  // Array de vértices visitados (todos os elementos inicializados como false)
 
-funcao dfs(v) {
-    visitado[v] = true;  // O vértice passado na função agora é visitado
-    componente[v] = id;  // Identificar o id do vértice no array (o grupo ao qual esse vértice pertence é o id atual)
+// Função dfs
+funcao dfs(u) {
+    visitado[u] = true;  // Definir o vértice u como 'visitado'
+    componente[u] = id;  // Identificar o id do vértice no array (o grupo ao qual esse vértice pertence é o id atual)
 
-    for (u in adj[v]) {  // Iteração para cada vértice adjacente à v
-        if (!visitado[u]) {  // Se o vértice u ainda não foi visitado
-            dfs(u);  // Chamar a função dfs para u
+    for (v in adj[u]) {  // Iteração para cada vértice adjacente à u
+        if (!visitado[v]) {  // Se o vértice v ainda não foi visitado
+            dfs(v);  // Chamar a função dfs para v
         }
     }
-
 }
 
+// Função para identificar os vértices
 funcao encontrarComponentes() {
     for (i = 0; i < V; i++) {  // Iteração para cada vértice no grafo
         if (!visitado[i]) {  // Se o vértice ainda não foi visitado
@@ -42,5 +43,4 @@ funcao encontrarComponentes() {
             dfs(i);  // Chamar a função dfs para esse vértice
         }
     }
-
 }

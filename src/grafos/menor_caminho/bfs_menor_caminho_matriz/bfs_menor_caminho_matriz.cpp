@@ -42,18 +42,18 @@ int bfs() {
         }
 
         for (int k = 0; k < 4; k++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
-            int iv = i + vi[k];  // Posição i (linha) da célula a ser visitada
-            int jv = j + vj[k];  // Posição j (coluna) da célula a ser visitada
+            int i_ = i + vi[k];  // Posição i (linha) da célula a ser visitada
+            int j_ = j + vj[k];  // Posição j (coluna) da célula a ser visitada
 
-            if (iv < 0 || jv < 0) continue;  // Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
-            if (iv >= L || jv >= C) continue;  // Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
-            if (visitado[iv][jv]) continue;  // Se a célula já foi visitada
-            if (matriz[iv][jv] == '#') continue;  // Se a célula é inacessível (pedra)
+            if (i_ < 0 || j_ < 0) continue;  // Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
+            if (i_ >= L || j_ >= C) continue;  // Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
+            if (visitado[i_][j_]) continue;  // Se a célula já foi visitada
+            if (matriz[i_][j_] == '#') continue;  // Se a célula é inacessível (pedra)
 
             // Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-            fila.push(make_pair(iv, jv));  // Adicionar a célula à fila
-            visitado[iv][jv] = true;  // Agora visitamos essa célula
+            fila.push(make_pair(i_, j_));  // Adicionar a célula à fila
+            visitado[i_][j_] = true;  // Definir a célula como visitada
         }
 
         c_restantes--;  // Diminuir o número de células na camada de busca
@@ -62,7 +62,6 @@ int bfs() {
             c_restantes = fila.size();  // A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
             distancia++;  // Como teremos que verificar outra camada de busca, a distância aumenta em 1
         }
-
     }
 
     return -1;  // Não existe caminho possível entre a célula inicial e final

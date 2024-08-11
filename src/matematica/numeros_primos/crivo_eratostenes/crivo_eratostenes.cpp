@@ -16,7 +16,7 @@ vector<bool> crivo(int n) {
         }
 
         for (int i = p*p; i <= n; i += p) {  // Iteração de i (múltiplos de p) no intervalo [p*p, n]
-            primos[i] = false;  // Definir o número como composto (não-primo)
+            primos[i] = false;  // Definir o número como não primo
         }
     }
 

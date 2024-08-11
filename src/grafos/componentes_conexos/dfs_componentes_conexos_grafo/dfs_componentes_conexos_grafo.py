@@ -1,13 +1,13 @@
 # --------------------------------------------------------------------------------
-# DEPTH FIRST SEARCH - COMPONENTES CONEXOS EM UM GRAFO
+# DEPTH-FIRST SEARCH - COMPONENTES CONEXOS EM UM GRAFO
 # --------------------------------------------------------------------------------
 
 V = 12  # Número de vértices do grafo de exemplo
 
 adj = [  # Lista de adjacências do grafo de exemplo
-    [5,8,4],  # 0 se liga com 5, 8 e 4
-    [7,11],  # 1 se liga com 7 e 11
-    [6],  # 2 se liga com 6
+    [5,8,4],  # 0->5, 0->8, 0->4
+    [7,11],  # 1->7, 1->11
+    [6],  # 2->6
     [],  # ...
     [0,8],
     [0],
@@ -19,18 +19,18 @@ adj = [  # Lista de adjacências do grafo de exemplo
     [1,7]
 ]
 
-id = 0  # Define o número do grupo de cada vértice
+id = 0  # Número que define o número do grupo de cada vértice
 componente = [None for i in range(V)]  # Lista para identificar o grupo ao qual cada vértice pertence
 visitado = [False for i in range(V)]  # Lista de vértices visitados (todos os elementos inicializados como False)
 
 # Função dfs
-def dfs(v: int) -> None:
-    visitado[v] = True  # O vértice passado na função agora é visitado
-    componente[v] = id  # Identificar o id do vértice na lista (o grupo ao qual esse vértice pertence é o id atual)
+def dfs(u: int) -> None:
+    visitado[u] = True  # Definir o vértice u como 'visitado'
+    componente[u] = id  # Identificar o id do vértice na lista (o grupo ao qual esse vértice pertence é o id atual)
 
-    for u in adj[v]:  # Iteração para cada vértice adjacente à v
-        if not visitado[u]:  # Se o vértice u ainda não foi visitado
-            dfs(u)  # Chamar a função dfs para u
+    for v in adj[u]:  # Iteração para cada vértice adjacente à u
+        if not visitado[v]:  # Se o vértice v ainda não foi visitado
+            dfs(v)  # Chamar a função dfs para v
 
 # Função para identificar os vértices
 def encontrarComponentes() -> None:

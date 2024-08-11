@@ -12,7 +12,7 @@ def crivo(n: int) -> list[bool]:
     while p*p <= n:  # Iteração de p no intervalo [2, √n]
         if primos[p]:  # Se o número é primo
             for i in range(p*p, n+1, p):  # Iteração de i (múltiplos de p) no intervalo [p*p, n]
-                primos[i] = False  # Definir o número como composto (não-primo)
+                primos[i] = False  # Definir o número como não primo
         p += 1
 
     return primos  # Retornar a lista

@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------
-// DEPTH FIRST SEARCH E FLOOD FILL - COMPONENTES CONEXOS EM UMA MATRIZ
+// DEPTH-FIRST SEARCH/FLOOD FILL - COMPONENTES CONEXOS EM UMA MATRIZ
 // --------------------------------------------------------------------------------
 
 #include <bits/stdc++.h>
@@ -21,25 +21,24 @@ vector<vector<char>> matriz{  // Matriz de exemplo
     {'#','#','.','.','.','.','#','.','.','.','.','.'}
 };
 
-vector<int> dl{-1,0,1,0};  // Valores a serem somados na posição Y (linha)
-vector<int> dc{0,1,0,-1};  // Valores a serem somados na posição X (coluna)
+vector<int> vi{-1,0,1,0};  // Variação de valores da posição i (linha)
+vector<int> vj{0,1,0,-1};  // Variação de valores da posição j (coluna)
 
-void floodFill(int l, int c) {
-    matriz[l][c] = 'V';  // Alterar o valor da célula
+void floodFill(int i, int j) {
+    matriz[i][j] = 'V';  // Alterar o valor da célula
 
-    for (int i = 0; i < 4; i++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
-        int nova_l = l + dl[i];  // Posição Y (linha) da célula a ser visitada
-        int nova_c = c + dc[i];  // Posição X (coluna) da célula a ser visitada
+    for (int k = 0; k < 4; k++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
+        int i_ = i + vi[k];  // Posição i (linha) da célula a ser visitada
+        int j_ = j + vj[k];  // Posição j (coluna) da célula a ser visitada
 
-        if (nova_l < 0 || nova_c < 0) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
-        if (nova_l >= L || nova_c >= C) continue;  // Se as posições Y ou X da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
-        if (matriz[nova_l][nova_c] != '.') continue;  // Se a célula não é um espaço em branco '.'
+        if (i_ < 0 || j_ < 0) continue;  // Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
+        if (i_ >= L || j_ >= C) continue;  // Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
+        if (matriz[i_][j_] != '.') continue;  // Se a célula não é um espaço em branco '.'
 
         // Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-        floodFill(nova_l, nova_c);  // Chamar a função Flood fill para a célula adjacente
+        floodFill(i_, j_);  // Chamar a função Flood fill para a célula adjacente
     }
-
 }
 
 int main() {

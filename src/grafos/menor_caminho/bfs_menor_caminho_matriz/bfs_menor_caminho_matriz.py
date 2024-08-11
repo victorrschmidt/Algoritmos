@@ -40,22 +40,22 @@ def bfs() -> int:
             return distancia  # Retornar a distância
 
         for k in range(4):  # Iteração para cada célula adjacente à célula que está sendo visitada
-            iv = i + vi[k]  # Posição i (linha) da célula a ser visitada
-            jv = j + vj[k]  # Posição j (coluna) da célula a ser visitada
+            i_ = i + vi[k]  # Posição i (linha) da célula a ser visitada
+            j_ = j + vj[k]  # Posição j (coluna) da célula a ser visitada
 
-            if iv < 0 or jv < 0:  # Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
+            if i_ < 0 or j_ < 0:  # Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
                 continue
-            if iv >= L or jv >= C:  # Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
+            if i_ >= L or j_ >= C:  # Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
                 continue
-            if visitado[iv][jv]:  # Se a célula já foi visitada
+            if visitado[i_][j_]:  # Se a célula já foi visitada
                 continue
-            if matriz[iv][jv] == '#':  # Se a célula é inacessível (pedra)
+            if matriz[i_][j_] == '#':  # Se a célula é inacessível (pedra)
                 continue
 
             # Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-            fila.append((iv, jv))  # Adicionar a célula à fila
-            visitado[iv][jv] = True  # Agora visitamos essa célula
+            fila.append((i_, j_))  # Adicionar a célula à fila
+            visitado[i_][j_] = True  # Definir a célula como visitada
 
         c_restantes -= 1  # Diminuir o número de células na camada de busca
 

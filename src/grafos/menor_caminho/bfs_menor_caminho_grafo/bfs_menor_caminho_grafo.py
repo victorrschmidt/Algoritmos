@@ -7,9 +7,9 @@ from collections import deque
 V = 13  # Número de vértices do grafo de exemplo
 
 adj = [  # Lista de adjacências do grafo de exemplo
-    [6,7],  # 0 se liga com 6 e 7
-    [7,4,12],  # 1 se liga com 7, 4 e 12
-    [3,6,8],  # 2 se liga com 3, 6 e 8
+    [6,7],  # 0->6, 0->7
+    [7,4,12],  # 1->7, 1->4, 1->12
+    [3,6,8],  # 2->3, 2->6, 2->8
     [5,6,2],  # ...
     [1,8],
     [3],
@@ -38,7 +38,7 @@ def bfs(origem: int) -> None:
 
         for v in adj[u]:  # Iteração para cada vértice adjacente à u
             if visitado[v]:  # Se o vértice v ainda não foi visitado
-                visitado[v] = True  # Agora visitamos esse vértice
+                visitado[v] = True  # Definir o vértice como 'visitado'
                 fila.append(v)  # Adicioná-lo à fila
                 dist[v] = dist[u]+1  # Definir a distância até esse vértice (distância até o vértice u + 1)
 

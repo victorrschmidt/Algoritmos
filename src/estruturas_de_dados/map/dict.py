@@ -15,7 +15,7 @@ dt = dict(um=1, dois=2, tres=3)
 # {'um': 1, 'dois': 2, 'tres': 3}
 
 # Padrão (chave=valor, ..., chave=valor)
-# Neste tipo de inicialização, as chaves só podem ser strings
+# Neste tipo de inicialização, as chaves só podem ser do tipo string
 
 dt = dict([('um', 1), ('dois', 2), ('tres', 3)])
 # {'um': 1, 'dois': 2, 'tres': 3}
