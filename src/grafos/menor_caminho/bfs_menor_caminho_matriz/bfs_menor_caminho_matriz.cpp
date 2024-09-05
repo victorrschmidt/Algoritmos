@@ -17,18 +17,18 @@ vector<vector<char>> matriz{  // Matriz de exemplo
     {'#','.','.','.','.','.','.','#'}
 };
 
-int i0 = 0;  // Posição inicial i (linha)
-int j0 = 0;  // Posição inicial j (coluna)
+int ic = 0;  // Posição inicial i (linha)
+int jc = 0;  // Posição inicial j (coluna)
 
 int bfs() {
     vector<int> vi{-1,0,1,0};  // Variação de valores da posição i (linha)
     vector<int> vj{0,1,0,-1};  // Variação de valores da posição j (coluna)
 
     vector<vector<bool>> visitado(L, vector<bool>(C));  // Matriz de células visitadas (todas as células inicializadas como false)
-    visitado[i0][j0] = true;  // Definir a célula inicial como visitada
+    visitado[ic][jc] = true;  // Definir a célula inicial como visitada
 
     queue<pair<int, int>> fila;  // Fila para verificar cada célula adjacente na matriz
-    fila.push(make_pair(i0, j0));  // Adicionar a célula inicial na fila ( {i, j} )
+    fila.push(make_pair(ic, jc));  // Adicionar a célula inicial na fila ( {i, j} )
 
     int c_restantes = 1;  // Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
     int distancia = 0;  // Contador de distância até a célula final

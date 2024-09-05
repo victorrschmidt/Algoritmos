@@ -16,18 +16,18 @@ matriz = [  # Matriz de exemplo
     ['#','.','.','.','.','.','.','#']
 ]
 
-i0 = 0  # Posição inicial i (linha)
-j0 = 0  # Posição inicial j (coluna)
+ic = 0  # Posição inicial i (linha)
+jc = 0  # Posição inicial j (coluna)
 
 def bfs() -> int:
     vi = (-1,0,1,0)  # Variação de valores da posição i (linha)
     vj = (0,1,0,-1)  # Variação de valores da posição j (coluna)
 
     visitado = [[False for i in range(C)] for j in range(L)]  # Matriz de células visitadas (todas as células inicializadas como False)
-    visitado[i0][j0] = True  # Definir a célula inicial como visitada
+    visitado[ic][jc] = True  # Definir a célula inicial como visitada
 
     fila = deque()  # Fila para verificar cada célula adjacente na matriz
-    fila.append((i0, j0))  # Adicionar a célula inicial na fila ( (i, j) )
+    fila.append((ic, jc))  # Adicionar a célula inicial na fila ( (i, j) )
 
     c_restantes = 1  # Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
     distancia = 0  # Contador de distância até a célula final

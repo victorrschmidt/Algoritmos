@@ -59,5 +59,5 @@ $$e_{i} = c_{i} + vi[3],\ e_{j} = c_{j} + vj[3]$$
 Colocando o algoritmo em prática, é possível determinar o menor caminho entre a célula inicial e a célula final. Abaixo está um dos caminhos ótimos possíveis para a matriz utilizada de exemplo no início.
 
 <p align="center">
-   <img src="/img/bfs_menor_caminho_matriz_1.png" width="480" alt="matriz-caminho">
+   <img src="/img/bfs_menor_caminho_matriz.png" width="480" alt="matriz-caminho">
 </p>
