@@ -8,7 +8,7 @@ using namespace std;
 vector<bool> crivo(int n) {
     vector<bool> primos(n+1, true);  // Array de primos (todos os elementos inicializados como true)
 
-    primos[0] = primos[1] = false;  // Casos especiais: 0 e 1 não são primos
+    primos[0] = primos[1] = false;  // Casos especiais: 0 e 1 não são números primos
 
     for (int p = 2; p*p <= n; p++) {  // Iteração de p no intervalo [2, √n]
         if (!primos[p]) {  // Se o número não é primo
