@@ -24,7 +24,7 @@ dist[V];  // Array para armazenar a distância do vértice de origem até os out
 
 funcao bfs(origem) {
     dist.preencher(-1);  // Definir a distância até os outros vértices como -1
-    dist[origem] = 0;  // A distância da origem até a própria origem é 0
+    dist[origem] = 0;  // A distância entre a origem e a própria origem é 0
 
     visitado[V] = [false, ..., false];  // Array de vértices visitados (todos os elementos inicializados como false)
     visitado[origem] = true;  // Definir o vértice de origem como 'visitado'
@@ -40,7 +40,7 @@ funcao bfs(origem) {
             if (!visitado[v]) {  // Se o vértice v ainda não foi visitado
                 visitado[v] = true;  // Definir o vértice como 'visitado'
                 fila.push(v);  // Adicioná-lo à fila
-                dist[v] = dist[u]+1;  // Definir a distância até esse vértice (distância até o vértice u + 1)
+                dist[v] = dist[u] + 1;  // Definir a distância até esse vértice (distância até o vértice u + 1)
             }
         }
     }

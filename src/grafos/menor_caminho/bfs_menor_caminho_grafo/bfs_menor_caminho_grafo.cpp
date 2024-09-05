@@ -27,7 +27,7 @@ vector<int> dist(V);  // Array para armazenar a distância do vértice de origem
 
 void bfs(int origem) {
     fill(dist.begin(), dist.end(), -1);  // Definir a distância até os outros vértices como -1
-    dist[origem] = 0;  // A distância da origem até a própria origem é 0
+    dist[origem] = 0;  // A distância entre a origem e a própria origem é 0
 
     vector<bool> visitado(V);  // Array de vértices visitados (todos os elementos inicializados como false)
     visitado[origem] = true;  // Definir o vértice de origem como 'visitado'
@@ -43,7 +43,7 @@ void bfs(int origem) {
             if (!visitado[v]) {  // Se o vértice v ainda não foi visitado
                 visitado[v] = true;  // Definir o vértice como 'visitado'
                 fila.push(v);  // Adicioná-lo à fila
-                dist[v] = dist[u]+1;  // Definir a distância até esse vértice (distância até o vértice u + 1)
+                dist[v] = dist[u] + 1;  // Definir a distância até esse vértice (distância até o vértice u + 1)
             }
         }
     }
