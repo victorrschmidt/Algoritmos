@@ -13,17 +13,17 @@ O Crivo de Eratóstenes é um algoritmo antigo utilizado para encontrar números
 
 Primeiro definimos um número inteiro $n$ como o limite para o intervalo $[0, n]$.
 
-Em seguida, geramos um array booleano $primos[]$ de tamanho $n + 1$ contendo todos os valores definidos como $true$. Ele será utilizado para armazenar a informação de primalidade de um número, ou seja, para saber se um número arbitrário $x$ é primo, bastar verificar em $primos[x]$.
+Em seguida, geramos um array booleano $primos[\ ]$ de tamanho $n + 1$ contendo todos os valores definidos como _true_. Ele será utilizado para armazenar a informação de primalidade de um número, ou seja, para saber se um número arbitrário $x$ é primo, bastar verificar em $primos[x]$.
 
-Os números $0$ e $1$ são casos especiais, e são definidos como $false$ no início do algoritmo.
+Os números $0$ e $1$ são casos especiais, e são definidos como _false_ no início do algoritmo.
 
 ## Funcionamento
 
 Suponhamos que o número limite seja $n = 10$.
 
-Definimos um ponteiro $p$ que será utilizado para iterar através os elementos de $primos[]$. Inicialmente, $p = 2$, o primeiro número primo.
+Definimos um ponteiro $p$ que será utilizado para iterar através os elementos de $primos[\ ]$. Inicialmente, $p = 2$, o primeiro número primo.
 
-Em seguida, iremos definir como $false$ todos os múltiplos de $p$ no intervalo $[p \cdot p, n]$.
+Em seguida, iremos definir como _false_ todos os múltiplos de $p$ no intervalo $[p \cdot p, n]$.
 
 ```cpp
 {false, false, true, true, false, true, false, true, false, true, false}
@@ -33,7 +33,7 @@ Em seguida, iremos definir como $false$ todos os múltiplos de $p$ no intervalo 
 
 Após isso, iremos incrementar o valor de $p$ em $1$, ou seja, $p = 3$.
 
-Iremos verificar que $primos[p]$ é $true$, logo faremos o mesmo processo, definir como $false$ todos os múltiplos de $p$ no intervalo $[p \cdot p, n]$.
+Iremos verificar que $primos[p]$ é _true_, logo faremos o mesmo processo, definir como _false_ todos os múltiplos de $p$ no intervalo $[p \cdot p, n]$.
 
 ```cpp
 {false, false, true, true, false, true, false, true, false, false, false}
@@ -47,10 +47,12 @@ Observe que $p \cdot p > n$, ou seja, o valor de $p \cdot p$ agora ultrapassa o 
 
 ## Conclusão
 
-Quando o valor de $p$ ultrapassar o valor de $√n$, o algoritmo se encerra, e teremos o array $primos[]$ definido. Com isso, podemos verificar se um número é primo em $O(1)$.
+Quando o valor de $p$ ultrapassar o valor de $√n$, o algoritmo se encerra, e teremos o array $primos[\ ]$ definido. Com isso, podemos verificar se um número menor ou igual a $n$ é primo em $O(1)$.
 
 Abaixo está uma visualização do funcionamento do algoritmo.
 
 <p align="center">
    <img src="/img/crivo_eratostenes_1.gif" width="480" alt="crivo">
 </p>
+
+_Fonte_: https://pt.wikipedia.org/wiki/Ficheiro:New_Animation_Sieve_of_Eratosthenes.gif
