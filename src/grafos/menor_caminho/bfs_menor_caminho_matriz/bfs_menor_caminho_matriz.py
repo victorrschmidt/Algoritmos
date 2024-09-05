@@ -33,35 +33,35 @@ def bfs() -> int:
     distancia = 0  # Contador de distância até a célula final
 
     while fila:  # Iteração para cada célula na fila
-        i, j = fila.popleft()  # Pegar a posição i (linha) da célula e a posição j (coluna) da célula
+        i, j = fila.popleft()  # Pegar a posição i (linha) e a posição j (coluna) da célula
         # Remover a célula da fila
 
         if matriz[i][j] == 'F':  # Se essa célula é a célula final
             return distancia  # Retornar a distância
 
         for k in range(4):  # Iteração para cada célula adjacente à célula que está sendo visitada
-            i_ = i + vi[k]  # Posição i (linha) da célula a ser visitada
-            j_ = j + vj[k]  # Posição j (coluna) da célula a ser visitada
+            _i = i + vi[k]  # Posição i (linha) da célula a ser visitada
+            _j = j + vj[k]  # Posição j (coluna) da célula a ser visitada
 
-            if i_ < 0 or j_ < 0:  # Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
+            if _i < 0 or _j < 0:  # Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
                 continue
-            if i_ >= L or j_ >= C:  # Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
+            if _i >= L or _j >= C:  # Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
                 continue
-            if visitado[i_][j_]:  # Se a célula já foi visitada
+            if visitado[_i][_j]:  # Se a célula já foi visitada
                 continue
-            if matriz[i_][j_] == '#':  # Se a célula é inacessível (pedra)
+            if matriz[_i][_j] == '#':  # Se a célula é inacessível (pedra)
                 continue
 
             # Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-            fila.append((i_, j_))  # Adicionar a célula à fila
-            visitado[i_][j_] = True  # Definir a célula como visitada
+            fila.append((_i, _j))  # Adicionar a célula à fila
+            visitado[_i][_j] = True  # Definir a célula como visitada
 
         c_restantes -= 1  # Diminuir o número de células na camada de busca
 
         if c_restantes == 0:  # Se foram verificadas todas as células nessa camada de busca
             c_restantes = len(fila)  # A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
-            distancia += 1  # Como teremos que verificar outra camada de busca, a distância aumenta em 1
+            distancia += 1  # Como teremos que processar outra camada de busca, a distância aumenta em 1
 
     return -1  # Não existe caminho possível entre a célula inicial e final
 
