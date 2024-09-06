@@ -30,9 +30,6 @@ st = set('porco')
 st = {1, 2, 3}
 # {1, 2, 3}
 
-st = {None, True, False}
-# {None, True, False}
-
 # Para inicializar um set vazio, é necessário utilizar a função set(), pois se
 # colocarmos um conjunto vazio entre chaves, o Python reconhece o objeto como um dict.
 
@@ -66,7 +63,7 @@ len(st)
 
 
 # v not in set
-# Retorna True se o elemento não está contido no set, e False em caso contrário
+# Retorna True se o elemento v não está contido no set, e False em caso contrário
 
 'cavalo' not in st
 # True
@@ -78,14 +75,14 @@ len(st)
 # set.add(v)
 # Adiciona o elemento v ao set
 
-st.add('dragão')
-# {'rato', 'boi', 'tigre', 'coelho', 'serpente', 'dragão'}
+st.add('dragao')
+# {'rato', 'boi', 'tigre', 'coelho', 'serpente', 'dragao'}
 
 
 # set.remove(v)
 # Remove o elemento v do set. Se o elemento não existe dentro no set, é levantado um KeyError
 
-st.remove('dragão')
+st.remove('dragao')
 # {'rato', 'boi', 'tigre', 'coelho', 'serpente'}
 
 

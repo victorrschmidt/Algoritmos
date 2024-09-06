@@ -21,9 +21,6 @@ set<int> st({1, 2, 3});
 set<string> st({"cabra", "macaco", "galo"});
 // {"cabra", "macaco", "galo"}
 
-set<bool> st({true, false});
-// {1, 0}
-
 // O construtor pode receber um único parâmetro - uma lista de elementos, ou seja,
 // os valores devem estar entre chaves além dos parênteses do construtor.
 
@@ -55,15 +52,15 @@ st.count("cavalo");
 // set.insert(v)
 // Adiciona o elemento v ao set
 
-st.insert("dragão");
-// {"rato", "boi", "tigre", "coelho", "serpente", "dragão"}
+st.insert("dragao");
+// {"rato", "boi", "tigre", "coelho", "serpente", "dragao"}
 
 
 // set.erase(v)
 // Remove o elemento v se o mesmo existir no set
 
 st.erase("tigre");
-// {"rato", "boi", "coelho", "serpente"}
+// {"rato", "boi", "coelho", "serpente", "dragao"}
 
 
 // set.clear()
