@@ -22,7 +22,7 @@ vector<vector<int>> adj{  // Lista de adjacências do grafo de exemplo
     {1,7}
 };
 
-int id = 0;  // Número que define o número do grupo de cada vértice
+int id = 0;  // Contador que define o número do grupo de cada vértice
 vector<int> componente(V);  // Array para identificar o grupo ao qual cada vértice pertence
 vector<bool> visitado(V);  // Array de vértices visitados (todos os elementos inicializados como false)
 
@@ -41,9 +41,9 @@ void dfs(int u) {
 // Função para identificar os vértices
 void encontrarComponentes() {
     for (int i = 0; i < V; i++) {  // Iteração para cada vértice no grafo
-        if (!visitado[i]) {  // Se o vértice ainda não foi visitado
-            id++;  // Aumentar o id (número de grupos)
-            dfs(i);  // Chamar a função dfs para esse vértice
+        if (!visitado[i]) {  // Se o vértice i ainda não foi visitado
+            id++;  // Incrementar o id (número de grupos)
+            dfs(i);  // Chamar a função dfs para i
         }
     }
 }

@@ -19,7 +19,7 @@ adj = [  # Lista de adjacências do grafo de exemplo
     [1,7]
 ]
 
-id = 0  # Número que define o número do grupo de cada vértice
+id = 0  # Contador que define o número do grupo de cada vértice
 componente = [None for i in range(V)]  # Lista para identificar o grupo ao qual cada vértice pertence
 visitado = [False for i in range(V)]  # Lista de vértices visitados (todos os elementos inicializados como False)
 
@@ -35,10 +35,10 @@ def dfs(u: int) -> None:
 # Função para identificar os vértices
 def encontrarComponentes() -> None:
     for i in range(V):  # Iteração para cada vértice no grafo
-        if not visitado[i]:  # Se o vértice ainda não foi visitado
+        if not visitado[i]:  # Se o vértice i ainda não foi visitado
             global id
-            id += 1  # Aumentar o id (número de grupos)
-            dfs(i)  # Chamar a função dfs para esse vértice
+            id += 1  # Incrementar o id (número de grupos)
+            dfs(i)  # Chamar a função dfs para i
 
 encontrarComponentes()
 
