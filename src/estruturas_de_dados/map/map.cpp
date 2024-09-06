@@ -32,14 +32,14 @@ map<string, int> mp{{"ichi", 1}, {"ni", 2}, {"san", 3}, {"yon", 4}, {"go", 5}};
 
 
 // map.size()
-// Retorna a quantidade de chaves no map
+// Retorna a quantidade de chaves presentes no map
 
 mp.size();
 // 5
 
 
 // map.empty()
-// Retorna 1 se o map estiver vazio (mp.size() == 0), e 0 em caso contrário
+// Retorna 1 se o map estiver vazio (map.size() == 0), e 0 em caso contrário
 
 mp.empty();
 // 0
@@ -74,7 +74,7 @@ mp.erase("go");
 
 
 // map.clear()
-// Remove todas as chaves do map
+// Remove todas as chaves presentes no map
 
 mp.clear();
 // {}

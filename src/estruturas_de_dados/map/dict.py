@@ -43,7 +43,7 @@ dt = {'ichi': 1, 'ni': 2, 'san': 3, 'yon': 4, 'go': 5}
 
 
 # len(dict)
-# Retorna a quantidade de chaves no dict
+# Retorna a quantidade de chaves presentes no dict
 
 len(dt)
 # 5
@@ -81,14 +81,14 @@ dt['ichi'] -= 1
 
 
 # del dict[chave]
-# Remove a chave do dict. Se a chave não está definida no dict, é levantado um KeyError
+# Remove a chave do dict. Se a chave não está definida, é levantado um KeyError
 
 del dt['go']
 # {'ichi': 1, 'ni': 2, 'san': 3, 'yon': 4}
 
 
 # dict.clear()
-# Remove todas as chaves do dict
+# Remove todas as chaves presentes no dict
 
 dt.clear()
 # {}
