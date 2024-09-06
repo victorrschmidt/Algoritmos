@@ -5,7 +5,7 @@ Complexidade de espaço: **$O(log(e))$**
 
 - Onde $e$ é o expoente.
 
-# Explicação
+## Explicação
 
 Exponenciação é uma operação matemática envolvendo uma base $b$ e um expoente $e$, onde o resultado é o produto de $b$ por $b$, $e$ vezes.
 

@@ -5,6 +5,8 @@ Complexidade de espaço: **$O(n \cdot m)$**
 
 - Onde $n$ e $m$ são as dimensões da matriz.
 
+## Explicação
+
 Flood fill - preenchimento por inundação é um algoritmo utilizado para determinar a conectividade entre vértices de um grafo a partir de um vértice de origem e, por sua vez, alterar uma informação específica de cada vértice pertencente a esse grupo.
 
 Esse algoritmo é utilizado, por exemplo, na ferramenta de balde de tinta do Microsoft Paint, onde todos os pixels de mesma cor e que estejam ligados ao pixel selecionado têm sua cor alterada.

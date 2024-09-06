@@ -5,7 +5,7 @@ Complexidade de espaço: **$O(1)$**
 
 - Onde $n$ é o número a ser verificado.
 
-# Explicação
+## Explicação
 
 Um número primo é um número inteiro maior que $1$ que só é divisível por $1$ e por ele mesmo. Em contrapartida, um número composto é um número inteiro maior que $1$ e que possui um ou mais divisores, além do $1$ e ele mesmo.
 

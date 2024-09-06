@@ -5,7 +5,7 @@ Complexidade de espaço: **$O(v)$**
 
 - Onde $v$ e $e$ são, respectivamente, a quantidade de vértices e arestas do grafo.
 
-# Explicação
+## Explicação
 
 Encontrar o menor caminho entre um vértice $u$ e todos os outros vértices de um grafo não valorado é um problema que pode ser solucionado com o algortimo de _Breadth-first search_. A ideia é visitar todos os vértices adjacentes ao vértice $u$, depois visitar todos os outros adjacentes a esses e assim sucessivamente. Cada camada de busca corresponde a um movimento - a distância mínima possível entre o vértice que está sendo visitado e o vértice $u$. Dessa forma, é possível determinar a menor distância entre o vértice $u$ e todos os outros vértices do grafo (considerando que cada aresta tem peso $1$).
 

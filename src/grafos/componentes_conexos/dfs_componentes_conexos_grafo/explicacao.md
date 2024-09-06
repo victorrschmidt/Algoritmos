@@ -5,7 +5,7 @@ Complexidade de espaço: **$O(v)$**
 
 - Onde $v$ e $e$ são, respectivamente, a quantidade de vértices e arestas do grafo.
 
-# Explicação
+## Explicação
 
 Na Teoria dos grafos, componente conexo é um subgrafo formado por um conjunto de vértices que respeitam a seguinte condição: para cada par de vértices $u$ e $v$, existe ao menos um caminho possível entre $u$ e $v$. Encontrar os componentes conexos de um grafo é um problema que pode ser resolvido com o algoritmo de _Depht-first search_.
 
