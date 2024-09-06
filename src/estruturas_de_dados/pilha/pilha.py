@@ -34,12 +34,22 @@ len(stk)
 stk.append(1)
 # [1]
 
+stk.append(5)
+# [1, 5]
+
+
+# deque[-1]
+# Retorna o elemento prioritário (topo) da pilha
+
+stk[-1]
+# 5
+
 
 # deque.pop()
 # Remove e retorna o elemento prioritário (topo) da pilha
 
 stk.pop()
-# 1
+# 5
 
 # ----------------------------------------
 # Iteração

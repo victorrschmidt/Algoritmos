@@ -43,19 +43,21 @@ stk.empty();
 stk.push(1);
 // {1}
 
+stk.push(5);
+// {1, 5}
+
 
 // stack.top()
 // Retorna o elemento prioritário (topo) da pilha
 
 stk.top();
-// 1
+// 5
 
 
 // stack.pop()
 // Remove o elemento prioritário (topo) da pilha
 
 stk.pop();
-// {}
 
 // ----------------------------------------
 // Iteração
