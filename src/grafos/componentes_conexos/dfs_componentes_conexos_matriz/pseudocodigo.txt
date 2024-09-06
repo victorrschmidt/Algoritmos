@@ -21,7 +21,7 @@ matriz = [  // Matriz de exemplo
 vi = [-1,0,1,0];  // Variação de valores da posição i (linha)
 vj = [0,1,0,-1];  // Variação de valores da posição j (coluna)
 
-funcao floodFill(i, j) {
+funcao flood_fill(i, j) {
     matriz[i][j] = 'V';  // Alterar o valor da célula
 
     for (k = 0; k < 4; k++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
@@ -34,6 +34,6 @@ funcao floodFill(i, j) {
 
         // Se qualquer uma das condições acima for verdadeira, a iteração reinicia
 
-        floodFill(i_, j_);  // Chamar a função Flood fill para a célula adjacente
+        flood_fill(i_, j_);  // Chamar a função Flood fill para a célula adjacente
     }
 }
