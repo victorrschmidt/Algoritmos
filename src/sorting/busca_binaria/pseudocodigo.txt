@@ -1,0 +1,70 @@
+// --------------------------------------------------------------------------------
+// BUSCA BINÁRIA
+// --------------------------------------------------------------------------------
+
+v[] = [1, 4, 8, 8, 9, 11, 11, 12];
+
+// Posição do número x no array, ou -1 (caso x não estiver no array)
+// Obs: Se x aparecer mais de uma vez no array, a posição irá variar de acordo com o tamanho do mesmo
+funcao busca_binaria(x) {
+    l = 0;
+    r = v.tamanho - 1;
+
+    while (l <= r) {
+        m = ceil((l + r) / 2);
+
+        if (v[m] == x) {
+            return m;
+        }
+        if (v[m] < x) {
+            l = m + 1;
+        }
+        else {
+            r = m - 1;
+        }
+    }
+
+    return -1;
+}
+
+// Posição do primeiro número >= x no array, ou -1 (caso nenhum número no array satisfazer essa condição)
+funcao lower_bound(x) {
+    l = 0;
+    r = v.tamanho - 1;
+    pos = -1;
+
+    while (l <= r) {
+        int m = ceil((l + r) / 2);
+
+        if (v[m] >= x) {
+            pos = m;
+            r = m - 1;
+        }
+        else {
+            l = m + 1;
+        }
+    }
+
+    return pos;
+}
+
+// Posição do primeiro número > x no array, ou -1 (caso nenhum número no array satisfazer essa condição)
+funcao upper_bound(x) {
+    l = 0;
+    r = v.tamanho - 1;
+    pos = -1;
+
+    while (l <= r) {
+        m = ceil((l + r) / 2);
+
+        if (v[m] > x) {
+            pos = m;
+            r = m - 1;
+        }
+        else {
+            l = m + 1;
+        }
+    }
+
+    return pos;
+}

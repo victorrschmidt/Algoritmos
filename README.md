@@ -24,6 +24,10 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 - [**Fila (Queue)**](src/estruturas_de_dados/fila/explicacao.md)
 - [**Pilha (Stack)**](src/estruturas_de_dados/pilha/explicacao.md)
 
+## Ordenação (sorting)
+
+- [**Busca binária**](src/sorting/busca_binaria/explicacao.md) **- $O(log(n))$**
+
 ## Grafos
 
 ### Componentes conexos
