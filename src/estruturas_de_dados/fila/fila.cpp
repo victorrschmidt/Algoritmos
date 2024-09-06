@@ -43,6 +43,9 @@ q.empty();
 q.push(1);
 // {1}
 
+q.push(3);
+// {1, 3}
+
 
 // q.front()
 // Retorna o elemento prioritário (cabeça) da fila
@@ -51,11 +54,17 @@ q.front();
 // 1
 
 
+// q.back()
+// Retorna o elemento menos prioritário (cauda) da fila
+
+q.back();
+// 3
+
+
 // q.pop()
 // Remove o elemento prioritário (cabeça) da fila
 
 q.pop();
-// {}
 
 // ----------------------------------------
 // Iteração

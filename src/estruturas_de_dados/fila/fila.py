@@ -34,6 +34,23 @@ len(q)
 q.append(1)
 # [1]
 
+q.append(3)
+# [1, 3]
+
+
+# deque[0]
+# Retorna o elemento prioritário (cabeça) da fila
+
+q[0]
+# 1
+
+
+# deque[-1]
+# Retorna o elemento menos prioritário (cauda) da fila
+
+q[-1]
+# 3
+
 
 # deque.popleft()
 # Remove e retorna o elemento prioritário (cabeça) da fila
