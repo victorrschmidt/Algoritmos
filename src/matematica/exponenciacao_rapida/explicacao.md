@@ -1,7 +1,7 @@
 # Exponenciação rápida
 
-Complexidade de tempo: **$O(log(e))$**  
-Complexidade de espaço: **$O(log(e))$**  
+Complexidade de tempo: **$O(\log(e))$**  
+Complexidade de espaço: **$O(\log(e))$**  
 
 - Onde $e$ é o expoente.
 
@@ -64,7 +64,7 @@ f\big(b, e\big) = \begin{cases}
 \end{cases}
 ```
 
-A complexidade de tempo do algoritmo acima é de $O(log(e))$, que é a quantidade de vezes que iremos dividir $e$ por $2$ até chegar no caso base: $0$. A complexidade de espaço também é de $O(log(e))$, que é a profundidade (_depht_) máximo da função.
+A complexidade de tempo do algoritmo acima é de $O(\log(e))$, que é a quantidade de vezes que iremos dividir $e$ por $2$ até chegar no caso base: $0$. A complexidade de espaço também é de $O(\log(e))$, que é a profundidade (_depht_) máximo da função.
 
 ## Exponenciação modular
 

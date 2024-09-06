@@ -1,6 +1,6 @@
 # Crivo de Eratóstenes
 
-Complexidade de tempo: **$O(n \cdot log(log(n)))$**  
+Complexidade de tempo: **$O(n \cdot \log(\log(n)))$**  
 Complexidade de espaço: **$O(n)$**  
 
 - Onde $n$ é o número limite a ser considerado.

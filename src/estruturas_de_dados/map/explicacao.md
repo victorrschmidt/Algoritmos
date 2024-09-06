@@ -6,5 +6,5 @@ Os maps são implementados internamente através de uma [árvore binária (_bina
 
 ## Complexidade de tempo
 
-- Inserção, remoção e pesquisa (_lookup_): **$O(log(n))$**, onde $n$ é o número de elementos presentes no map.
+- Inserção, remoção e pesquisa (_lookup_): **$O(\log(n))$**, onde $n$ é o número de elementos presentes no map.
 - Outras: **$O(1)$**

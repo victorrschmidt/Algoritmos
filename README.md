@@ -26,7 +26,7 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
 ## Ordenação (sorting)
 
-- [**Busca binária**](src/sorting/busca_binaria/explicacao.md) **- $O(log(n))$**
+- [**Busca binária**](src/sorting/busca_binaria/explicacao.md) **- $O(\log(n))$**
 
 ## Grafos
 
@@ -40,8 +40,8 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 
 ## Matemática
 
-- [**Exponenciação rápida**](src/matematica/exponenciacao_rapida/explicacao.md) **- $O(log(e))$**
+- [**Exponenciação rápida**](src/matematica/exponenciacao_rapida/explicacao.md) **- $O(\log(e))$**
 
 ### Números primos
 - [**Teste de primalidade**](src/matematica/numeros_primos/primalidade/explicacao.md) **- $O(√n)$**
-- [**Crivo de Eratóstenes**](src/matematica/numeros_primos/crivo_eratostenes/explicacao.md) **- $O(n \cdot log(log(n)))$**
+- [**Crivo de Eratóstenes**](src/matematica/numeros_primos/crivo_eratostenes/explicacao.md) **- $O(n \cdot \log(\log(n)))$**
