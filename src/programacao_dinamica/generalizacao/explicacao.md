@@ -57,6 +57,9 @@ funcao fib(n):
 A abordagem Bottom-up se baseia em: começar pelos subproblemas menores, para no final responder o problema maior. Ainda no exemplo da Sequência de Fibonacci, começamos calculando o segundo termo, que só depende dos dois casos base $0$ e $1$. Assim, cada número é calculado de forma sequencial, tendo como base os termos previamente calculados.
 
 ```txt
+dp[0] = 0
+dp[1] = 1
+
 para cada i em 2...n:
     dp[i] = dp[i-2] + dp[i-1]
 
