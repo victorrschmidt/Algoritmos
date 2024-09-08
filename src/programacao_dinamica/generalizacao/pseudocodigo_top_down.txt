@@ -3,24 +3,24 @@
 // --------------------------------------------------------------------------------
 
 dp[100];  // Array de memorização
-ok[100];  // Array para verificar se um estado arbitrário da dp já foi calculado
+calculado[100];  // Array para verificar se um estado arbitrário da dp já foi calculado
 N = 10;  // Limite
 
 // Função recursiva
 funcao fib(n) {
-    if (ok[n]) {  // Se o estado n da dp já foi calculado
+    if (calculado[n]) {  // Se o estado n da dp já foi calculado
         return dp[n];  // Retornar o estado n da dp
     }
 
-    ok[n] = true;  // Definir o estado n como 'calculado'
+    calculado[n] = true;  // Definir o estado n como 'calculado'
     dp[n] = fib(n-2) + fib(n-1);  // Definir o estado n da dp como a soma dos estados n-2 e n-1
     return dp[n];  // Retornar o estado n da dp
 }
 
 dp[1] = 0;  // Caso base
-ok[1] = true;
+calculado[1] = true;
 dp[2] = 1;  // Caso base
-ok[2] = true;
+calculado[2] = true;
 
 fib(N);  // Chamar a função para o último estado da dp (limite)
 
