@@ -41,6 +41,9 @@ Ainda considerando a árvore recursiva acima, perceba que diversas funções sã
 A abordagem Top-down se baseia em: começar pelo problema maior e recursivamente calcular os subproblemas menores. Essa é a abordagem do exemplo acima, onde é gerada uma árvore recursiva.
 
 ```txt
+dp[0] = 0
+dp[1] = 1
+
 funcao fib(n):
     se n já foi calculado:
         retorne dp[n]
@@ -54,7 +57,7 @@ funcao fib(n):
 A abordagem Bottom-up se baseia em: começar pelos subproblemas menores, para no final responder o problema maior. Ainda no exemplo da Sequência de Fibonacci, começamos calculando o segundo termo, que só depende dos dois casos base $0$ e $1$. Assim, cada número é calculado de forma sequencial, tendo como base os termos previamente calculados.
 
 ```txt
-para cada i em 3...n:
+para cada i em 2...n:
     dp[i] = dp[i-2] + dp[i-1]
 
 // após isso, todos os valores até n estarão calculados
