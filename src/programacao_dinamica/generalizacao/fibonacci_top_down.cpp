@@ -1,29 +1,43 @@
-// --------------------------------------------------------------------------------
+// ------------------------------------------------------------------
 // FIBONACCI TOP-DOWN
-// --------------------------------------------------------------------------------
+// ------------------------------------------------------------------
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-int dp[100];  // Array de memorização
-bool calculado[100];  // Array para verificar se um estado arbitrário da dp já foi calculado
-int N = 10;  // Limite
+// Limite arbitrário de exemplo
+int N = 10;
 
-// Função recursiva
+// Array de memorização
+vector<int> dp(N+1);
+
+// Array para verificar se um estado
+// arbitrário da dp já foi calculado
+vector<bool> calculado(N+1);
+
+// Função para calcular os números de fibonacci de 1 até n
 int fib(int n) {
-    if (calculado[n]) {  // Se o estado n da dp já foi calculado
-        return dp[n];  // Retornar o estado n da dp
+    // Se o estado n da dp já foi calculado
+    if (calculado[n]) {
+        // Retornar o estado n da dp
+        return dp[n];
     }
 
-    calculado[n] = true;  // Definir o estado n como 'calculado'
-    dp[n] = fib(n-2) + fib(n-1);  // Definir o estado n da dp como a soma dos estados n-2 e n-1
-    return dp[n];  // Retornar o estado n da dp
+    // Definir o estado n como 'calculado'
+    calculado[n] = true;
+
+    // Definir o estado n da dp como a soma dos estados n-2 e n-1
+    dp[n] = fib(n-2) + fib(n-1);
+
+    // Retornar o estado n da dp
+    return dp[n];
 }
 
 int main() {
-    dp[1] = 0;  // Caso base
+    dp[1] = 0;  // Caso base => fib(1) = 0
+    dp[2] = 1;  // Caso base => fib(2) = 1
     calculado[1] = true;
-    dp[2] = 1;  // Caso base
     calculado[2] = true;
 
     fib(N);  // Chamar a função para o último estado da dp (limite)

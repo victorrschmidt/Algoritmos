@@ -1,75 +1,119 @@
-// --------------------------------------------------------------------------------
+// ------------------------------------------------------------------
 // BUSCA BINÁRIA
-// --------------------------------------------------------------------------------
+// ------------------------------------------------------------------
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-vector<int> v{1, 4, 8, 8, 9, 11, 11, 12};  // Array de exemplo
+// Array de exemplo
+vector<int> v = {1, 4, 8, 8, 9, 11, 11, 12};
 
-// Posição do número x no array, ou -1 (caso x não estiver no array)
-// Obs: Se x aparecer mais de uma vez no array, a posição irá variar de acordo com o tamanho do mesmo
+// Função para calcular a posição do número x no array.
+// Se o número x não estiver presente, é retornado o número -1.
+// Obs: Se x aparecer mais de uma vez no array,
+// a posição irá variar de acordo com o tamanho do mesmo.
 int busca_binaria(int x) {
-    int l = 0;  // Primeira posição do array
-    int r = v.size() - 1;  // Última posição do array
+    // Primeira posição do array
+    int l = 0;
+    // Última posição do array
+    int r = v.size() - 1;
 
-    while (l <= r) {  // Iteração no intervalo
+    // Iteração no intervalo [l, r] atual
+    while (l <= r) {
+        // Posição do meio do intervalo
         int m = (l + r) / 2;
 
-        if (v[m] == x) {  // Se o valor for igual a x
-            return m;  // Retornar m
+        // Se o valor do meio for igual a x
+        if (v[m] == x) {
+            // Retornar m
+            return m;
         }
-        if (v[m] < x) {  // Se o valor for menor que x
-            l = m + 1;  // Reduzir o intervalo para [m+1, r]
+
+        // Se o valor do meio for menor que x
+        if (v[m] < x) {
+            // Reduzir o intervalo para [m+1, r]
+            l = m + 1;
         }
-        else {  // Caso contrário
-            r = m - 1;  // Reduzir o intervalo para [l, m-1]
+        // Caso contrário
+        else {
+            // Reduzir o intervalo para [l, m-1]
+            r = m - 1;
         }
     }
 
-    return -1;  // x não está no array
+    // Se um valor para m não foi retornado, x não está no array
+    return -1;
 }
 
-// Posição do primeiro número >= x no array, ou -1 (caso nenhum número no array satisfazer essa condição)
+// Função para calcular a posição do primeiro número >= x no array.
+// Se o número x não estiver presente, é retornado o número -1.
 int lower_bound(int x) {
-    int l = 0;  // Primeira posição do array
-    int r = v.size() - 1;  // Última posição do array
-    int pos = -1;  // Posição do lower bound
+    // Primeira posição do array
+    int l = 0;
+    // Última posição do array
+    int r = v.size() - 1;
 
-    while (l <= r) {  // Iteração no intervalo
+    // Posição do lower bound, inicialmente não encontrada,
+    // portanto inicializada como o número -1.
+    int pos = -1;
+
+    // Iteração no intervalo [l, r] atual
+    while (l <= r) {
+        // Posição do meio do intervalo
         int m = (l + r) / 2;
 
-        if (v[m] >= x) {  // Se o valor for maior ou igual a x
-            pos = m;  // Atualizar a posição do lower bound
-            r = m - 1;  // Reduzir o intervalo para [l, m-1]
+        // Se o valor do meio for maior ou igual a x
+        if (v[m] >= x) {
+            // Atualizar a posição do lower bound
+            pos = m;
+            // Reduzir o intervalo para [l, m-1]
+            r = m - 1;
         }
-        else {  // Caso contrário
-            l = m + 1;  // Reduzir o intervalo para [m+1, r]
+        // Caso contrário
+        else {
+            // Reduzir o intervalo para [m+1, r]
+            l = m + 1;
         }
     }
 
-    return pos;  // Retornar a posição do lower bound (-1 indica que não existe um lower bound de x na lista)
+    // Retornar a posição do lower bound
+    return pos;
 }
 
-// Posição do primeiro número > x no array, ou -1 (caso nenhum número no array satisfazer essa condição)
+// Função para calcular a posição do primeiro número > x no array.
+// Se o número x não estiver presente, é retornado o número -1.
 int upper_bound(int x) {
-    int l = 0;  // Primeira posição do array
-    int r = v.size() - 1;  // Última posição do array
-    int pos = -1;  // Posição do upper bound
+    // Primeira posição do array
+    int l = 0;
+    // Última posição do array
+    int r = v.size() - 1;
 
-    while (l <= r) {  // Iteração no intervalo
+    // Posição do upper bound, inicialmente não encontrada,
+    // portanto inicializada como o número -1.
+    int pos = -1;
+
+    // Iteração no intervalo [l, r] atual
+    while (l <= r) {
+        // Posição do meio do intervalo
         int m = (l + r) / 2;
 
-        if (v[m] > x) {  // Se o valor for maior que x
-            pos = m;  // Atualizar a posição do upper bound
-            r = m - 1;  // Reduzir o intervalo para [l, m-1]
+        // Se o valor do meio for maior que x
+        if (v[m] > x) {
+            // Atualizar a posição do upper bound
+            pos = m;
+            // Reduzir o intervalo para [l, m-1]
+            r = m - 1;
         }
-        else {  // Caso contrário
-            l = m + 1;  // Reduzir o intervalo para [m+1, r]
+        // Caso contrário
+        else {
+            // Reduzir o intervalo para [m+1, r]
+            l = m + 1;
         }
     }
 
-    return pos;  // Retornar a posição do upper bound (-1 indica que não existe um upper bound de x na lista)
+    // Retornar a posição do upper bound
+    return pos;
 }
 
 int main() {

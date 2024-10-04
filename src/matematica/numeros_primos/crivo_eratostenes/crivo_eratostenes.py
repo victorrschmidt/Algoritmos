@@ -1,24 +1,25 @@
-# --------------------------------------------------------------------------------
+# -------------------------------------------------------------------
 # CRIVO DE ERATÓSTENES
-# --------------------------------------------------------------------------------
+# -------------------------------------------------------------------
 
+# Função para gerar o array de primos de 0 até n
 def crivo(n: int) -> list[bool]:
-    primos = [True for i in range(n+1)]  # Lista de primos (todos os elementos inicializados como True)
+    # Lista de primos (todos os elementos inicializados como True)
+    primos = [True for i in range(n+1)]
 
-    primos[0] = primos[1] = False  # Casos especiais: 0 e 1 não são números primos
+    # Casos especiais: 0 e 1 não são números primos
+    primos[0] = primos[1] = False
 
+    # Iteração de p no intervalo [2, √n]
     p = 2
-
-    while p*p <= n:  # Iteração de p no intervalo [2, √n]
-        if primos[p]:  # Se o número é primo
-            for i in range(p*p, n+1, p):  # Iteração de i (múltiplos de p) no intervalo [p*p, n]
-                primos[i] = False  # Definir o número como não primo
+    while p*p <= n:
+        # Se p é primo
+        if primos[p]:
+            # Iteração de i (múltiplos de p) no intervalo [p*p, n]
+            for i in range(p*p, n+1, p):
+                # Definir i como não-primo
+                primos[i] = False
         p += 1
 
-    return primos  # Retornar a lista
-
-print(crivo(14))
-
-# [False, False, True, True, False, True, False, True, False, False, False, True, False, True, False]
-#    0      1      2     3     4      5     6      7     8      9     10     11    12     13    14
-#                primo primo        primo        primo                      primo        primo
+    # Retornar a lista
+    return primos

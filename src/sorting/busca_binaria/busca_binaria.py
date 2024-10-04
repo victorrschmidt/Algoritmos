@@ -1,60 +1,103 @@
-# --------------------------------------------------------------------------------
+# -------------------------------------------------------------------
 # BUSCA BINÁRIA
-# --------------------------------------------------------------------------------
+# -------------------------------------------------------------------
 
-v = [1, 4, 8, 8, 9, 11, 11, 12]  # Lista de exemplo
+# Lista de exemplo
+v = [1, 4, 8, 8, 9, 11, 11, 12]
 
-# Posição do número x na lista, ou -1 (caso x não estiver na lista)
-# Obs: Se x aparecer mais de uma vez na lista, a posição irá variar de acordo com o tamanho da mesma
+# Função para calcular a posição do número x na lista.
+# Se o número x não estiver presente, é retornado o número -1.
+# Obs: Se x aparecer mais de uma vez na lista,
+# a posição irá variar de acordo com o tamanho da mesma.
 def busca_binaria(x: int) -> int:
-    l = 0  # Primeira posição da lista
-    r = len(v) - 1  # Última posição da lista
+    # Primeira posição da lista
+    l = 0
+    # Última posição da lista
+    r = len(v) - 1
 
-    while l <= r:  # Iteração no intervalo
+    # Iteração no intervalo [l, r] atual
+    while l <= r:
+        # Posição do meio do intervalo
         m = (l + r) // 2
 
-        if v[m] == x:  # Se o valor for igual a x
-            return m  # Retornar m
-        if v[m] < x:  # Se o valor for menor que x
-            l = m + 1  # Reduzir o intervalo para [m+1, r]
-        else:  # Caso contrário
-            r = m - 1  # Reduzir o intervalo para [l, m-1]
+        # Se o valor do meio for igual a x
+        if v[m] == x:
+            # Retornar m
+            return m
 
-    return -1  # x não está na lista
+        # Se o valor do meio for menor que x
+        if v[m] < x:
+            # Reduzir o intervalo para [m+1, r]
+            l = m + 1
+        # Caso contrário
+        else:
+            # Reduzir o intervalo para [l, m-1]
+            r = m - 1
 
-# Posição do primeiro número >= x na lista, ou -1 (caso nenhum número na lista satisfazer essa condição)
+    # Se um valor para m não foi retornado, x não está na lista
+    return -1
+
+# Função para calcular a posição do primeiro número >= x na lista.
+# Se o número x não estiver presente, é retornado o número -1.
 def lower_bound(x: int) -> int:
-    l = 0  # Primeira posição da lista
-    r = len(v) - 1  # Última posição da lista
-    pos = -1  # Posição do lower bound
+    # Primeira posição da lista
+    l = 0
+    # Última posição da lista
+    r = len(v) - 1
 
-    while l <= r:  # Iteração no intervalo
+    # Posição do lower bound, inicialmente não encontrada,
+    # portanto inicializada como o número -1.
+    pos = -1
+
+    # Iteração no intervalo [l, r] atual
+    while l <= r:
+        # Posição do meio do intervalo
         m = (l + r) // 2
 
-        if v[m] >= x:  # Se o valor for maior ou igual a x
-            pos = m  # Atualizar a posição do lower bound
-            r = m - 1  # Reduzir o intervalo para [l, m-1]
-        else:  # Caso contrário
-            l = m + 1  # Reduzir o intervalo para [m+1, r]
+        # Se o valor do meio for maior ou igual a x
+        if v[m] >= x:
+            # Atualizar a posição do lower bound
+            pos = m
+            # Reduzir o intervalo para [l, m-1]
+            r = m - 1
+        # Caso contrário
+        else:
+            # Reduzir o intervalo para [m+1, r]
+            l = m + 1
 
-    return pos  # Retornar a posição do lower bound (-1 indica que não existe um lower bound de x na lista)
+    # Retornar a posição do lower bound
+    return pos
 
-# Posição do primeiro número > x na lista, ou -1 (caso nenhum número na lista satisfazer essa condição)
+# Função para calcular a posição do primeiro número > x na lista.
+# Se o número x não estiver presente, é retornado o número -1.
 def upper_bound(x: int) -> int:
-    l = 0  # Primeira posição da lista
-    r = len(v) - 1  # Última posição da lista
-    pos = -1  # Posição do upper bound
+    # Primeira posição da lista
+    l = 0
+    # Última posição da lista
+    r = len(v) - 1
 
-    while l <= r:  # Iteração no intervalo
+    # Posição do upper bound, inicialmente não encontrada,
+    # portanto inicializada como o número -1.
+    pos = -1
+
+    # Iteração no intervalo [l, r] atual
+    while l <= r:
+        # Posição do meio do intervalo
         m = (l + r) // 2
 
-        if v[m] > x:  # Se o valor for maior que x
-            pos = m  # Atualizar a posição do upper bound
-            r = m - 1  # Reduzir o intervalo para [l, m-1]
-        else:  # Caso contrário
-            l = m + 1  # Reduzir o intervalo para [m+1, r]
+        # Se o valor do meio for maior que x
+        if v[m] > x:
+            # Atualizar a posição do upper bound
+            pos = m
+            # Reduzir o intervalo para [l, m-1]
+            r = m - 1
+        # Caso contrário
+        else:
+            # Reduzir o intervalo para [m+1, r]
+            l = m + 1
 
-    return pos  # Retornar a posição do upper bound (-1 indica que não existe um upper bound de x na lista)
+    # Retornar a posição do upper bound
+    return pos
 
 print(busca_binaria(9))  # 4
 print(busca_binaria(7))  # -1

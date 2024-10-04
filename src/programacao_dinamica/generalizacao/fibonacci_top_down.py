@@ -1,25 +1,39 @@
-# --------------------------------------------------------------------------------
+# -------------------------------------------------------------------
 # FIBONACCI TOP-DOWN
-# --------------------------------------------------------------------------------
+# -------------------------------------------------------------------
 
-dp = [0 for i in range(100)]  # Lista de memorização
-calculado = [False for i in range(100)]  # Lista para verificar se um estado arbitrário da dp já foi calculado
-N = 10  # Limite
+# Limite arbitrário de exemplo
+N = 10
 
-# Função recursiva
+# Lista de memorização
+dp = [0 for i in range(N+1)]
+
+# Lista para verificar se um estado
+# arbitrário da dp já foi calculado
+calculado = [False for i in range(N+1)]
+
+# Função para calcular os números de fibonacci de 1 até n
 def fib(n: int) -> int:
-    if calculado[n]:  # Se o estado n da dp já foi calculado
-        return dp[n]  # Retornar o estado n da dp
+    # Se o estado n da dp já foi calculado
+    if calculado[n]:
+        # Retornar o estado n da dp
+        return dp[n]
 
-    calculado[n] = True  # Definir o estado n como 'calculado'
-    dp[n] = fib(n-2) + fib(n-1)  # Definir o estado n da dp como a soma dos estados n-2 e n-1
-    return dp[n]  # Retornar o estado n da dp
+    # Definir o estado n como 'calculado'
+    calculado[n] = True
 
-dp[1] = 0  # Caso base
+    # Definir o estado n da dp como a soma dos estados n-2 e n-1
+    dp[n] = fib(n-2) + fib(n-1)
+
+    # Retornar o estado n da dp
+    return dp[n]
+
+dp[1] = 0  # Caso base => fib(1) = 0
+dp[2] = 1  # Caso base => fib(2) = 1
 calculado[1] = True
-dp[2] = 1  # Caso base
 calculado[2] = True
 
-fib(N)  # Chamar a função para o último estado da dp (limite)
+# Chamar a função para o último estado da dp (limite)
+fib(N)
 
 # dp[1...N] = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
