@@ -2,7 +2,7 @@
 # CRIVO DE ERATÓSTENES
 # -------------------------------------------------------------------
 
-# Função para gerar o array de primos de 0 até n
+# Função para gerar a lista de primos de 0 até n
 def crivo(n: int) -> list[bool]:
     # Lista de primos (todos os elementos inicializados como True)
     primos = [True for i in range(n+1)]

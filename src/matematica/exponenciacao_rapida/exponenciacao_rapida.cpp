@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-// Função para calcular b**e
+// Função recursiva para calcular b**e
 int potencia(int b, int e) {
     // Caso base: b**0 é igual a 1
     if (e == 0) {
@@ -29,7 +29,7 @@ int potencia(int b, int e) {
 // UTILIZANDO MÓDULO
 // -------------------------------
 
-// Função para calcular b**e % m
+// Função recursiva para calcular b**e % m
 int potencia_mod(int b, int e, int m) {
     // Caso base: b**0 é igual a 1
     if (e == 0) {

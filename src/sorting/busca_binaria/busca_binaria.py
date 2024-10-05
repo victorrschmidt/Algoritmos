@@ -2,14 +2,11 @@
 # BUSCA BINÁRIA
 # -------------------------------------------------------------------
 
-# Lista de exemplo
-v = [1, 4, 8, 8, 9, 11, 11, 12]
-
 # Função para calcular a posição do número x na lista.
 # Se o número x não estiver presente, é retornado o número -1.
 # Obs: Se x aparecer mais de uma vez na lista,
 # a posição irá variar de acordo com o tamanho da mesma.
-def busca_binaria(x: int) -> int:
+def busca_binaria(v: list[int], x: int) -> int:
     # Primeira posição da lista
     l = 0
     # Última posição da lista
@@ -39,7 +36,7 @@ def busca_binaria(x: int) -> int:
 
 # Função para calcular a posição do primeiro número >= x na lista.
 # Se o número x não estiver presente, é retornado o número -1.
-def lower_bound(x: int) -> int:
+def lower_bound(v: list[int], x: int) -> int:
     # Primeira posição da lista
     l = 0
     # Última posição da lista
@@ -70,7 +67,7 @@ def lower_bound(x: int) -> int:
 
 # Função para calcular a posição do primeiro número > x na lista.
 # Se o número x não estiver presente, é retornado o número -1.
-def upper_bound(x: int) -> int:
+def upper_bound(v: list[int], x: int) -> int:
     # Primeira posição da lista
     l = 0
     # Última posição da lista
@@ -98,10 +95,3 @@ def upper_bound(x: int) -> int:
 
     # Retornar a posição do upper bound
     return pos
-
-print(busca_binaria(9))  # 4
-print(busca_binaria(7))  # -1
-print(lower_bound(8))  # 2
-print(lower_bound(3))  # 1
-print(upper_bound(15))  # -1
-print(upper_bound(4))  # 2

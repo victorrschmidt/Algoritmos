@@ -1,11 +1,14 @@
-# --------------------------------------------------------------------------------
+# -------------------------------------------------------------------
 # DEPTH-FIRST SEARCH/FLOOD FILL - COMPONENTES CONEXOS EM UMA MATRIZ
-# --------------------------------------------------------------------------------
+# -------------------------------------------------------------------
 
-L = 10  # Quantidade de linhas da matriz de exemplo
-C = 12  # Quantidade de colunas da matriz de exemplo
+# Quantidade de linhas da matriz de exemplo
+L = 10
+# Quantidade de colunas da matriz de exemplo
+C = 12
 
-matriz = [  # Matriz de exemplo
+# Matriz de exemplo
+matriz = [
     ['#','.','.','#','#','#','.','#','#','.','#','#'],
     ['#','#','.','#','#','.','.','.','#','#','#','.'],
     ['.','#','#','.','.','#','.','.','.','.','.','#'],
@@ -18,26 +21,44 @@ matriz = [  # Matriz de exemplo
     ['#','#','.','.','.','.','#','.','.','.','.','.']
 ]
 
-vi = (-1,0,1,0)  # Variação de valores da posição i (linha)
-vj = (0,1,0,-1)  # Variação de valores da posição j (coluna)
+# Variação de valores da posição i (linha)
+vi = (-1,0,1,0)
+# Variação de valores da posição j (coluna)
+vj = (0,1,0,-1)
 
+# Função recursiva de busca em profundidade
 def flood_fill(i: int, j: int) -> None:
-    matriz[i][j] = 'V'  # Alterar o valor da célula
+    # Alterar o valor da célula
+    matriz[i][j] = 'V'
 
-    for k in range(4):  # Iteração para cada célula adjacente à célula que está sendo visitada
-        _i = i + vi[k]  # Posição i (linha) da célula a ser visitada
-        _j = j + vj[k]  # Posição j (coluna) da célula a ser visitada
+    # Iteração para cada célula adjacente
+    # à célula que está sendo visitada
+    for k in range(4):
+        # Posição i (linha) da célula a ser visitada
+        _i = i + vi[k]
+        # Posição j (coluna) da célula a ser visitada
+        _j = j + vj[k]
 
-        if _i < 0 or _j < 0:  # Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
+        # Se as posições i ou j da célula não estão na matriz
+        # (saíram dos limites da matriz, menores que 0)
+        if _i < 0 or _j < 0:
             continue
-        if _i >= L or _j >= C:  # Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
-            continue
-        if matriz[_i][_j] != '.':  # Se a célula não é um espaço em branco '.'
+
+        # Se as posições i ou j da célula não estão na matriz
+        # (saíram dos limites da matriz,
+        # maiores que o tamanho da matriz)
+        if _i >= L or _j >= C:
             continue
 
-        # Se qualquer uma das condições acima for verdadeira, a iteração reinicia
+        # Se a célula não é um espaço em branco '.'
+        if matriz[_i][_j] != '.':
+            continue
 
-        flood_fill(_i, _j)  # Chamar a função Flood fill para a célula adjacente
+        # Se qualquer uma das condições acima
+        # for verdadeira, a iteração reinicia
+
+        # Chamar a função para a célula adjacente
+        flood_fill(_i, _j)
 
 flood_fill(2, 6)
 

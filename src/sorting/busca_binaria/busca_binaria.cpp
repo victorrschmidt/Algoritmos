@@ -6,14 +6,11 @@
 #include <vector>
 using namespace std;
 
-// Array de exemplo
-vector<int> v = {1, 4, 8, 8, 9, 11, 11, 12};
-
 // Função para calcular a posição do número x no array.
 // Se o número x não estiver presente, é retornado o número -1.
 // Obs: Se x aparecer mais de uma vez no array,
 // a posição irá variar de acordo com o tamanho do mesmo.
-int busca_binaria(int x) {
+int busca_binaria(vector<int> v, int x) {
     // Primeira posição do array
     int l = 0;
     // Última posição do array
@@ -48,7 +45,7 @@ int busca_binaria(int x) {
 
 // Função para calcular a posição do primeiro número >= x no array.
 // Se o número x não estiver presente, é retornado o número -1.
-int lower_bound(int x) {
+int lower_bound(vector<int> v, int x) {
     // Primeira posição do array
     int l = 0;
     // Última posição do array
@@ -83,7 +80,7 @@ int lower_bound(int x) {
 
 // Função para calcular a posição do primeiro número > x no array.
 // Se o número x não estiver presente, é retornado o número -1.
-int upper_bound(int x) {
+int upper_bound(vector<int> v, int x) {
     // Primeira posição do array
     int l = 0;
     // Última posição do array
@@ -114,15 +111,4 @@ int upper_bound(int x) {
 
     // Retornar a posição do upper bound
     return pos;
-}
-
-int main() {
-    cout << busca_binaria(9) << '\n';  // 4
-    cout << busca_binaria(7) << '\n';  // -1
-    cout << lower_bound(8) << '\n';  // 2
-    cout << lower_bound(3) << '\n';  // 1
-    cout << upper_bound(15) << '\n';  // -1
-    cout << upper_bound(4) << '\n';  // 2
-
-    return 0;
 }

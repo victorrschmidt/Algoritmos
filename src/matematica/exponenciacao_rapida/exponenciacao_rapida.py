@@ -2,7 +2,7 @@
 # EXPONENCIAÇÃO RÁPIDA
 # -------------------------------------------------------------------
 
-# Função para calcular b**e
+# Função recursiva para calcular b**e
 def potencia(b: int, e: int) -> int:
     # Caso base: b**0 é igual a 1
     if e == 0:
@@ -23,7 +23,7 @@ def potencia(b: int, e: int) -> int:
 # UTILIZANDO MÓDULO
 # --------------------------------
 
-# Função para calcular b**e % m
+# Função recursiva para calcular b**e % m
 def potencia_mod(b: int, e: int, m: int) -> int:
     # Caso base: b**0 é igual a 1
     if e == 0:

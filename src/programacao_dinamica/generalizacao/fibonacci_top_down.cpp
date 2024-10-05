@@ -16,7 +16,7 @@ vector<int> dp(N+1);
 // arbitrário da dp já foi calculado
 vector<bool> calculado(N+1);
 
-// Função para calcular os números de fibonacci de 1 até n
+// Função recursiva para calcular os números de fibonacci de 1 até n
 int fib(int n) {
     // Se o estado n da dp já foi calculado
     if (calculado[n]) {
@@ -24,11 +24,11 @@ int fib(int n) {
         return dp[n];
     }
 
-    // Definir o estado n como 'calculado'
-    calculado[n] = true;
-
     // Definir o estado n da dp como a soma dos estados n-2 e n-1
     dp[n] = fib(n-2) + fib(n-1);
+
+    // Definir o estado n como 'calculado'
+    calculado[n] = true;
 
     // Retornar o estado n da dp
     return dp[n];
