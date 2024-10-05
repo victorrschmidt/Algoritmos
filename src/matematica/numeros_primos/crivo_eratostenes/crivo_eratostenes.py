@@ -17,7 +17,7 @@ def crivo(n: int) -> list[bool]:
         if primos[p]:
             # Iteração de i (múltiplos de p) no intervalo [p*p, n]
             for i in range(p*p, n+1, p):
-                # Definir i como não-primo
+                # Definir i como não primo
                 primos[i] = False
         p += 1
 

@@ -25,10 +25,10 @@ adj = [
 ]
 
 # Função para calcular a distância entre o vértice
-# 'origem' e os outros vértices do grafo
+# 'origem' e os outros vértices do grafo.
 def bfs(origem: int) -> None:
     # Array para armazenar a distância entre
-    # o vértice de origem e os outros vértices
+    # o vértice de origem e os outros vértices.
     global dist
     # Definir a distância até os outros vértices como -1
     dist = [-1 for i in range(V)]
@@ -37,7 +37,7 @@ def bfs(origem: int) -> None:
     dist[origem] = 0
 
     # Lista de vértices visitados
-    # (todos os elementos inicializados como False)
+    # (todos os elementos inicializados como False).
     visitado = [False for i in range(V)]
     # Definir o vértice de origem como 'visitado'
     visitado[origem] = True
@@ -49,7 +49,7 @@ def bfs(origem: int) -> None:
 
     # Iteração para cada vértice na fila
     while fila:
-        # Pegar o último vértice e removê-lo da fila
+        # Pegar o primeiro vértice e removê-lo da fila
         u = fila.popleft()
 
         # Iteração para cada vértice adjacente à u
@@ -63,7 +63,7 @@ def bfs(origem: int) -> None:
                 fila.append(v)
 
                 # Definir a distância até esse vértice
-                # (distância até o vértice u + 1)
+                # (distância até o vértice u + 1).
                 dist[v] = dist[u] + 1
 
 bfs(0)

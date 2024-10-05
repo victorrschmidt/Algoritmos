@@ -26,7 +26,7 @@ vector<vector<int>> adj{
 };
 
 // Contador que define o número do grupo de cada vértice
-int id = 0;
+int contador = 0;
 
 // Array para identificar o grupo ao qual cada vértice pertence
 vector<int> componente(V);
@@ -42,7 +42,7 @@ void dfs(int u) {
 
     // Identificar o id do vértice no array.
     // O grupo ao qual esse vértice pertence é o id atual.
-    componente[u] = id;
+    componente[u] = contador;
 
     // Iteração para cada vértice adjacente à u
     for (auto v : adj[u]) {
@@ -56,7 +56,7 @@ void dfs(int u) {
 
 // Função para identificar cada um dos vértices do grafo
 void encontrar_compoentes() {
-    // Iteração para cada vértice no grafo
+    // Iteração para cada vértice do grafo
     for (int i = 0; i < V; i++) {
         // Se o vértice i ainda não foi visitado
         if (!visitado[i]) {
@@ -65,8 +65,8 @@ void encontrar_compoentes() {
 
             // Incrementar o id (número de grupos).
             // Todos os vértices conexos à i já foram
-            // visitados/processados
-            id++;
+            // visitados/processados.
+            contador++;
         }
     }
 }
@@ -75,7 +75,7 @@ int main() {
     encontrar_compoentes();
 
     // componente[] = {0, 1, 2, 3, 0, 0, 2, 1, 0, 2, 2, 1}
-    // id = 4 = n° de componentes conexos no grafo
+    // contador = 4 = n° de componentes conexos no grafo
 
     return 0;
 }

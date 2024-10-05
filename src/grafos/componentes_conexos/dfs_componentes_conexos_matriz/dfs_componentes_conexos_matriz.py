@@ -32,7 +32,7 @@ def flood_fill(i: int, j: int) -> None:
     matriz[i][j] = 'V'
 
     # Iteração para cada célula adjacente
-    # à célula que está sendo visitada
+    # à célula que está sendo visitada.
     for k in range(4):
         # Posição i (linha) da célula a ser visitada
         _i = i + vi[k]
@@ -40,13 +40,13 @@ def flood_fill(i: int, j: int) -> None:
         _j = j + vj[k]
 
         # Se as posições i ou j da célula não estão na matriz
-        # (saíram dos limites da matriz, menores que 0)
+        # (saíram dos limites da matriz, menores que 0).
         if _i < 0 or _j < 0:
             continue
 
         # Se as posições i ou j da célula não estão na matriz
         # (saíram dos limites da matriz,
-        # maiores que o tamanho da matriz)
+        # maiores que o tamanho da matriz).
         if _i >= L or _j >= C:
             continue
 
@@ -55,7 +55,7 @@ def flood_fill(i: int, j: int) -> None:
             continue
 
         # Se qualquer uma das condições acima
-        # for verdadeira, a iteração reinicia
+        # for verdadeira, a iteração reinicia.
 
         # Chamar a função para a célula adjacente
         flood_fill(_i, _j)

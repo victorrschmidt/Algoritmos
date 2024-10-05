@@ -1,14 +1,20 @@
-// --------------------------------------------------------------------------------
+// ------------------------------------------------------------------
 // BREADTH-FIRST SEARCH - MENOR CAMINHO EM UMA MATRIZ
-// --------------------------------------------------------------------------------
+// ------------------------------------------------------------------
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <utility>
 using namespace std;
 
-const int L = 6;  // Quantidade de linhas da matriz de exemplo
-const int C = 8;  // Quantidade de colunas da matriz de exemplo
+// Quantidade de linhas da matriz de exemplo
+const int L = 6;
+// Quantidade de colunas da matriz de exemplo
+const int C = 8;
 
-vector<vector<char>> matriz{  // Matriz de exemplo
+// Matriz de exemplo
+vector<vector<char>> matriz{
     {'C','.','#','.','.','.','.','#'},
     {'.','.','.','.','#','#','#','.'},
     {'.','#','.','.','.','#','.','.'},
@@ -17,54 +23,101 @@ vector<vector<char>> matriz{  // Matriz de exemplo
     {'#','.','.','.','.','.','.','#'}
 };
 
-int ic = 0;  // Posição inicial i (linha)
-int jc = 0;  // Posição inicial j (coluna)
+// Posição inicial i (linha)
+int ic = 0;
+// Posição inicial j (coluna)
+int jc = 0;
 
 int bfs() {
-    vector<int> vi{-1,0,1,0};  // Variação de valores da posição i (linha)
-    vector<int> vj{0,1,0,-1};  // Variação de valores da posição j (coluna)
+    // Variação de valores da posição i (linha)
+    vector<int> vi = {-1,0,1,0};
+    // Variação de valores da posição j (coluna)
+    vector<int> vj = {0,1,0,-1};
 
-    vector<vector<bool>> visitado(L, vector<bool>(C));  // Matriz de células visitadas (todas as células inicializadas como false)
-    visitado[ic][jc] = true;  // Definir a célula inicial como visitada
+    // Matriz de células visitadas
+    // (todas as células inicializadas como false).
+    vector<vector<bool>> visitado(L, vector<bool>(C));
+    // Definir a célula inicial como 'visitada'
+    visitado[ic][jc] = true;
 
-    queue<pair<int, int>> fila;  // Fila para verificar cada célula adjacente na matriz
-    fila.push(make_pair(ic, jc));  // Adicionar a célula inicial na fila ( {i, j} )
+    // Fila para verificar cada célula adjacente na matriz
+    queue<pair<int, int>> fila;
+    // Adicionar a célula inicial na fila ( {i, j} )
+    fila.push(make_pair(ic, jc));
 
-    int c_restantes = 1;  // Células restantes na camada de busca (inicialmente só com a célula inicial). Será utilizado para determinar o número de células em cada camada de busca
-    int distancia = 0;  // Contador de distância até a célula final
+    // Células restantes na camada de busca
+    // (inicialmente só com a célula inicial).
+    // Será utilizado para determinar o número
+    // de células em cada camada de busca.
+    int c_restantes = 1;
 
-    while (!fila.empty()) {  // Iteração para cada célula na fila
-        auto [i, j] = fila.front();  // Pegar a posição i (linha) e a posição j (coluna) da célula
-        fila.pop();  // Remover a célula da fila
+    // Contador de distância até a célula final
+    int distancia = 0;
 
-        if (matriz[i][j] == 'F') {  // Se essa célula é a célula final
-            return distancia;  // Retornar a distância
+    // Iteração para cada célula na fila
+    while (!fila.empty()) {
+        // Pegar a posição i (linha) e a posição j (coluna) da célula
+        auto [i, j] = fila.front();
+        // Remover a célula da fila
+        fila.pop();
+
+        // Se essa célula é a célula final
+        if (matriz[i][j] == 'F') {
+            // Retornar a distância
+            return distancia;
         }
 
-        for (int k = 0; k < 4; k++) {  // Iteração para cada célula adjacente à célula que está sendo visitada
-            int _i = i + vi[k];  // Posição i (linha) da célula a ser visitada
-            int _j = j + vj[k];  // Posição j (coluna) da célula a ser visitada
+        // Iteração para cada célula adjacente à
+        // célula que está sendo visitada
+        for (int k = 0; k < 4; k++) {
+            // Posição i (linha) da célula a ser visitada
+            int _i = i + vi[k];
+            // Posição j (coluna) da célula a ser visitada
+            int _j = j + vj[k];
 
-            if (_i < 0 || _j < 0) continue;  // Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, menores que 0)
-            if (_i >= L || _j >= C) continue;  // Se as posições i ou j da célula não estão na matriz (saíram dos limites da matriz, maiores que o tamanho da matriz)
-            if (visitado[_i][_j]) continue;  // Se a célula já foi visitada
-            if (matriz[_i][_j] == '#') continue;  // Se a célula é inacessível (pedra)
+            // Se as posições i ou j da célula não estão na matriz
+            // (saíram dos limites da matriz, menores que 0).
+            if (_i < 0 || _j < 0) continue;
 
-            // Se qualquer uma das condições acima for verdadeira, a iteração reinicia
+            // Se as posições i ou j da célula não estão na matriz
+            // (saíram dos limites da matriz,
+            // maiores que o tamanho da matriz).
+            if (_i >= L || _j >= C) continue;
 
-            fila.push(make_pair(_i, _j));  // Adicionar a célula à fila
-            visitado[_i][_j] = true;  // Definir a célula como visitada
+            // Se a célula já foi visitada
+            if (visitado[_i][_j]) continue;
+
+            // Se a célula é inacessível (pedra)
+            if (matriz[_i][_j] == '#') continue;
+
+            // Se qualquer uma das condições acima
+            // for verdadeira, a iteração reinicia.
+
+            // Adicionar a célula à fila
+            fila.push(make_pair(_i, _j));
+            // Definir a célula como visitada
+            visitado[_i][_j] = true;
         }
 
-        c_restantes--;  // Diminuir o número de células na camada de busca
+        // Diminuir o número de células na camada de busca
+        c_restantes--;
 
-        if (c_restantes == 0) {  // Se foram verificadas todas as células nessa camada de busca
-            c_restantes = fila.size();  // A próxima camada de busca tem todas as células na próxima camada (tamanho atual da fila)
-            distancia++;  // Como teremos que processar outra camada de busca, a distância aumenta em 1
+        // Se foram verificadas todas as
+        // células nessa camada de busca:
+        if (c_restantes == 0) {
+            // A próxima camada de busca tem todas as
+            // células na próxima camada (tamanho atual da fila).
+            c_restantes = fila.size();
+
+            // Como teremos que processar outra
+            // camada de busca, a distância aumenta em 1.
+            distancia++;
         }
     }
 
-    return -1;  // Não existe caminho possível entre a célula inicial e final
+    // Se nenhum valor de distância foi retornado,
+    // não existe caminho possível entre a célula inicial e final.
+    return -1;
 }
 
 int main() {

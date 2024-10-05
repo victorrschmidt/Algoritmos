@@ -24,7 +24,7 @@ vector<bool> crivo(int n) {
 
         // Iteração de i (múltiplos de p) no intervalo [p*p, n]
         for (int i = p*p; i <= n; i += p) {
-            // Definir i como não-primo
+            // Definir i como não primo
             primos[i] = false;
         }
     }

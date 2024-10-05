@@ -9,7 +9,7 @@ N = 10
 dp = [0 for i in range(N+1)]
 
 # Lista para verificar se um estado
-# arbitrário da dp já foi calculado
+# arbitrário da dp já foi calculado.
 calculado = [False for i in range(N+1)]
 
 # Função recursiva para calcular os números de fibonacci de 1 até n

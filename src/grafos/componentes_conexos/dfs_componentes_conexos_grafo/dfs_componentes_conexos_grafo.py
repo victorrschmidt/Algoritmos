@@ -22,13 +22,13 @@ adj = [
 ]
 
 # Contador que define o número do grupo de cada vértice
-id = 0
+contador = 0
 
 # Lista para identificar o grupo ao qual cada vértice pertence
 componente = [-1 for i in range(V)]
 
 # Lista de vértices visitados
-# (todos os elementos inicializados como False)
+# (todos os elementos inicializados como False).
 visitado = [False for i in range(V)]
 
 # Função recursiva de busca em profundidade
@@ -38,7 +38,7 @@ def dfs(u: int) -> None:
 
     # Identificar o id do vértice na lista.
     # O grupo ao qual esse vértice pertence é o id atual.
-    componente[u] = id
+    componente[u] = contador
 
     # Iteração para cada vértice adjacente à u
     for v in adj[u]:
@@ -49,7 +49,7 @@ def dfs(u: int) -> None:
 
 # Função para identificar cada um dos vértices do grafo
 def encontrar_componentes() -> None:
-    # Iteração para cada vértice no grafo
+    # Iteração para cada vértice do grafo
     for i in range(V):
         # Se o vértice i ainda não foi visitado
         if not visitado[i]:
@@ -58,12 +58,12 @@ def encontrar_componentes() -> None:
 
             # Incrementar o id (número de grupos).
             # Todos os vértices conexos à i já foram
-            # visitados/processados
-            global id
-            id += 1
+            # visitados/processados.
+            global contador
+            contador += 1
 
 
 encontrar_componentes()
 
 # componente = [0, 1, 2, 3, 0, 0, 2, 1, 0, 2, 2, 1]
-# id = 4 = n° de componentes conexos no grafo
+# contador = 4 = n° de componentes conexos no grafo

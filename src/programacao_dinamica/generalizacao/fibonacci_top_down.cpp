@@ -13,7 +13,7 @@ int N = 10;
 vector<int> dp(N+1);
 
 // Array para verificar se um estado
-// arbitrário da dp já foi calculado
+// arbitrário da dp já foi calculado.
 vector<bool> calculado(N+1);
 
 // Função recursiva para calcular os números de fibonacci de 1 até n

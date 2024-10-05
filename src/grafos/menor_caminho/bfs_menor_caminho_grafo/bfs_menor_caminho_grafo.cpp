@@ -28,11 +28,11 @@ vector<vector<int>> adj{
 };
 
 // Array para armazenar a distância entre
-// o vértice de origem e os outros vértices
+// o vértice de origem e os outros vértices.
 vector<int> dist(V);
 
 // Função para calcular a distância entre o vértice
-// 'origem' e os outros vértices do grafo
+// 'origem' e os outros vértices do grafo.
 void bfs(int origem) {
     // Definir a distância até os outros vértices como -1
     fill(dist.begin(), dist.end(), -1);
@@ -41,7 +41,7 @@ void bfs(int origem) {
     dist[origem] = 0;
 
     // Array de vértices visitados
-    // (todos os elementos inicializados como false)
+    // (todos os elementos inicializados como false).
     vector<bool> visitado(V);
     // Definir o vértice de origem como 'visitado'
     visitado[origem] = true;
@@ -53,13 +53,13 @@ void bfs(int origem) {
 
     // Iteração para cada vértice na fila
     while (!fila.empty()) {
-        // Pegar o último vértice
+        // Pegar o primeiro vértice
         int u = fila.front();
         // Removê-lo da fila
         fila.pop();
 
         // Iteração para cada vértice adjacente à u
-        for (const auto v : adj[u]) {
+        for (auto v : adj[u]) {
             // Se o vértice v ainda não foi visitado
             if (!visitado[v]) {
                 // Definir o vértice como 'visitado'
@@ -69,7 +69,7 @@ void bfs(int origem) {
                 fila.push(v);
 
                 // Definir a distância até esse vértice
-                // (distância até o vértice u + 1)
+                // (distância até o vértice u + 1).
                 dist[v] = dist[u] + 1;
             }
         }
