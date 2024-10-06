@@ -8,7 +8,9 @@ using namespace std;
 
 // Função para gerar o array de primos de 0 até n
 vector<bool> crivo(int n) {
-    // Array de primos (todos os elementos inicializados como true)
+    // Array de números (todos os elementos inicializados como true).
+    // Cada posição p é um valor booleano que determina se o número
+    // p é primo (true) ou não (false).
     vector<bool> primos(n+1, true);
 
     // Casos especiais: 0 e 1 não são números primos

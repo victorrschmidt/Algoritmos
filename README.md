@@ -1,20 +1,18 @@
 # Algoritmos e Estruturas de dados
 
-Algoritmo, do latim _algorismus_, em Ciência da Computação, é um conjunto de instruções - cálculos, comparações, repetições, processamentos a serem executados por um sistema a fim de encontrar uma resposta/solução para um determinado problema.
+# Introdução
 
-Por sua vez, Estrutura de dados se refere à maneira com que as informações estão dispostas dentro do sistema. Arrays, strings, filas e árvores são exemplos de estruturas de dados, e são utilizadas de acordo com a necessidade ou conveniência de suas aplicações.
+Algoritmo, em Ciência da Computação, é uma sequência de instruções - cálculos, comparações, repetições e processamentos - a serem seguidas por um sistema a fim de determinar a resposta/solução para um determinado problema.
 
-O objetivo deste repositório é mostrar alguns algoritmos e estruturas de dados que podem ser implementados para solucionar diferentes tipos de problemas, buscando sempre uma boa performance. Cada algoritmo possui um arquivo com a explicação do seu funcionamento.
+Além disso, estrutura de dados é a forma à qual as informações estão dispostas dentro do sistema. Arrays, strings, filas e árvores são exemplos de estruturas de dados, e são utilizadas de acordo com a necessidade ou conveniência de suas aplicações.
 
-Este projeto é inspirado no repositório [**Algorithms**](https://github.com/williamfiset/Algorithms) de William Fiset e no livro [_Competitive Programmer’s Handbook_](https://cses.fi/book/book.pdf) de Antti Laaksonen. Os grafos utilizados foram criados através do site [**Graph Online**](https://graphonline.ru).
+O objetivo deste projeto é catalogar e explicar diferentes algoritmos e estruturas de dados, como também mostrar suas implementações para processar diferentes tipos de problemas.
 
-Caso você encontre algum erro em algum arquivo, sinta-se à vontade para reportá-lo e/ou criar um PR.
+# Fontes
 
-# Linguagens
+Este repositório está atrelado ao site [**Algoritmos e Estruturas de dados**](https://victorrschmidt.gitbook.io/algoritmos), cuja estrutura segue o mesmo padrão. Sinta-se à vontade para reportar ou submeter um PR caso encontre um erro em algum arquivo.
 
-Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
-
-<img src="https://skillicons.dev/icons?i=cpp,py" alt="cplusplus-python">
+Este projeto é inspirado no repositório [**Algorithms**](https://github.com/williamfiset/Algorithms) de William Fiset e no livro [_Competitive Programmer’s Handbook_](https://cses.fi/book/book.pdf) de Antti Laaksonen.
 
 # Conteúdo
 
@@ -41,5 +39,5 @@ Os algoritmos deste repositório estão disponíveis nas seguintes linguagens:
 ## Matemática
 - [**Exponenciação rápida**](src/matematica/exponenciacao_rapida/explicacao.md) **- $O(\log(e))$**
 ### Números primos
-- [**Teste de primalidade**](src/matematica/numeros_primos/primalidade/explicacao.md) **- $O(√n)$**
+- [**Primalidade**](src/matematica/numeros_primos/primalidade/explicacao.md) **- $O(√n)$**
 - [**Crivo de Eratóstenes**](src/matematica/numeros_primos/crivo_eratostenes/explicacao.md) **- $O(n \cdot \log(\log(n)))$**

@@ -4,7 +4,9 @@
 
 # Função para gerar a lista de primos de 0 até n
 def crivo(n: int) -> list[bool]:
-    # Lista de primos (todos os elementos inicializados como True)
+    # Lista de números (todos os elementos inicializados como True).
+    # Cada posição p é um valor booleano que determina se o número
+    # p é primo (True) ou não (False).
     primos = [True for i in range(n+1)]
 
     # Casos especiais: 0 e 1 não são números primos
