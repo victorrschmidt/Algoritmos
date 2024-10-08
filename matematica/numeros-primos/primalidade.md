@@ -36,7 +36,7 @@ $$
 \forall n((n>1 \land n \notin C) \implies (n \in P))
 $$
 
-O teste de primalidade é um algoritmo que verifica se um dado número n é maior que 1 e se possui algum divisor no intervalo \[2, ⌊√n⌋]. Em caso negativo, o número é primo.
+O teste de primalidade é um algoritmo que verifica se um dado número n é maior que 1 e se possui algum divisor no intervalo \[2, ⌊√n⌋].
 
 ## Implementação
 
