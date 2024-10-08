@@ -23,6 +23,6 @@ O objetivo deste projeto é catalogar e explicar diferentes algoritmos e estrutu
 
 ## Fontes
 
-Este site está atrelado ao repositório do GitHub [**Algoritmos**](https://github.com/victorrschmidt/Algoritmos)**,** cuja estrutura segue o mesmo padrão. Sinta-se à vontade para reportar ou submeter um PR caso encontre um erro em algum arquivo.
+O conteúdo deste site está sincronizado com o do repositório do GitHub [**Algoritmos**](https://github.com/victorrschmidt/Algoritmos). Sinta-se à vontade para reportar ou submeter um PR caso encontre um erro em alguma seção.
 
 Este projeto é inspirado no repositório [**Algorithms**](https://github.com/williamfiset/Algorithms) de William Fiset e no livro [_Competitive Programmer’s Handbook_](https://cses.fi/book/book.pdf) de Antti Laaksonen.
