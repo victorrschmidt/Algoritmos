@@ -18,14 +18,14 @@ $$
 x < y \implies f(x) < f(y)
 $$
 
-Vamos testar, de forma arbitrária, o valor do "meio" do intervalo (5 \* 10^5). Com base nessa escolha, podemos definir as seguintes implicações:
+Vamos testar, de forma arbitrária, o valor do "meio" do intervalo m, ou seja, m = 5 \* 10^5. Com base nessa escolha, podemos definir as seguintes implicações:
 
 $$
-f(5 \cdot 10^5) > k \implies f(x) < f(5 \cdot 10^5) \ ∧ \ x < 5 \cdot 10^5 \ ∧ \ x \in [0, \ 5 \cdot 10^5[
+f(m) > k \implies f(m) > f(x) \ ∧ \ m > x \ ∧ \ x \in [0, \ m[
 $$
 
 $$
-f(5 \cdot 10^5) < k \implies f(x) > f(5 \cdot 10^5) \ ∧ \ x > 5 \cdot 10^5 \ ∧ \ x \in ]5 \cdot 10^5, \ 10^6]
+f(m) < k \implies f(m) < f(x) \ ∧ \ m < x \ ∧ \ x \in \ ]m, \ 10^6]
 $$
 
 * Se a primeira desigualdade for verdadeira, `x` é menor que o valor do "meio", portanto podemos considerar o intervalo de busca como o início do intervalo original (inclusivo) até o valor do "meio" original (exclusivo).
@@ -61,7 +61,7 @@ Iremos definir a posição do meio `m = floor((l + r) / 2) = 9` e verificar o va
  l                              m                                       r
 ```
 
-O número na posição `m`, 23, é **maior** que o número que estamos procurando (15), portanto, sabemos agora que esse valor está à esquerda de `m`, e redefinimos que `r = m - 1`.
+O número na posição `m`, 23, é **maior** que o valor que estamos procurando (15), portanto, sabemos agora que este está à esquerda de `m`, e redefinimos que `r = m - 1`.
 
 ```cpp
 {3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
@@ -79,7 +79,7 @@ Novamente, redefinimos `m = floor((l + r) / 2) = 4`.
  l           m              r
 ```
 
-O número na posição `m`, 9, é **menor** que o número que procuramos, portanto, sabemos agora que esse valor está à direita de `m`, e redefinimos que `l = m + 1`.
+O número na posição `m`, 9, é **menor** que o valor que procuramos, portanto, sabemos agora que este está à direita de `m`, e redefinimos que `l = m + 1`.
 
 ```cpp
 {3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
