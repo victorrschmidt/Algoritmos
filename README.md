@@ -1,4 +1,17 @@
-# Algoritmos e Estruturas de dados
+---
+icon: door-open
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
 
 # Introdução
 
@@ -8,36 +21,8 @@ Além disso, estrutura de dados é a forma à qual as informações estão dispo
 
 O objetivo deste projeto é catalogar e explicar diferentes algoritmos e estruturas de dados, como também mostrar suas implementações para processar diferentes tipos de problemas.
 
-# Fontes
+## Fontes
 
-Este repositório está atrelado ao site [**Algoritmos e Estruturas de dados**](https://victorrschmidt.gitbook.io/algoritmos), cuja estrutura segue o mesmo padrão. Sinta-se à vontade para reportar ou submeter um PR caso encontre um erro em algum arquivo.
+Este site está atrelado ao repositório do GitHub [**Algoritmos**](https://github.com/victorrschmidt/Algoritmos)**,** cuja estrutura segue o mesmo padrão. Sinta-se à vontade para reportar ou submeter um PR caso encontre um erro em algum arquivo.
 
 Este projeto é inspirado no repositório [**Algorithms**](https://github.com/williamfiset/Algorithms) de William Fiset e no livro [_Competitive Programmer’s Handbook_](https://cses.fi/book/book.pdf) de Antti Laaksonen.
-
-# Conteúdo
-
-## Estruturas de dados
-- [**Set**](src/estruturas_de_dados/set/explicacao.md)
-- [**Map**](src/estruturas_de_dados/map/explicacao.md)
-- [**Fila (Queue)**](src/estruturas_de_dados/fila/explicacao.md)
-- [**Pilha (Stack)**](src/estruturas_de_dados/pilha/explicacao.md)
-
-## Ordenação (sorting)
-- [**Busca binária**](src/sorting/busca_binaria/explicacao.md)
-
-## Programação dinâmica
-- [**Generalização**](src/programacao_dinamica/generalizacao/explicacao.md)
-
-## Grafos
-### Componentes conexos
-- [**Depth-first search (componentes conexos em um grafo)**](src/grafos/componentes_conexos/dfs_componentes_conexos_grafo/explicacao.md)
-- [**Depth-first search/Flood fill (componentes conexos em uma matriz)**](src/grafos/componentes_conexos/dfs_componentes_conexos_matriz/explicacao.md)
-### Menor caminho
-- [**Breadth-first search (menor caminho em um grafo não valorado)**](src/grafos/menor_caminho/bfs_menor_caminho_grafo/explicacao.md)
-- [**Breadth-first search (menor caminho em uma matriz)**](src/grafos/menor_caminho/bfs_menor_caminho_matriz/explicacao.md)
-
-## Matemática
-- [**Exponenciação rápida**](src/matematica/exponenciacao_rapida/explicacao.md)
-### Números primos
-- [**Primalidade**](src/matematica/numeros_primos/primalidade/explicacao.md)
-- [**Crivo de Eratóstenes**](src/matematica/numeros_primos/crivo_eratostenes/explicacao.md)

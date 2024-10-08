@@ -1,0 +1,371 @@
+---
+description: Algoritmo para encontrar números em um conjunto ordenado.
+---
+
+# Busca binária
+
+## Explicação
+
+Busca binária é um algoritmo que determina a existência de um valor específico em um conjunto ordenado.&#x20;
+
+### Generalização
+
+Considere uma função crescente `f(x)`, e que queremos determinar o valor de `x` tal que `f(x) = k`. Considere também que `x` é um número inteiro, está no intervalo \[0, 10^6], e que os valores de `f(x)` são distintos para cada `x`.
+
+Para encontrar `x`, poderíamos testar todos os valores no dado intervalo. Essa abordagem possui um custo de processamento linear, e depende do tamanho do intervalo. Para pensar em uma abordagem mais eficiente, podemos considerar o fato de que `f(x)` é uma função **crescente**, isto é:
+
+$$
+x < y \implies f(x) < f(y)
+$$
+
+Vamos testar, de forma arbitrária, o valor do "meio" do intervalo (5 \* 10^5). Com base nessa escolha, podemos definir as seguintes implicações:
+
+$$
+f(5 \cdot 10^5) > k \implies f(x) < f(5 \cdot 10^5) \ ∧ \ x < 5 \cdot 10^5 \ ∧ \ x \in [0, \ 5 \cdot 10^5[
+$$
+
+$$
+f(5 \cdot 10^5) < k \implies f(x) > f(5 \cdot 10^5) \ ∧ \ x > 5 \cdot 10^5 \ ∧ \ x \in ]5 \cdot 10^5, \ 10^6]
+$$
+
+* Se a primeira desigualdade for verdadeira, `x` é menor que o valor do "meio", portanto podemos considerar o intervalo de busca como o início do intervalo original (inclusivo) até o valor do "meio" original (exclusivo).
+* Se a segunda desigualdade for verdadeira, `x` é maior que o valor do "meio", portanto podemos considerar o intervalo de busca como o valor do "meio" original (exclusivo) até o fim do intervalo original (inclusivo).
+
+Em ambos os casos, a quantidade de elementos presentes no intervalo é reduzida pela metade, e consequentemente o custo de processamento também é reduzido pela metade.
+
+O processo de escolher o "meio" do intervalo e verificar o valor da função se repete até que o intervalo seja vazio ou o valor de `x` seja encontrado. Dessa forma, ao invés de verificar um valor para `x` n (tamanho do intervalo original) vezes, podemos verificar somente log2(n) vezes, que é a quantidade de vezes que é possível reduzir o intervalo pela metade até restar um único elemento. No exemplo acima, para n = 10^6, é possível encontrar `x` em no máximo 20 iterações.
+
+### Busca binária em um array ordenado
+
+Considere o seguinte array de inteiros:
+
+```cpp
+{3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
+```
+
+Supondo que as posições de cada número não são conhecidas e que queremos encontrar a posição do número 15, iremos definir dois ponteiros `l` e `r`, que apontam, respectivamente, para a primeira e última posição do array. Iremos procurar o número enquanto `l <= r`.
+
+```cpp
+{3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
+ 0  1  2  3  4  5   6   7   8   9   10  11  12  13  14  15  16  17  18  19
+ ^                                                                      ^
+ l                                                                      r
+```
+
+Iremos definir a posição do meio `m = floor((l + r) / 2) = 9` e verificar o valor nessa posição.
+
+```cpp
+{3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
+ 0  1  2  3  4  5   6   7   8   9   10  11  12  13  14  15  16  17  18  19
+ ^                              ^                                       ^
+ l                              m                                       r
+```
+
+O número na posição `m`, 23, é **maior** que o número que estamos procurando (15), portanto, sabemos agora que esse valor está à esquerda de `m`, e redefinimos que `r = m - 1`.
+
+```cpp
+{3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
+ 0  1  2  3  4  5   6   7   8   9   10  11  12  13  14  15  16  17  18  19
+ ^                          ^
+ l                          r
+```
+
+Novamente, redefinimos `m = floor((l + r) / 2) = 4`.
+
+```cpp
+{3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
+ 0  1  2  3  4  5   6   7   8   9   10  11  12  13  14  15  16  17  18  19
+ ^           ^              ^
+ l           m              r
+```
+
+O número na posição `m`, 9, é **menor** que o número que procuramos, portanto, sabemos agora que esse valor está à direita de `m`, e redefinimos que `l = m + 1`.
+
+```cpp
+{3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
+ 0  1  2  3  4  5   6   7   8   9   10  11  12  13  14  15  16  17  18  19
+                ^           ^
+                l           r
+```
+
+Novamente, redefinimos `m = floor((l + r) / 2) = 6`.
+
+```cpp
+{3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
+ 0  1  2  3  4  5   6   7   8   9   10  11  12  13  14  15  16  17  18  19
+                ^   ^       ^
+                l   m       r
+```
+
+O número na posição `m` é o número que estamos procurando, portanto podemos encerrar a busca e retornar a posição `m`.
+
+Se o número não estivesse presente no array, a busca se encerraria quando `l > r`, `m` não seria retornado e teríamos um retorno nulo.
+
+## Implementação
+
+{% tabs %}
+{% tab title="C++" %}
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Função para calcular a posição do número x no array.
+// Se o número x não estiver presente, é retornado o número -1.
+// Obs: Se x aparecer mais de uma vez no array,
+// a posição irá variar de acordo com o tamanho do mesmo.
+int busca_binaria(vector<int> v, int x) {
+    // Primeira posição do array
+    int l = 0;
+    // Última posição do array
+    int r = v.size() - 1;
+
+    // Iteração no intervalo [l, r] atual
+    while (l <= r) {
+        // Posição do meio do intervalo
+        int m = (l + r) / 2;
+
+        // Se o valor do meio for igual a x
+        if (v[m] == x) {
+            // Retornar m
+            return m;
+        }
+
+        // Se o valor do meio for menor que x
+        if (v[m] < x) {
+            // Reduzir o intervalo para [m+1, r]
+            l = m + 1;
+        }
+        // Caso contrário
+        else {
+            // Reduzir o intervalo para [l, m-1]
+            r = m - 1;
+        }
+    }
+
+    // Se um valor para m não foi retornado, x não está no array
+    return -1;
+}
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+# Função para calcular a posição do número x na lista.
+# Se o número x não estiver presente, é retornado o número -1.
+# Obs: Se x aparecer mais de uma vez na lista,
+# a posição irá variar de acordo com o tamanho da mesma.
+def busca_binaria(v: list[int], x: int) -> int:
+    # Primeira posição da lista
+    l = 0
+    # Última posição da lista
+    r = len(v) - 1
+
+    # Iteração no intervalo [l, r] atual
+    while l <= r:
+        # Posição do meio do intervalo
+        m = (l + r) // 2
+
+        # Se o valor do meio for igual a x
+        if v[m] == x:
+            # Retornar m
+            return m
+
+        # Se o valor do meio for menor que x
+        if v[m] < x:
+            # Reduzir o intervalo para [m+1, r]
+            l = m + 1
+        # Caso contrário
+        else:
+            # Reduzir o intervalo para [l, m-1]
+            r = m - 1
+
+    # Se um valor para m não foi retornado, x não está na lista
+    return -1
+```
+{% endtab %}
+{% endtabs %}
+
+## Lower bound
+
+Dado um conjunto ordenado **C** e um número `x`, chamamos de _lower bound_ de `x` o menor valor `y` tal que:
+
+$$
+y \in C \ ∧ \ x \leq y
+$$
+
+Por exemplo, considere uma função crescente `f(x)` e que queremos encontrar o menor valor `x` tal que `f(x) >= k`. Podemos aplicar o mesmo conceito de busca binária mostrado anteriormente, com a diferença de que iremos manter salvo o menor valor global `m` de cada iteração que satisfaça a desigualdade `f(m) >= k`. Se nenhum valor `m` satisfazer essa condição, significa que `x` não possui um _lower bound_ no dado conjunto.
+
+## Implementação
+
+{% tabs %}
+{% tab title="C++" %}
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Função para calcular a posição do primeiro número >= x no array.
+// Se o número x não estiver presente, é retornado o número -1.
+int lower_bound(vector<int> v, int x) {
+    // Primeira posição do array
+    int l = 0;
+    // Última posição do array
+    int r = v.size() - 1;
+
+    // Posição do lower bound, inicialmente não encontrada,
+    // portanto inicializada como o número -1.
+    int pos = -1;
+
+    // Iteração no intervalo [l, r] atual
+    while (l <= r) {
+        // Posição do meio do intervalo
+        int m = (l + r) / 2;
+
+        // Se o valor do meio for maior ou igual a x
+        if (v[m] >= x) {
+            // Atualizar a posição do lower bound
+            pos = m;
+            // Reduzir o intervalo para [l, m-1]
+            r = m - 1;
+        }
+        // Caso contrário
+        else {
+            // Reduzir o intervalo para [m+1, r]
+            l = m + 1;
+        }
+    }
+
+    // Retornar a posição do lower bound
+    return pos;
+}
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+# Função para calcular a posição do primeiro número >= x na lista.
+# Se o número x não estiver presente, é retornado o número -1.
+def lower_bound(v: list[int], x: int) -> int:
+    # Primeira posição da lista
+    l = 0
+    # Última posição da lista
+    r = len(v) - 1
+
+    # Posição do lower bound, inicialmente não encontrada,
+    # portanto inicializada como o número -1.
+    pos = -1
+
+    # Iteração no intervalo [l, r] atual
+    while l <= r:
+        # Posição do meio do intervalo
+        m = (l + r) // 2
+
+        # Se o valor do meio for maior ou igual a x
+        if v[m] >= x:
+            # Atualizar a posição do lower bound
+            pos = m
+            # Reduzir o intervalo para [l, m-1]
+            r = m - 1
+        # Caso contrário
+        else:
+            # Reduzir o intervalo para [m+1, r]
+            l = m + 1
+
+    # Retornar a posição do lower bound
+    return pos
+```
+{% endtab %}
+{% endtabs %}
+
+## Upper bound
+
+Ainda considerando o exemplo mostrado no _lower bound_, chamamos de _upper bound_ de `x` o menor valor `y` tal que:
+
+$$
+y \in C \ ∧ \ x < y
+$$
+
+O processo de encontrar o _upper bound_ é praticamente o mesmo de encontrar o _lower bound_, basta apenas mudar o sinal de desigualdade de verificação para `f(m) > k`.
+
+## Implementação
+
+{% tabs %}
+{% tab title="C++" %}
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Função para calcular a posição do primeiro número > x no array.
+// Se o número x não estiver presente, é retornado o número -1.
+int upper_bound(vector<int> v, int x) {
+    // Primeira posição do array
+    int l = 0;
+    // Última posição do array
+    int r = v.size() - 1;
+
+    // Posição do upper bound, inicialmente não encontrada,
+    // portanto inicializada como o número -1.
+    int pos = -1;
+
+    // Iteração no intervalo [l, r] atual
+    while (l <= r) {
+        // Posição do meio do intervalo
+        int m = (l + r) / 2;
+
+        // Se o valor do meio for maior que x
+        if (v[m] > x) {
+            // Atualizar a posição do upper bound
+            pos = m;
+            // Reduzir o intervalo para [l, m-1]
+            r = m - 1;
+        }
+        // Caso contrário
+        else {
+            // Reduzir o intervalo para [m+1, r]
+            l = m + 1;
+        }
+    }
+
+    // Retornar a posição do upper bound
+    return pos;
+}
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+# Função para calcular a posição do primeiro número > x na lista.
+# Se o número x não estiver presente, é retornado o número -1.
+def upper_bound(v: list[int], x: int) -> int:
+    # Primeira posição da lista
+    l = 0
+    # Última posição da lista
+    r = len(v) - 1
+
+    # Posição do upper bound, inicialmente não encontrada,
+    # portanto inicializada como o número -1.
+    pos = -1
+
+    # Iteração no intervalo [l, r] atual
+    while l <= r:
+        # Posição do meio do intervalo
+        m = (l + r) // 2
+
+        # Se o valor do meio for maior que x
+        if v[m] > x:
+            # Atualizar a posição do upper bound
+            pos = m
+            # Reduzir o intervalo para [l, m-1]
+            r = m - 1
+        # Caso contrário
+        else:
+            # Reduzir o intervalo para [m+1, r]
+            l = m + 1
+
+    # Retornar a posição do upper bound
+    return pos
+```
+{% endtab %}
+{% endtabs %}
