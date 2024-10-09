@@ -38,11 +38,11 @@ Ainda considerando a árvore recursiva acima, perceba que diversas funções sã
 
 \* `dp` é um nome comum utilizado para nomear o array de memorização em problemas de PD.
 
-### PD Top-down
+## PD Top-down
 
 A abordagem Top-down se baseia em: começar pelo problema maior e recursivamente calcular os subproblemas menores. Essa é a abordagem do exemplo acima, onde é gerada uma árvore recursiva.
 
-## Implementação
+### Implementação
 
 {% tabs %}
 {% tab title="C++" %}
@@ -135,11 +135,11 @@ fib(N)
 {% endtab %}
 {% endtabs %}
 
-### PD Bottom-up
+## PD Bottom-up
 
 A abordagem Bottom-up se baseia em: começar pelos subproblemas menores, para no final responder o problema maior. Ainda no exemplo da Sequência de Fibonacci, começamos calculando o segundo termo, que só depende dos dois casos base 0 e 1. Assim, cada número é calculado de forma sequencial, tendo como base os termos previamente calculados.
 
-## Implementação
+### Implementação
 
 {% tabs %}
 {% tab title="C++" %}

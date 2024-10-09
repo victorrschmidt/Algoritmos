@@ -101,7 +101,7 @@ O número na posição `m` é o número que estamos procurando, portanto podemos
 
 Se o número não estivesse presente no array, a busca se encerraria quando `l > r`, `m` não seria retornado e teríamos um retorno nulo.
 
-## Implementação
+### Implementação
 
 {% tabs %}
 {% tab title="C++" %}
@@ -196,7 +196,7 @@ $$
 
 Por exemplo, considere uma função crescente `f(x)` e que queremos encontrar o menor valor `x` tal que `f(x) >= k`. Podemos aplicar o mesmo conceito de busca binária mostrado anteriormente, com a diferença de que iremos manter salvo o menor valor global `m` de cada iteração que satisfaça a desigualdade `f(m) >= k`. Se nenhum valor `m` satisfazer essa condição, significa que `x` não possui um _lower bound_ no dado conjunto.
 
-## Implementação
+### Implementação
 
 {% tabs %}
 {% tab title="C++" %}
@@ -288,7 +288,7 @@ $$
 
 O processo de encontrar o _upper bound_ é praticamente o mesmo de encontrar o _lower bound_, basta apenas mudar o sinal de desigualdade de verificação para `f(m) > k`.
 
-## Implementação
+### Implementação
 
 {% tabs %}
 {% tab title="C++" %}

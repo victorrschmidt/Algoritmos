@@ -64,7 +64,7 @@ $$
 
 A complexidade de tempo do algoritmo acima é de O(log(e)), que é a quantidade de vezes que iremos dividir `e` por 2 até chegar no caso base: 0. A complexidade de espaço também é de O(log(e)), que é a profundidade (_depht_) máximo da função.
 
-## Implementação
+### Implementação
 
 {% tabs %}
 {% tab title="C++" %}
@@ -130,7 +130,7 @@ f\big(b, e, m\big) = \begin{cases}
 \end{cases}
 $$
 
-## Implementação
+### Implementação
 
 {% tabs %}
 {% tab title="C++" %}
