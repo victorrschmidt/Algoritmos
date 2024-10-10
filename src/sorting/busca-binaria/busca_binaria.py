@@ -1,7 +1,3 @@
-# -------------------------------------------------------------------
-# BUSCA BINÁRIA
-# -------------------------------------------------------------------
-
 # Função para calcular a posição do número x na lista.
 # Se o número x não estiver presente, é retornado o número -1.
 # Obs: Se x aparecer mais de uma vez na lista,
