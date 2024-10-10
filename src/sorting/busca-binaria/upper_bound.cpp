@@ -36,3 +36,8 @@ int upper_bound(vector<int> v, int x) {
     // Retornar a posição do upper bound
     return pos;
 }
+
+int main() {
+
+    return 0;
+}
