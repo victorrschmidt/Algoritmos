@@ -6,7 +6,7 @@ description: Algoritmo para encontrar números em um conjunto ordenado.
 
 ## Explicação
 
-Busca binária é um algoritmo que determina a existência de um valor específico em um conjunto ordenado.&#x20;
+Busca binária é um algoritmo que determina a existência de um valor específico em um conjunto ordenado.
 
 ### Generalização
 
@@ -18,7 +18,7 @@ $$
 x < y \implies f(x) < f(y)
 $$
 
-Vamos testar, de forma arbitrária, o valor do "meio" do intervalo m, ou seja, m = 5 \* 10^5. Com base nessa escolha, podemos definir as seguintes implicações:
+Vamos testar, de forma arbitrária, o valor do "meio" do intervalo: m. Sendo assim, m = 5 \* 10^5. Com base nessa escolha, podemos definir as seguintes implicações:
 
 $$
 f(m) > k \implies f(m) > f(x) \ ∧ \ m > x \ ∧ \ x \in [0, \ m[
@@ -188,7 +188,7 @@ def busca_binaria(v: list[int], x: int) -> int:
 
 ## Lower bound
 
-Dado um conjunto ordenado **C** e um número `x`, chamamos de _lower bound_ de `x` o menor valor `y` tal que:
+Dado um conjunto ordenado **C** e um número `x`, denomina-se _lower bound_ de `x` o menor valor `y` tal que:
 
 $$
 y \in C \ ∧ \ x \leq y
@@ -280,13 +280,13 @@ def lower_bound(v: list[int], x: int) -> int:
 
 ## Upper bound
 
-Ainda considerando o exemplo mostrado no _lower bound_, chamamos de _upper bound_ de `x` o menor valor `y` tal que:
+Ainda considerando o exemplo mostrado no _lower bound_, denomina-se _upper bound_ de `x` o menor valor `y` tal que:
 
 $$
 y \in C \ ∧ \ x < y
 $$
 
-O processo de encontrar o _upper bound_ é praticamente o mesmo de encontrar o _lower bound_, basta apenas mudar o sinal de desigualdade de verificação para `f(m) > k`.
+O processo de encontrar o _upper bound_ é praticamente o mesmo do _lower bound_, basta apenas mudar o sinal de desigualdade de verificação para `f(m) > k`.
 
 ### Implementação
 
