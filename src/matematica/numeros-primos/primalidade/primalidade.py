@@ -1,7 +1,3 @@
-# -------------------------------------------------------------------
-# PRIMALIDADE
-# -------------------------------------------------------------------
-
 # Função para verificar se um número n é primo
 def primo(n: int) -> bool:
     # Caso especial: um número para

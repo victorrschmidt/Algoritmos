@@ -1,7 +1,3 @@
-# -------------------------------------------------------------------
-# CRIVO DE ERATÓSTENES
-# -------------------------------------------------------------------
-
 # Função para gerar a lista de primos de 0 até n
 def crivo(n: int) -> list[bool]:
     # Lista de números (todos os elementos inicializados como True).

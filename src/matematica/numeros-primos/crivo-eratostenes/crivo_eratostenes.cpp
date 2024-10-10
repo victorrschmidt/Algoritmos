@@ -1,7 +1,3 @@
-// ------------------------------------------------------------------
-// CRIVO DE ERATÓSTENES
-// ------------------------------------------------------------------
-
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -33,4 +29,9 @@ vector<bool> crivo(int n) {
 
     // Retornar o array
     return primos;
+}
+
+int main() {
+
+    return 0;
 }

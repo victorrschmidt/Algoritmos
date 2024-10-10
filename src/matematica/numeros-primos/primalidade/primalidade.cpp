@@ -1,7 +1,3 @@
-// ------------------------------------------------------------------
-// PRIMALIDADE
-// ------------------------------------------------------------------
-
 #include <iostream>
 using namespace std;
 
@@ -25,4 +21,9 @@ bool primo(int n) {
     // Se n não é múltiplo de nenhum número
     // no intervalo [2, √n], n é primo.
     return true;
+}
+
+int main() {
+
+    return 0;
 }
