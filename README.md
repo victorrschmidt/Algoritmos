@@ -21,6 +21,8 @@ Além disso, estrutura de dados trata-se da forma à qual as informações estã
 
 O objetivo deste projeto é catalogar e explicar diferentes algoritmos e estruturas de dados, como também mostrar suas implementações para processar diferentes tipos de problemas e seus paradigmas. Os assuntos abordados estão organizados em seções na aba esquerda do site.
 
+As implementações dos algoritmos estão disponíveis nas linguagens C++ e Python.
+
 ## Fontes
 
 O conteúdo está sincronizado com o repositório do GitHub [**Algoritmos**](https://github.com/victorrschmidt/Algoritmos). Sinta-se à vontade para reportar ou submeter um PR caso encontre um erro em alguma seção.

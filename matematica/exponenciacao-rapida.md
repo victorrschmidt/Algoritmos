@@ -52,7 +52,7 @@ b^e = \begin{cases}
 \end{cases}
 $$
 
-Assim, é possível escrever uma função recursiva f(b, e), que calcula b elevado a e:
+Assim, é possível escrever uma função recursiva f(b, e) que calcula `b` elevado a `e`:
 
 $$
 f\big(b, e\big) = \begin{cases}
@@ -120,7 +120,7 @@ def potencia(b: int, e: int) -> int:
 
 A exponenciação modular é utilizada para calcular a potência quando a base e/ou expoente é muito grande, e para isso é utilizado um módulo para limitar o tamanho do resultado.
 
-O mesmo algoritmo pode ser utilizado com um módulo `m`, apenas adicionando-o à recorrência, tendo assim uma função f(b, e, m) que calcula b elevado a e módulo m.
+O mesmo algoritmo pode ser utilizado com um módulo `m`, apenas adicionando-o à recorrência, tendo assim uma função f(b, e, m) que calcula `b` elevado a `e` módulo `m`.
 
 $$
 f\big(b, e, m\big) = \begin{cases}
