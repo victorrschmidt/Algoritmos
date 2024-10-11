@@ -14,10 +14,6 @@
 
 * [Menor caminho](grafos/menor-caminho/README.md)
   * [Menor caminho em um grafo não valorado](grafos/menor-caminho/menor-caminho-em-um-grafo-nao-valorado.md)
-  * [Menor caminho em uma matriz](grafos/menor-caminho/menor-caminho-em-uma-matriz.md)
-* [Componentes conexos](grafos/componentes-conexos/README.md)
-  * [Componentes conexos em um grafo](grafos/componentes-conexos/componentes-conexos-em-um-grafo.md)
-  * [Componentes conexos em uma matriz](grafos/componentes-conexos/componentes-conexos-em-uma-matriz.md)
 
 ## Matemática
 
