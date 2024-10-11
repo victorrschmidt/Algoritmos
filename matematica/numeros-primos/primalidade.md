@@ -6,7 +6,7 @@ description: Algoritmo para determinar se um número é primo.
 
 ## Explicação
 
-Um número primo é um número inteiro maior que 1 que só é divisível por 1 e por ele mesmo. Em contrapartida, um número composto é um número inteiro maior que 1 e que possui um ou mais divisores, além do 1 e ele mesmo.
+Um número primo é um número inteiro maior que 1 e que só é divisível por 1 e por ele mesmo. Em contrapartida, um número composto é um número inteiro maior que 1 e que possui um ou mais divisores, além do 1 e ele mesmo.
 
 Uma das propriedades dos números compostos é:
 

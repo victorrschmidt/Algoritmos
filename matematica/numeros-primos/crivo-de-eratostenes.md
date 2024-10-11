@@ -6,7 +6,7 @@ description: Algoritmo para encontrar números primos de 0 a n.
 
 ## Explicação
 
-O Crivo de Eratóstenes é um algoritmo antigo utilizado para encontrar números primos no intervalo \[0, n], onde n é um número inteiro arbitrário utilizado como limite.
+O Crivo de Eratóstenes é um algoritmo antigo utilizado para encontrar números primos no intervalo \[0, n], onde n é um número inteiro arbitrário utilizado como limite. O algoritmo foi nomeado por causa de seu criador, o matemático grego Eratóstenes de Cirene.
 
 ### Início
 
@@ -42,11 +42,11 @@ Iremos verificar que `primos[p] = true`, logo faremos o mesmo processo, definir 
 
 Após isso, iremos incrementar o valor de `p` em 1, ou seja, `p = 4`.
 
-Observe que p\*p > n, ou seja, o valor de p\*p agora ultrapassa o intervalo limitado por n. Assim, no algoritmo, o valor de p estará no intervalo \[2, ⌊√n⌋], visto que se p\*p > n, consequentemente p > √n.
+Observe que p\*p > n, ou seja, o valor de p\*p agora ultrapassa o fim do intervalo limitado por n. Assim, no algoritmo, o valor de p estará no intervalo \[2, ⌊√n⌋], visto que se p\*p > n, consequentemente p > √n.
 
 ### Conclusão
 
-Quando o valor de p ultrapassar o valor de √n, o algoritmo se encerra, e teremos o array `primos[]` definido. Com isso, podemos verificar se um número menor ou igual a n é primo em tempo constante.
+Quando o valor de p ultrapassar o valor de √n, o algoritmo se encerra, e teremos o array `primos[]` definido. Com isso, podemos verificar se um número menor ou igual a `n` é primo em tempo constante.
 
 Abaixo está uma visualização do funcionamento do algoritmo.
 
