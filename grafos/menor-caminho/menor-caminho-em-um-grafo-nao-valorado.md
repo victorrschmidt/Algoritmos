@@ -1,12 +1,12 @@
 ---
-description: Utilizando o algortimo de breadth-first search.
+description: Utilizando o algoritmo de breadth-first search.
 ---
 
 # Menor caminho em um grafo não valorado
 
 ## Explicação
 
-Encontrar o menor caminho entre um vértice de origem e todos os outros vértices de um grafo não valorado é um problema que pode ser resolvido através do algortimo de _breadth-first search_.
+Encontrar o menor caminho entre um vértice de origem e todos os outros vértices de um grafo não valorado é um problema que pode ser resolvido através do algoritmo de _breadth-first search_.
 
 A abordagem se baseia em visitar os vértices adjacentes ao vértice de origem, depois visitar os adjacentes a esses e assim sucessivamente. A busca é feita em camadas, isto é, processamos todos os vértices das menores profundidades (_depth_). Cada camada de busca corresponde a um movimento - a distância mínima possível entre o vértice que está sendo visitado e a origem (considerando que cada aresta tem peso 1).
 
