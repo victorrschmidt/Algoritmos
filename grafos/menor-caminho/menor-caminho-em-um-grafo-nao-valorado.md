@@ -1,20 +1,22 @@
 ---
-description: Utilizando breadth-first search.
+description: Utilizando o algortimo de breadth-first search.
 ---
 
 # Menor caminho em um grafo não valorado
 
 ## Explicação
 
-Encontrar o menor caminho entre um vértice de origem e todos os outros vértices de um grafo não valorado é um problema que pode ser resolvido com o algortimo de _breadth-first search_. A ideia é visitar todos os vértices adjacentes ao vértice de origem, depois visitar todos os outros adjacentes a esses e assim sucessivamente. Cada camada de busca corresponde a um movimento - a distância mínima possível entre o vértice que está sendo visitado e a origem. Dessa forma, é possível determinar a menor distância entre um vértice de origem e todos os outros vértices do grafo (considerando que cada aresta tem peso 1).
+Encontrar o menor caminho entre um vértice de origem e todos os outros vértices de um grafo não valorado é um problema que pode ser resolvido através do algortimo de _breadth-first search_.
 
-A distância entre o vértice de origem e cada um dos vértices será armazenada em um array de inteiros `dist[]`. Como inicialmente não sabemos as distâncias, iremos definir todas como `-1`. A distância até a origem é sempre 0. Armazenaremos a distância até cada vértice `v` em `dist[v]` (onde `v` é o número do vértice).
+A abordagem se baseia em visitar os vértices adjacentes ao vértice de origem, depois visitar os adjacentes a esses e assim sucessivamente. A busca é feita em camadas, isto é, processamos todos os vértices das menores profundidades (_depth_). Cada camada de busca corresponde a um movimento - a distância mínima possível entre o vértice que está sendo visitado e a origem (considerando que cada aresta tem peso 1).
 
-Para cada vértice processado, iremos adicioná-lo a uma fila (_queue_), que prioriza os primeiros vértices adicionados. Sendo assim, a busca é feita em largura, processando primeiro os vértices na menor profundidade (_depth_).
+No algoritmo, a distância entre o vértice de origem e cada um dos vértices do grafo será armazenada em um array de inteiros `dist[]`. Como inicialmente não sabemos as distâncias, iremos definir todas como `-1`. Armazenaremos a distância até cada vértice `v` em `dist[v]` (onde `v` é o número do vértice). É importante lembrar que a distância até a origem é sempre 0.
+
+Além disso, para cada vértice processado, iremos adicioná-lo à uma fila (_queue_), que prioriza os primeiros vértices adicionados. Dessa forma, é possível manter a ordem correta para fazer a travessia do grafo.
 
 Para evitar que um vértice seja processado mais de uma vez (e possivelmente gerar um ciclo infinito), iremos também definir um array booleano `visitado[]`, inicializado inteiramente como `false`. Ao processar um vértice `v`, marcaremos `visitado[v]` como `true`. Assim, somente os vértices não visitados serão processados.
 
-Para cada vértice `v` (com exceção do vértice de origem), iremos chegar até este a partir de outro vértice `u` (se existir um caminho possível entre `u` e `v`), portanto, a distância até `v` será a distância da origem até u + 1.
+Durante o funcionamento, para cada vértice `v` (com exceção do vértice de origem), iremos chegar até este a partir de outro vértice `u` (se existir um caminho possível entre `u` e `v`), portanto, a distância até `v` será a distância da origem até `u` + 1.
 
 $$
 u \to v \implies dist[v] = dist[u] + 1
@@ -22,7 +24,7 @@ $$
 
 No fim, teremos o array definido com todas as distâncias e, as distâncias que estiverem ainda como `-1` indicam que aquele vértice não é conexo com o vértice de origem. Assim, podemos verificar a menor distância entre o vértice de origem e qualquer outro vértice do grafo em tempo constante.
 
-Abaixo está um exemplo de um grafo e o funcionamento do algoritmo em questão, com o vértice de origem sendo o 0.
+Abaixo está um exemplo de um grafo e a visualização do funcionamento do algoritmo em questão, com o vértice de origem sendo o número 0.
 
 <figure><img src="../../.gitbook/assets/bfs_menor_caminho_grafo_1.png" alt=""><figcaption><p>Grafo de exemplo.</p></figcaption></figure>
 
@@ -125,6 +127,9 @@ int main() {
 
 {% tab title="Python" %}
 ```python
+# A classe deque possui estrutura e métodos para
+# o contexto FIFO (First In, First Out), servindo
+# como uma queue mais eficiente que uma lista padrão do Python.
 from collections import deque
 
 # Número de vértices do grafo de exemplo
