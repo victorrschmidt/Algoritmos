@@ -10,22 +10,22 @@ Busca binária é um algoritmo que determina a existência de um valor específi
 
 ### Generalização
 
-Considere uma função crescente `f(x)`, e que queremos determinar o valor de `x` tal que `f(x) = k`. Considere também que `x` é um número inteiro, está no intervalo \[0, 10^6], e que os valores de `f(x)` são distintos para cada `x`.
+Considere uma função crescente `f(x)`, e que queremos determinar o valor de `v` tal que `f(v) = k`. Considere também que `v` é um número inteiro, está no intervalo \[0, 10^6], e que os valores de `f(x)` são distintos para cada `x`.
 
-Para encontrar `x`, poderíamos testar todos os valores no dado intervalo. Essa abordagem possui um custo de processamento linear, e depende do tamanho do intervalo. Para pensar em uma abordagem mais eficiente, podemos considerar o fato de que `f(x)` é uma função **crescente**, isto é:
+Para encontrar `v`, poderíamos testar todos os valores no dado intervalo. Essa abordagem possui um custo de processamento linear, e depende do tamanho do intervalo. Para pensar em uma abordagem mais eficiente, podemos considerar o fato de que `f(x)` é uma função **crescente**, isto é:
 
 $$
-x < y \implies f(x) < f(y)
+a < b \implies f(a) < f(b)
 $$
 
 Vamos testar, de forma arbitrária, o valor do "meio" do intervalo: m. Sendo assim, m = 5 \* 10^5. Com base nessa escolha, podemos definir as seguintes implicações:
 
 $$
-f(m) > k \implies f(m) > f(x) \ ∧ \ m > x \ ∧ \ x \in [0, \ m[
+f(m) > k \implies f(m) > f(v) \ ∧ \ m > v \ ∧ \ v \in [0, \ m[
 $$
 
 $$
-f(m) < k \implies f(m) < f(x) \ ∧ \ m < x \ ∧ \ x \in \ ]m, \ 10^6]
+f(m) < k \implies f(m) < f(v) \ ∧ \ m < v \ ∧ \ v \in \ ]m, \ 10^6]
 $$
 
 * Se a primeira desigualdade for verdadeira, `x` é menor que o valor do "meio", portanto podemos considerar o intervalo de busca como o início do intervalo original (inclusivo) até o valor do "meio" original (exclusivo).
