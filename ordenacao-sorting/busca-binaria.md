@@ -1,24 +1,26 @@
 ---
-description: Algoritmo para encontrar números em um conjunto ordenado.
+description: Algoritmo para encontrar valores em um conjunto ordenado.
 ---
 
 # Busca binária
 
 ## Explicação
 
-Busca binária é um algoritmo que determina a existência de um valor específico em um conjunto ordenado.
+Busca binária é um algoritmo que determina a existência de um valor específico em um conjunto ordenado (crescentemente ou decrescentemente). O algoritmo utiliza a comparação numérica entre o valor a ser encontrado e o valor do conjunto que é verificado em cada passo a fim de otimizar o intervalo de busca e, consequentemente, o tempo de execução.
 
 ### Generalização
 
 Considere uma função crescente `f(x)`, e que queremos determinar o valor de `v` tal que `f(v) = k`. Considere também que `v` é um número inteiro, está no intervalo \[0, 10^6], e que os valores de `f(x)` são distintos para cada `x`.
 
-Para encontrar `v`, poderíamos testar todos os valores no dado intervalo. Essa abordagem possui um custo de processamento linear, e depende do tamanho do intervalo. Para pensar em uma abordagem mais eficiente, podemos considerar o fato de que `f(x)` é uma função **crescente**, isto é:
+Para encontrar `v`, poderíamos testar todos os valores no dado intervalo, e verificar para qual valor de v a igualdade `f(v) = k` é verdadeira. Essa abordagem possui um custo de processamento linear, e depende do tamanho do intervalo, ou seja, no pior caso possível, teríamos que verificar todos os elementos presentes no intervalo.&#x20;
+
+Para pensar em uma abordagem mais eficiente, vamos relembrar o fato de que `f(x)` é uma função **crescente**, isto é:
 
 $$
 a < b \implies f(a) < f(b)
 $$
 
-Vamos testar, de forma arbitrária, o valor do "meio" do intervalo: m. Sendo assim, m = 5 \* 10^5. Com base nessa escolha, podemos definir as seguintes implicações:
+Vamos testar, de forma arbitrária, o valor do "meio" do intervalo: `m`. Sendo assim, `m = 5 * 10^5`. Com base nessa escolha, podemos definir as seguintes implicações:
 
 $$
 f(m) > k \implies f(m) > f(v) \ ∧ \ m > v \ ∧ \ v \in [0, \ m[
@@ -28,12 +30,12 @@ $$
 f(m) < k \implies f(m) < f(v) \ ∧ \ m < v \ ∧ \ v \in \ ]m, \ 10^6]
 $$
 
-* Se a primeira desigualdade for verdadeira, `x` é menor que o valor do "meio", portanto podemos considerar o intervalo de busca como o início do intervalo original (inclusivo) até o valor do "meio" original (exclusivo).
-* Se a segunda desigualdade for verdadeira, `x` é maior que o valor do "meio", portanto podemos considerar o intervalo de busca como o valor do "meio" original (exclusivo) até o fim do intervalo original (inclusivo).
+* Se a primeira desigualdade for verdadeira, `v` é **menor** que o valor do "meio", portanto podemos considerar o intervalo de busca como sendo o início do intervalo original (inclusivo) até o valor do "meio" original (exclusivo).
+* Se a segunda desigualdade for verdadeira, `v` é **maior** que o valor do "meio", portanto podemos considerar o intervalo de busca como sendo o valor do "meio" original (exclusivo) até o fim do intervalo original (inclusivo).
 
-Em ambos os casos, a quantidade de elementos presentes no intervalo é reduzida pela metade, e consequentemente o custo de processamento também é reduzido pela metade.
+Em ambos os casos, a quantidade de elementos presentes no intervalo é reduzida pela metade e, consequentemente, o custo de processamento.
 
-O processo de escolher o "meio" do intervalo e verificar o valor da função se repete até que o intervalo seja vazio ou o valor de `x` seja encontrado. Dessa forma, ao invés de verificar um valor para `x` n (tamanho do intervalo original) vezes, podemos verificar somente log2(n) vezes, que é a quantidade de vezes que é possível reduzir o intervalo pela metade até restar um único elemento. No exemplo acima, para n = 10^6, é possível encontrar `x` em no máximo 20 iterações.
+O processo de escolher o "meio" do intervalo e verificar o valor da função se repete até que o intervalo seja vazio ou o valor de `v` seja encontrado. Dessa forma, ao invés de verificar um valor para `v` N (tamanho do intervalo original) vezes, podemos verificar somente log2(N) vezes, que é a quantidade de vezes que é possível reduzir o intervalo pela metade até restar um único elemento. No exemplo acima, para N = 10^6, é possível encontrar `v` em no máximo 20 iterações/verificações.
 
 ### Busca binária em um array ordenado
 
