@@ -35,7 +35,7 @@ int busca_binaria(vector<int> v, int x) {
         }
     }
 
-    // Se um valor para m não foi retornado, x não está no array
+    // Se nenhum valor para m foi retornado, x não está no array
     return -1;
 }
 

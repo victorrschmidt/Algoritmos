@@ -27,5 +27,5 @@ def busca_binaria(v: list[int], x: int) -> int:
             # Reduzir o intervalo para [l, m-1]
             r = m - 1
 
-    # Se um valor para m não foi retornado, x não está na lista
+    # Se nenhum valor para m foi retornado, x não está na lista
     return -1
