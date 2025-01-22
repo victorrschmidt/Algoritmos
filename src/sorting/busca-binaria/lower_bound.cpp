@@ -2,8 +2,8 @@
 #include <vector>
 using namespace std;
 
-// Função para calcular a posição do primeiro número >= x no array.
-// Se o número x não estiver presente, é retornado o número -1.
+// Função para encontrar a posição do primeiro número >= x no array.
+// Se nenhum valor satisfazer essa condição, é retornado o número -1.
 int lower_bound(vector<int> v, int x) {
     // Primeira posição do array
     int l = 0;

@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// Função para calcular a posição do número x no array.
+// Função para encontrar a posição do número x no array.
 // Se o número x não estiver presente, é retornado o número -1.
 // Obs: Se x aparecer mais de uma vez no array,
 // a posição irá variar de acordo com o tamanho do mesmo.
@@ -19,7 +19,7 @@ int busca_binaria(vector<int> v, int x) {
 
         // Se o valor do meio for igual a x
         if (v[m] == x) {
-            // Retornar m
+            // Retornar a posição m
             return m;
         }
 

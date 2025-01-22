@@ -1,5 +1,5 @@
-# Função para calcular a posição do primeiro número >= x na lista.
-# Se o número x não estiver presente, é retornado o número -1.
+# Função para encontrar a posição do primeiro número >= x na lista.
+# Se nenhum valor satisfazer essa condição, é retornado o número -1.
 def lower_bound(v: list[int], x: int) -> int:
     # Primeira posição da lista
     l = 0
