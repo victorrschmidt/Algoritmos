@@ -39,7 +39,7 @@ O processo de escolher o "meio" do intervalo e verificar o valor da função se 
 
 ### Busca binária em um array ordenado
 
-Considere o seguinte array de inteiros:
+Considere o seguinte array de inteiros que está ordenado de forma crescente:
 
 ```cpp
 {3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
@@ -72,7 +72,7 @@ O número na posição `m`, 23, é **maior** que o valor que estamos procurando 
  l                           r
 ```
 
-Novamente, redefinimos `m = floor((l + r) / 2) = 4`.
+Novamente, redefinimos o valor do meio `m = floor((l + r) / 2) = 4`.
 
 ```cpp
 {3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
@@ -90,7 +90,7 @@ O número na posição `m`, 9, é **menor** que o valor que procuramos, portanto
                  l           r
 ```
 
-Novamente, redefinimos `m = floor((l + r) / 2) = 6`.
+Novamente, redefinimos o valor do meio `m = floor((l + r) / 2) = 6`.
 
 ```cpp
 {3, 5, 7, 8, 9, 11, 15, 16, 22, 23, 26, 28, 29, 30, 32, 34, 36, 37, 38, 39}
@@ -112,7 +112,7 @@ Se o número não estivesse presente no array, a busca se encerraria quando `l >
 #include <vector>
 using namespace std;
 
-// Função para calcular a posição do número x no array.
+// Função para encontrar a posição do número x no array.
 // Se o número x não estiver presente, é retornado o número -1.
 // Obs: Se x aparecer mais de uma vez no array,
 // a posição irá variar de acordo com o tamanho do mesmo.
@@ -129,7 +129,7 @@ int busca_binaria(vector<int> v, int x) {
 
         // Se o valor do meio for igual a x
         if (v[m] == x) {
-            // Retornar m
+            // Retornar a posição m
             return m;
         }
 
@@ -153,7 +153,7 @@ int busca_binaria(vector<int> v, int x) {
 
 {% tab title="Python" %}
 ```python
-# Função para calcular a posição do número x na lista.
+# Função para encontrar a posição do número x na lista.
 # Se o número x não estiver presente, é retornado o número -1.
 # Obs: Se x aparecer mais de uma vez na lista,
 # a posição irá variar de acordo com o tamanho da mesma.
@@ -170,7 +170,7 @@ def busca_binaria(v: list[int], x: int) -> int:
 
         # Se o valor do meio for igual a x
         if v[m] == x:
-            # Retornar m
+            # Retornar a posição m
             return m
 
         # Se o valor do meio for menor que x
@@ -190,7 +190,7 @@ def busca_binaria(v: list[int], x: int) -> int:
 
 ## Lower bound
 
-Dado um conjunto ordenado **C** e um número `x`, denomina-se o _lower bound_ de `x` o menor valor `y` tal que:
+Dado um conjunto ordenado de forma crescente **C** e um número `x`, denomina-se o _lower bound_ de `x` o menor valor `y` tal que:
 
 $$
 y \in C \ ∧ \ x \leq y
@@ -207,8 +207,8 @@ Por exemplo, considere uma função crescente `f(x)` e que queremos encontrar o 
 #include <vector>
 using namespace std;
 
-// Função para calcular a posição do primeiro número >= x no array.
-// Se o número x não estiver presente, é retornado o número -1.
+// Função para encontrar a posição do primeiro número >= x no array.
+// Se nenhum valor satisfazer essa condição, é retornado o número -1.
 int lower_bound(vector<int> v, int x) {
     // Primeira posição do array
     int l = 0;
@@ -246,8 +246,8 @@ int lower_bound(vector<int> v, int x) {
 
 {% tab title="Python" %}
 ```python
-# Função para calcular a posição do primeiro número >= x na lista.
-# Se o número x não estiver presente, é retornado o número -1.
+# Função para encontrar a posição do primeiro número >= x na lista.
+# Se nenhum valor satisfazer essa condição, é retornado o número -1.
 def lower_bound(v: list[int], x: int) -> int:
     # Primeira posição da lista
     l = 0
@@ -288,7 +288,7 @@ $$
 y \in C \ ∧ \ x < y
 $$
 
-O processo de encontrar o _upper bound_ de um elemento é praticamente o mesmo do _lower bound_, basta apenas mudar o sinal de desigualdade de verificação para `f(m) > k`.
+O processo de encontrar o _upper bound_ de um elemento é praticamente o mesmo do _lower bound_, bastando apenas mudar o sinal da desigualdade de verificação para `f(m) > k`.
 
 ### Implementação
 
@@ -299,8 +299,8 @@ O processo de encontrar o _upper bound_ de um elemento é praticamente o mesmo d
 #include <vector>
 using namespace std;
 
-// Função para calcular a posição do primeiro número > x no array.
-// Se o número x não estiver presente, é retornado o número -1.
+// Função para encontrar a posição do primeiro número > x no array.
+// Se nenhum valor satisfazer essa condição, é retornado o número -1.
 int upper_bound(vector<int> v, int x) {
     // Primeira posição do array
     int l = 0;
@@ -338,8 +338,8 @@ int upper_bound(vector<int> v, int x) {
 
 {% tab title="Python" %}
 ```python
-# Função para calcular a posição do primeiro número > x na lista.
-# Se o número x não estiver presente, é retornado o número -1.
+# Função para encontrar a posição do primeiro número > x na lista.
+# Se nenhum valor satisfazer essa condição, é retornado o número -1.
 def upper_bound(v: list[int], x: int) -> int:
     # Primeira posição da lista
     l = 0
