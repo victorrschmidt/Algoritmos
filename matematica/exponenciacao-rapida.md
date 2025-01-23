@@ -22,7 +22,7 @@ for (int i = 1; i <= e; i++) {
 }
 ```
 
-Um algoritmo desse tipo teria uma complexidade de tempo de O(e), pois teríamos que fazer `e` iterações.
+Um algoritmo desse tipo teria uma complexidade de tempo de O(e), pois teríamos que fazer `e` iterações para calcular o resultado final.
 
 Entretanto, existe uma forma mais eficiente de calcular `b` elevado a `e`, utilizando uma das propriedades da exponenciação - a multiplicação de potências de mesma base:
 
@@ -52,7 +52,7 @@ b^e = \begin{cases}
 \end{cases}
 $$
 
-Assim, é possível escrever uma função recursiva f(b, e) que calcula `b` elevado a `e`:
+Assim, é possível definir uma função recursiva `f(b, e)` que calcula `b` elevado a `e`:
 
 $$
 f\big(b, e\big) = \begin{cases}
@@ -120,7 +120,7 @@ def potencia(b: int, e: int) -> int:
 
 A exponenciação modular é utilizada para calcular a potência quando a base e/ou expoente é muito grande, e para isso é utilizado um módulo para limitar o tamanho do resultado.
 
-O mesmo algoritmo pode ser utilizado com um módulo `m`, apenas adicionando-o à recorrência, tendo assim uma função f(b, e, m) que calcula `b` elevado a `e` módulo `m`.
+O mesmo algoritmo pode ser utilizado com um módulo `m`, apenas adicionando-o à recorrência, assim podendo ser definida uma função `f(b, e, m)` que calcula `b` elevado a `e` módulo `m`.
 
 $$
 f\big(b, e, m\big) = \begin{cases}
