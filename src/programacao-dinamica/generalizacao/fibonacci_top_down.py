@@ -2,13 +2,13 @@
 N = 10
 
 # Lista de memorização
-dp = [0 for i in range(N+1)]
+dp = [0 for i in range(N)]
 
 # Lista para verificar se um estado
 # arbitrário da dp já foi calculado.
-calculado = [False for i in range(N+1)]
+calculado = [False for i in range(N)]
 
-# Função recursiva para calcular os números de fibonacci de 1 até n
+# Função recursiva para calcular os números de fibonacci de 0 até N-1
 def fib(n: int) -> int:
     # Se o estado n da dp já foi calculado
     if calculado[n]:
@@ -24,12 +24,12 @@ def fib(n: int) -> int:
     # Retornar o estado n da dp
     return dp[n]
 
-dp[1] = 0  # Caso base => fib(1) = 0
-dp[2] = 1  # Caso base => fib(2) = 1
+dp[0] = 0  # Caso base: fib(0) = 0
+dp[1] = 1  # Caso base: fib(1) = 1
+calculado[0] = True
 calculado[1] = True
-calculado[2] = True
 
 # Chamar a função para o último estado da dp (limite)
-fib(N)
+fib(N-1)
 
-# dp[1...N] = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+# dp[] = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
