@@ -1,5 +1,5 @@
 ---
-description: Algoritmo para determinar se um número é primo.
+description: Algoritmo para verificar se um número é primo.
 ---
 
 # Primalidade
@@ -41,13 +41,13 @@ O teste de primalidade é um algoritmo que verifica se um dado número n é maio
 ## Implementação
 
 {% tabs %}
-{% tab title="C++" %}
-```cpp
-#include <iostream>
-using namespace std;
+{% tab title="C" %}
+```c
+#include <stdio.h>
+#include <stdbool.h>
 
 // Função para verificar se um número n é primo
-bool primo(int n) {
+bool primo(const int n) {
     // Caso especial: um número para
     // ser primo precisa ser maior que 1.
     if (n < 2) {
@@ -55,7 +55,36 @@ bool primo(int n) {
     }
 
     // Iteração de i no intervalo [2, √n]
-    for (int i = 2; i*i <= n; i++) {
+    for (int i = 2; i * i <= n; i++) {
+        // Se n é divisível por i
+        if (n % i == 0) {
+            // n não é primo
+            return false;
+        }
+    }
+
+    // Se n não é múltiplo de nenhum número
+    // no intervalo [2, √n], n é primo.
+    return true;
+}
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+#include <iostream>
+using namespace std;
+
+// Função para verificar se um número n é primo
+bool primo(const int n) {
+    // Caso especial: um número para
+    // ser primo precisa ser maior que 1.
+    if (n < 2) {
+        return false;
+    }
+
+    // Iteração de i no intervalo [2, √n]
+    for (int i = 2; i * i <= n; i++) {
         // Se n é divisível por i
         if (n % i == 0) {
             // n não é primo
@@ -81,7 +110,7 @@ def primo(n: int) -> bool:
 
     # Iteração de i no intervalo [2, √n]
     i = 2
-    while i*i <= n:
+    while i * i <= n:
         # Se n é divisível por i
         if n % i == 0:
             # n não é primo
