@@ -14,7 +14,7 @@ No algoritmo, a distância entre o vértice de origem e cada um dos vértices do
 
 Além disso, para cada vértice processado, iremos adicioná-lo à uma fila (_queue_), que prioriza os primeiros vértices adicionados. Dessa forma, é possível manter a ordem correta para fazer a travessia do grafo.
 
-Para evitar que um vértice seja processado mais de uma vez (e possivelmente gerar um ciclo infinito), iremos também definir um array booleano `visitado[]`, inicializado inteiramente como `false`. Ao processar um vértice `v`, marcaremos `visitado[v]` como `true`. Assim, somente os vértices não visitados serão processados.
+Para evitar que um vértice seja processado mais de uma vez (e possivelmente gerar um ciclo infinito), iremos também definir um array booleano `visited[]`, inicializado inteiramente como `false`. Ao processar um vértice `v`, marcaremos `visited[v]` como `true`. Assim, somente os vértices não visitados serão processados.
 
 Durante o funcionamento, para cada vértice `v` (com exceção do vértice de origem), iremos chegar até este a partir de outro vértice `u` (se existir um caminho possível entre `u` e `v`), portanto, a distância até `v` será a distância da origem até `u` + 1.
 
@@ -24,7 +24,7 @@ $$
 
 No fim, teremos o array definido com todas as distâncias e, as distâncias que estiverem ainda como `-1` indicam que aquele vértice não é conexo com o vértice de origem. Assim, podemos verificar a menor distância entre o vértice de origem e qualquer outro vértice do grafo em tempo constante.
 
-Abaixo está um exemplo de um grafo e a visualização do funcionamento do algoritmo em questão, com o vértice de origem sendo o número 0.
+Abaixo está um exemplo de um grafo e a visualização do funcionamento do algoritmo em questão, com o vértice de origem sendo o de número 0.
 
 <figure><img src="../../.gitbook/assets/bfs_menor_caminho_grafo_1.png" alt=""><figcaption><p>Grafo de exemplo.</p></figcaption></figure>
 
@@ -66,40 +66,40 @@ vector<int> dist(V);
 
 // Função para calcular a distância entre o vértice
 // 'origem' e os outros vértices do grafo.
-void bfs(int origem) {
+void bfs(const int source) {
     // Definir a distância até os outros vértices como -1
     fill(dist.begin(), dist.end(), -1);
 
     // A distância entre a origem e a própria origem é 0
-    dist[origem] = 0;
+    dist[source] = 0;
 
     // Array de vértices visitados
     // (todos os elementos inicializados como false).
-    vector<bool> visitado(V);
+    vector<bool> visited(V);
     // Definir o vértice de origem como 'visitado'
-    visitado[origem] = true;
+    visited[source] = true;
 
     // Fila para armazenar as adjacências de cada vértice processado
-    queue<int> fila;
+    queue<int> q;
     // Adicionar o vértice de origem à fila
-    fila.push(origem);
+    q.push(source);
 
     // Iteração para cada vértice na fila
-    while (!fila.empty()) {
+    while (!q.empty()) {
         // Pegar o último vértice
-        int u = fila.front();
+        int u = q.front();
         // Removê-lo da fila
-        fila.pop();
+        q.pop();
 
         // Iteração para cada vértice adjacente à u
         for (auto v : adj[u]) {
             // Se o vértice v ainda não foi visitado
-            if (!visitado[v]) {
+            if (!visited[v]) {
                 // Definir o vértice como 'visitado'
-                visitado[v] = true;
+                visited[v] = true;
 
                 // Adicioná-lo à fila
-                fila.push(v);
+                q.push(v);
 
                 // Definir a distância até esse vértice
                 // (distância até o vértice u + 1).
@@ -154,7 +154,7 @@ adj = [
 
 # Função para calcular a distância entre o vértice
 # 'origem' e os outros vértices do grafo.
-def bfs(origem: int) -> None:
+def bfs(source: int) -> None:
     # Array para armazenar a distância entre
     # o vértice de origem e os outros vértices.
     global dist
@@ -162,7 +162,7 @@ def bfs(origem: int) -> None:
     dist = [-1 for i in range(V)]
 
     # A distância entre a origem e a própria origem é 0
-    dist[origem] = 0
+    dist[source] = 0
 
     # Lista de vértices visitados
     # (todos os elementos inicializados como False).
