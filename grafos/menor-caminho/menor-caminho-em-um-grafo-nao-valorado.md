@@ -33,6 +33,225 @@ Abaixo está um exemplo de um grafo e a visualização do funcionamento do algor
 ## Implementação
 
 {% tabs %}
+{% tab title="C" %}
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+
+// Número de vértices do grafo de exemplo
+#define V 13
+
+// ----------------- Definição de um nodo para outras structs -----------------
+typedef struct Node {
+    struct Node *next;
+    int val;
+} Node;
+
+// Função para criar um nodo com um determinado valor
+Node *createNode(const int val) {
+    Node *node = malloc(sizeof(Node));
+    node->next = NULL;
+    node->val = val;
+    return node;
+}
+// --------------------------------------------------------------------------
+
+// ----------------- Definição de uma lista de adjacência -----------------
+typedef struct {
+    Node **content;
+    size_t size;
+} AdjacencyList;
+
+// Função para criar uma lista de adjacência para size vértices
+AdjacencyList *createAdjacencyList(const size_t size) {
+    AdjacencyList *adjacencyList = malloc(sizeof(AdjacencyList));
+    adjacencyList->content = calloc(size, sizeof(Node*));
+    adjacencyList->size = size;
+    return adjacencyList;
+}
+
+// Função para adicionar uma aresta não direcionada entre dois vértices
+void addEdge(const AdjacencyList *const adjacencyList, const int u, const int v) {
+    Node *nodeU = createNode(u);
+    Node *nodeV = createNode(v);
+    nodeU->next = adjacencyList->content[v];
+    nodeV->next = adjacencyList->content[u];
+    adjacencyList->content[u] = nodeV;
+    adjacencyList->content[v] = nodeU;
+}
+
+// Função para liberar a memória de uma lista de adjacência
+void freeAdjacencyList(AdjacencyList *const adjacencyList) {
+    for (size_t i = 0; i < adjacencyList->size; i++) {
+        Node *cur = adjacencyList->content[i];
+        while (cur != NULL) {
+            Node *next = cur->next;
+            free(cur);
+            cur = next;
+        }
+    }
+    free(adjacencyList->content);
+    free(adjacencyList);
+}
+// --------------------------------------------------------------------------
+
+// ----------------- Definição de uma fila -----------------
+typedef struct {
+    Node *head;
+    Node *tail;
+    size_t size;
+} Queue;
+
+// Função para criar uma fila
+Queue *createQueue() {
+    Queue *queue = calloc(1, sizeof(Queue));
+    return queue;
+}
+
+// Função para retornar o valor do início da fila
+int queueFront(const Queue *const queue) {
+    return queue->head->val;
+}
+
+// Função para verificar se a fila está vazia
+bool queueEmpty(const Queue *const queue) {
+    return queue->size == 0;
+}
+
+// Função para adicionar um elemento à fila
+void queuePush(Queue *const queue, const int val) {
+    Node *node = createNode(val);
+    if (queue->size == 0) {
+        queue->head = node;
+    }
+    else {
+        queue->tail->next = node;
+    }
+    queue->tail = node;
+    queue->size++;
+}
+
+// Função para remover um elemento da fila
+void queuePop(Queue *const queue) {
+    Node *oldHead = queue->head;
+    queue->head = queue->head->next;
+    free(oldHead);
+    queue->size--;
+    if (queue->size == 0) {
+        queue->tail = NULL;
+    }
+}
+
+// Função para liberar a memória de uma fila
+void freeQueue(Queue *const queue) {
+    Node *cur = queue->head;
+    while (cur != NULL) {
+        Node *next = cur->next;
+        free(cur);
+        cur = next;
+    }
+    free(queue);
+}
+// --------------------------------------------------------------------------
+
+// Lista de adjacência do grafo de exemplo
+AdjacencyList *adj;
+
+// Array para armazenar a distância entre
+// o vértice de origem e os outros vértices.
+int *dist;
+
+// Função para calcular a distância entre o vértice
+// 'origem' e os outros vértices do grafo.
+void bfs(const int source) {
+    // Definir a distância até os outros vértices como -1
+    memset(dist, -1, V * sizeof(int));
+
+    // A distância entre a origem e a própria origem é 0
+    dist[source] = 0;
+
+    // Array de vértices visitados
+    // (todos os elementos inicializados como false).
+    bool *visited = calloc(V, sizeof(bool));
+
+    // Definir o vértice de origem como 'visitado'
+    visited[source] = true;
+
+    // Fila para armazenar as adjacências de cada vértice processado
+    Queue *q = createQueue();
+    // Adicionar o vértice de origem à fila
+    queuePush(q, source);
+
+    // Iteração para cada vértice na fila
+    while (!queueEmpty(q)) {
+        // Pegar o último vértice
+        int u = queueFront(q);
+        // Removê-lo da fila
+        queuePop(q);
+
+        // Iteração para cada vértice adjacente à u
+        for (Node *ptr = adj->content[u]; ptr != NULL; ptr = ptr->next) {
+            int v = ptr->val;
+            // Se o vértice v ainda não foi visitado
+            if (!visited[v]) {
+                // Definir o vértice como 'visitado'
+                visited[v] = true;
+
+                // Adicioná-lo à fila
+                queuePush(q, v);
+
+                // Definir a distância até esse vértice
+                // (distância até o vértice u + 1).
+                dist[v] = dist[u] + 1;
+            }
+        }
+    }
+    
+    // Liberar a memória utilizada
+    free(visited);
+    freeQueue(q);
+}
+
+int main() {
+    adj = createAdjacencyList(V);
+    addEdge(adj, 0, 6);  // 0<->6
+    addEdge(adj, 0, 7);  // 0<->7
+    addEdge(adj, 1, 4);  // 1<->4
+    addEdge(adj, 1, 7);  // ...
+    addEdge(adj, 1, 12);
+    addEdge(adj, 2, 3);
+    addEdge(adj, 2, 6);
+    addEdge(adj, 2, 8);
+    addEdge(adj, 3, 5);
+    addEdge(adj, 3, 6);
+    addEdge(adj, 4, 8);
+    addEdge(adj, 8, 9);
+    addEdge(adj, 9, 10);
+    addEdge(adj, 10, 11);
+    addEdge(adj, 11, 12);
+
+    dist = malloc(V * sizeof(int));
+
+    bfs(0);
+    // dist[] = {0, 2, 2, 2, 3, 3, 1, 1, 3, 4, 5, 4, 3}
+
+    bfs(5);
+    // dist[] = {3, 5, 2, 1, 4, 0, 2, 4, 3, 4, 5, 6, 6}
+
+    bfs(8);
+    // dist[] = {3, 2, 1, 2, 1, 3, 2, 3, 0, 1, 2, 3, 3}
+
+    // Liberar a memória utilizada
+    freeAdjacencyList(adj);
+    free(dist);
+
+    return 0;
+}
+```
+{% endtab %}
+
 {% tab title="C++" %}
 ```cpp
 #include <iostream>
@@ -43,7 +262,7 @@ using namespace std;
 // Número de vértices do grafo de exemplo
 const int V = 13;
 
-// Lista de adjacências do grafo de exemplo
+// Lista de adjacência do grafo de exemplo
 vector<vector<int>> adj{
     {6,7},  // 0->6, 0->7
     {7,4,12},  // 1->7, 1->4, 1->12
@@ -135,7 +354,7 @@ from collections import deque
 # Número de vértices do grafo de exemplo
 V = 13
 
-# Lista de adjacências do grafo de exemplo
+# Lista de adjacência do grafo de exemplo
 adj = [
     [6,7],  # 0->6, 0->7
     [7,4,12],  # 1->7, 1->4, 1->12
