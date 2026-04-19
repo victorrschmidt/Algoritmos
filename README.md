@@ -10,7 +10,7 @@ Além disso, “estrutura de dados” trata-se da forma à qual as informações
 
 O objetivo deste projeto é catalogar e explicar diferentes algoritmos e estruturas de dados, como também mostrar suas implementações para processar diferentes tipos de problemas. Os assuntos abordados estão organizados em seções na aba esquerda do site.
 
-As implementações dos algoritmos estão disponíveis nas linguagens **C++** e **Python**.
+As implementações dos algoritmos estão disponíveis nas linguagens **C**, **C++** e **Python**.
 
 ## Fontes
 

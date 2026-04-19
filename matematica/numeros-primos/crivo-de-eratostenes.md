@@ -68,7 +68,7 @@ bool *sieveEratosthenes(const int n) {
     // Cada posição p é um valor booleano que determina se o número
     // p é primo (true) ou não (false).
     bool *primes = malloc((n + 1) * sizeof(bool));
-    memset(primes, 1, (n + 1) * sizeof(bool));
+    memset(primes, true, (n + 1) * sizeof(bool));
 
     // Casos especiais: 0 e 1 não são números primos
     primes[0] = false;
