@@ -52,7 +52,9 @@ b^e = \begin{cases}
 \end{cases}
 $$
 
-Assim, podemos gerar todas as potências de `b` cujo expoente é uma potência de 2, e multiplicar as devidas potências para chegar no resultado `b` elevado a `e`. Por exemplo, suponhamos que queremos calcular `b` elevado a 42. As potências de `b` que possuem expoentes como potência de 2 são:
+Assim, podemos gerar todas as potências de `b` cujo expoente é uma potência de 2, e multiplicar as devidas potências para chegar no resultado `b` elevado a `e`.
+
+Por exemplo, suponhamos que queremos calcular `b` elevado a 42. As potências de `b` que possuem expoentes como potência de 2 são:
 
 $$
 b^{42} = b^2 \cdot b^8 \cdot b^{32}
